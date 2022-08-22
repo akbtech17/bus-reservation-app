@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,6 +42,17 @@ namespace BusReservationApi.Controllers
         {
             var data = admins.Where(admin => admin.AdminId == id).FirstOrDefault();
             return data;
+        }
+
+        [HttpPost]
+        [Route("ValidateAdmin")]
+        public IActionResult PostAdmin(string Email, string Password) {
+            if (ModelState.IsValid) {
+                var data = admins.Where(admin => admin.Email == Email && admin.Password == Password).FirstOrDefault();
+                if (data != null) return Ok(data);
+                else return NotFound("Admin is not registered");
+            }
+            return BadRequest("Something went wrong");
         }
     }
 }
