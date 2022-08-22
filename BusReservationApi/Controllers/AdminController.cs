@@ -34,8 +34,15 @@ namespace BusReservationApi.Controllers
         [Route("list")]
         public IActionResult GetAdmin()
         {
-            var data = db.Admins.ToList();
-            return Ok(data);
+            try
+            {
+                var data = db.Admins.ToList();
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
         }
 
         // GET api/<AdminSigninController>/5
@@ -44,17 +51,31 @@ namespace BusReservationApi.Controllers
         [Route("list/{id}")]
         public IActionResult GetAdmin(int id)
         {
-            var data = db.Admins.Where(admin => admin.AdminId == id).FirstOrDefault();
-            return Ok(data);
+            try
+            {
+                var data = db.Admins.Where(admin => admin.AdminId == id).FirstOrDefault();
+                return Ok(data);
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(ex.InnerException.Message);    
+            }
         }
 
         [HttpPost]
         [Route("validate")]
         public IActionResult PostAdmin(string Email, string Password) {
             if (ModelState.IsValid) {
-                var data = db.Admins.Where(admin => admin.Email == Email && admin.Password == Password).FirstOrDefault();
-                if (data != null) return Ok(data);
-                else return NotFound("Admin is not registered");
+                try
+                {
+                    var data = db.Admins.Where(admin => admin.Email == Email && admin.Password == Password).FirstOrDefault(); 
+                    if (data != null) return Ok(data);
+                    else return NotFound("Admin is not registered");
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.InnerException.Message);
+                }
             }
             return BadRequest("Something went wrong");
         }
