@@ -37,9 +37,9 @@ namespace BusReservationApi.Controllers
         // GET api/<AdminSigninController>/5
         // to get the details of the specific admin
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Admin Get(int id)
         {
-            var data = admins.Where(admin => admin.AdminId == id).Select(admin => admin.Email).FirstOrDefault();
+            var data = admins.Where(admin => admin.AdminId == id).FirstOrDefault();
             return data;
         }
     }
