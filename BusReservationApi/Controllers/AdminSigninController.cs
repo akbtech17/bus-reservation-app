@@ -30,22 +30,24 @@ namespace BusReservationApi.Controllers
         // GET: api/<AdminSigninController>
         // to get the details of all admins
         [HttpGet]
-        public List<Admin> Get()
+        [Route("list")]
+        public IActionResult GetAdmin()
         {
-            return admins;
+            return Ok(admins);
         }
 
         // GET api/<AdminSigninController>/5
         // to get the details of the specific admin
         [HttpGet("{id}")]
-        public Admin Get(int id)
+        [Route("list/{id}")]
+        public IActionResult GetAdmin(int id)
         {
             var data = admins.Where(admin => admin.AdminId == id).FirstOrDefault();
-            return data;
+            return Ok(data);
         }
 
         [HttpPost]
-        [Route("ValidateAdmin")]
+        [Route("validate")]
         public IActionResult PostAdmin(string Email, string Password) {
             if (ModelState.IsValid) {
                 var data = admins.Where(admin => admin.Email == Email && admin.Password == Password).FirstOrDefault();
