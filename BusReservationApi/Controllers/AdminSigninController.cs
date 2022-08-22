@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,6 +26,21 @@ namespace BusReservationApi.Controllers
 
         };
 
-        
+        // GET: api/<AdminSigninController>
+        // to get the details of all admins
+        [HttpGet]
+        public List<Admin> Get()
+        {
+            return admins;
+        }
+
+        // GET api/<AdminSigninController>/5
+        // to get the details of the specific admin
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            var data = admins.Where(admin => admin.AdminId == id).Select(admin => admin.Email).FirstOrDefault();
+            return data;
+        }
     }
 }
