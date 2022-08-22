@@ -20,13 +20,13 @@ namespace BusReservationApi.Controllers
     public class AdminController : ControllerBase
     {
         BusReservationContext db = new BusReservationContext();
-        static List<Admin> admins = new List<Admin> {
-            new Admin{ AdminId = 1, Email = "admin1@gmail.com", Password = "admin", FirstName = "Anshul", LastName = "Bansal"},
-            new Admin{ AdminId = 2, Email = "admin2@gmail.com", Password = "admin", FirstName = "Jitin", LastName = "Sharma"},
-            new Admin{ AdminId = 3, Email = "admin3@gmail.com", Password = "admin", FirstName = "Divya", LastName = "Kumar"},
-            new Admin{ AdminId = 4, Email = "admin4@gmail.com", Password = "admin", FirstName = "Omkar", LastName = "Bhagwat"}
+        //static List<Admin> admins = new List<Admin> {
+        //    new Admin{ AdminId = 1, Email = "admin1@gmail.com", Password = "admin", FirstName = "Anshul", LastName = "Bansal"},
+        //    new Admin{ AdminId = 2, Email = "admin2@gmail.com", Password = "admin", FirstName = "Jitin", LastName = "Sharma"},
+        //    new Admin{ AdminId = 3, Email = "admin3@gmail.com", Password = "admin", FirstName = "Divya", LastName = "Kumar"},
+        //    new Admin{ AdminId = 4, Email = "admin4@gmail.com", Password = "admin", FirstName = "Omkar", LastName = "Bhagwat"}
 
-        };
+        //};
 
         // GET: api/<AdminSigninController>
         // to get the details of all admins
@@ -34,7 +34,8 @@ namespace BusReservationApi.Controllers
         [Route("list")]
         public IActionResult GetAdmin()
         {
-            return Ok(admins);
+            var data = db.Admins.ToList();
+            return Ok(data);
         }
 
         // GET api/<AdminSigninController>/5
@@ -43,7 +44,7 @@ namespace BusReservationApi.Controllers
         [Route("list/{id}")]
         public IActionResult GetAdmin(int id)
         {
-            var data = admins.Where(admin => admin.AdminId == id).FirstOrDefault();
+            var data = db.Admins.Where(admin => admin.AdminId == id).FirstOrDefault();
             return Ok(data);
         }
 
@@ -51,7 +52,7 @@ namespace BusReservationApi.Controllers
         [Route("validate")]
         public IActionResult PostAdmin(string Email, string Password) {
             if (ModelState.IsValid) {
-                var data = admins.Where(admin => admin.Email == Email && admin.Password == Password).FirstOrDefault();
+                var data = db.Admins.Where(admin => admin.Email == Email && admin.Password == Password).FirstOrDefault();
                 if (data != null) return Ok(data);
                 else return NotFound("Admin is not registered");
             }
