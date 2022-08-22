@@ -16,7 +16,7 @@ namespace BusReservationApi.Controllers
     }
     [Route("api/[controller]")]
     [ApiController]
-    public class AdminSigninController : ControllerBase
+    public class AdminController : ControllerBase
     {
 
         static List<Admin> admins = new List<Admin> {
