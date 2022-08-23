@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BusserviceService } from '../busservice.service';
+
 
 @Component({
   selector: 'app-listbus',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListbusComponent implements OnInit {
 
-  constructor() { }
+Buslist: any[] = []
+  constructor(private busservice:BusserviceService) {
+      //Subscribe is a kind of callback, it is necessary for execution
+    //Definition for passing data to the method
+    //Client subscribing to the method to get the data
+    this.busservice.getBusList().subscribe(data=>{this.Buslist=data})
+   }
 
   ngOnInit(): void {
   }
