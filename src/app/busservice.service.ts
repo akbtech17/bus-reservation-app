@@ -31,7 +31,14 @@ export class BusserviceService {
     return this.httpclient.post<Ibus>(this.url + '/addbus',busdata, this.httpOptions)
   }
 
+  //To edit Bus Details
+  editBus(busdata:Ibus):Observable<Ibus>
+  {
+    return this.httpclient.put<Ibus>(this.url + '/editbus' + busdata.BusNo, this.httpOptions)
+  }
+
   
+
 
 
 
