@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Ibus } from './ibus'; //importing interface
-import {HttpClient, HttpHeaders} from '@angular/common/http' //hhtp client object helps with all WEBApi methods
+import {HttpHeaders} from '@angular/common/http'
+import {HttpClient} from '@angular/common/http' //hhtp client object helps with all WEBApi methods
 import { Observable } from 'rxjs'; // to work or load single component not whole page or app.
 
 
@@ -34,16 +35,13 @@ export class BusserviceService {
   //To edit Bus Details
   editBus(busdata:Ibus):Observable<Ibus>
   {
-    return this.httpclient.put<Ibus>(this.url + '/editbus' + busdata.BusNo, this.httpOptions)
+    return this.httpclient.put<Ibus>(this.url + '/editbus/' + busdata.BusNo, this.httpOptions)
   }
 
   //To delete the Bus Details
   deleteBus(busdata:Ibus):Observable<Ibus>
   {
-    return this.httpOptions.delete<Ibus>(this.url + '/deletebus' + busdata.BusNo, this.httpOptions)
+    return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+ busdata.BusNo, this.httpOptions)
   }
-
-
-
 
 }
