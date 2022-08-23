@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListBusComponent } from './list-bus/list-bus.component';
 import { ListbusComponent } from './listbus/listbus.component';
 import { FindbusComponent } from './findbus/findbus.component';
 import { AddbusComponent } from './addbus/addbus.component';
@@ -13,7 +12,6 @@ import { RemovebusComponent } from './removebus/removebus.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ListBusComponent,
     ListbusComponent,
     FindbusComponent,
     AddbusComponent,
@@ -22,7 +20,8 @@ import { RemovebusComponent } from './removebus/removebus.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
