@@ -3,7 +3,7 @@ export interface Ibus {
     Rows: number
     Cols: number
     DTime: string
-    ATime: string
+    Atime: string
     Pickup: string
     SeatCost: number
     DriverName: string
