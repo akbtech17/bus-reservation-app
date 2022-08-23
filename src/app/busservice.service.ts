@@ -14,9 +14,23 @@ export class BusserviceService {
 
   constructor(private httpclient:HttpClient) { }
 
-  //To get All the attributes of Bus Controller
+  //To get All the attributes of Bus.
   getBusList():Observable<any>{
     return this.httpclient.get<any[]>(this.url+'/listbus')
   }
+
+  //To get details of particular Bus.
+  getBus(id:number):Observable<Ibus>
+  {
+    return this.httpclient.get<Ibus>(this.url + '/listbus/'+ id)
+  }
+
+  //To add Bus Details
+  addBus(busdata:Ibus):Observable<Ibus>
+  {
+    return this.httpclient.post<Ibus>(this.url + '/addbus',busdata, this.httpOptions)
+  }
+
+
 
 }
