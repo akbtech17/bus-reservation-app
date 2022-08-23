@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BusserviceService } from '../busservice.service';
+import { Ibus } from '../ibus';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addbus',
@@ -6,8 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addbus.component.css']
 })
 export class AddbusComponent implements OnInit {
-
-  constructor() { }
+  busdata: Ibus = {
+    BusNo: 0,
+    Rows: 0,
+    Cols: 0,
+    DTime: '',
+    Atime: '',
+    Pickup: '',
+    SeatCost: 0,
+    DriverName: '',
+    DriverContact: 0,
+    TypeOfBus: '',
+  }
+  constructor(private busservice:BusserviceService, private router:Router){ }
+  saveBus(bus:Ibus){
+    this.busdata = bus
+    this.busservice.addBus(this.busdata).subscribe(
+      ()=>{
+        alert('Record saved successfully')
+        this.router.navigate(['/list/'])
+      }
+    )
+  }
 
   ngOnInit(): void {
   }
