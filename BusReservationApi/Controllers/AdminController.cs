@@ -1,4 +1,5 @@
-﻿using BusReservationApi.Models;
+﻿using BusAPI.Models;
+using BusReservationApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
