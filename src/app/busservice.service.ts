@@ -39,9 +39,9 @@ export class BusserviceService {
   }
 
   //To delete the Bus Details
-  deleteBus(busdata:Ibus):Observable<Ibus>
+  deleteBus(id:number):Observable<Ibus>
   {
-    return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+ busdata.BusId, this.httpOptions)
+    return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+id, this.httpOptions)
   }
 
 }
