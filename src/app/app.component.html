@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <span>
+      <button mat-button routerLink="/">{{title}}</button>
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm style="margin-left:900px">
+        <button mat-button routerLink="/Adminlogin" >
+          <mat-icon>power_settings_new</mat-icon>
+          Admin
+        </button>
+        <button mat-button routerLink="/Userlogin"  style="margin-left: 25px;">
+            <mat-icon>power_settings_new</mat-icon>
+            User
+          </button>
+      </div>
+  </mat-toolbar>
+
+   
+<router-outlet></router-outlet>
