@@ -15,8 +15,7 @@ import{MatIconModule} from '@angular/material/icon';
 import{MatButtonModule} from '@angular/material/button';
 import{MatInputModule} from '@angular/material/input';
 import{MatCardModule} from '@angular/material/card';
-import { AdminloginComponent } from './adminlogin/adminlogin.component';
-import { UserloginComponent } from './userlogin/userlogin.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +23,8 @@ import { UserloginComponent } from './userlogin/userlogin.component';
     FindbusComponent,
     AddbusComponent,
     EditbusComponent,
-    RemovebusComponent,
-    AdminloginComponent,
-    UserloginComponent
+    RemovebusComponent
+
   ],
   imports: [
     BrowserModule,
