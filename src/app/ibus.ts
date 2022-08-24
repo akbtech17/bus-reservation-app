@@ -1,5 +1,6 @@
 export interface Ibus {
-    BusNo: number
+    BusId: number
+    BusNo: string
     Rows: number
     Cols: number
     DTime: string

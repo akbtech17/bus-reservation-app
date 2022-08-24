@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AddbusComponent implements OnInit {
   busdata: Ibus = {
-    BusNo: 0,
+    BusId: 0,
+    BusNo: '',
     Rows: 0,
     Cols: 0,
     DTime: '',

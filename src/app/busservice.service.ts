@@ -35,13 +35,13 @@ export class BusserviceService {
   //To edit Bus Details
   editBus(busdata:Ibus):Observable<Ibus>
   {
-    return this.httpclient.put<Ibus>(this.url + '/editbus/' + busdata.BusNo, this.httpOptions)
+    return this.httpclient.put<Ibus>(this.url + '/editbus/' + busdata.BusId, this.httpOptions)
   }
 
   //To delete the Bus Details
   deleteBus(busdata:Ibus):Observable<Ibus>
   {
-    return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+ busdata.BusNo, this.httpOptions)
+    return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+ busdata.BusId, this.httpOptions)
   }
 
 }
