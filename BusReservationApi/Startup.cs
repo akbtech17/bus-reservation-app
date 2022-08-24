@@ -1,4 +1,4 @@
-using BusReservationApi.Models;
+using BusAPI.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -11,8 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//Omkar
-namespace BusReservationApi
+
+namespace BusAPI
 {
     public class Startup
     {
@@ -27,7 +27,8 @@ namespace BusReservationApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<BusReservationContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("mycon")));
+            services.AddDbContext<BusReservationContext>(opt=>opt.UseSqlServer(Configuration.GetConnectionString("mycon")));
+            services.AddCors();                             //Add CORS ---- Cross Origin Resourse Shard
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +40,7 @@ namespace BusReservationApi
             }
 
             app.UseRouting();
-
+            app.UseCors(options => { options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); });
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
