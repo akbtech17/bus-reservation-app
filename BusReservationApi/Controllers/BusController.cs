@@ -91,7 +91,6 @@ namespace BusAPI.Controllers
             catch (Exception ex) {
                 return BadRequest(ex.InnerException.Message);
             }
-            return BadRequest("Something went Wrong..!");
         }
     }
 }
