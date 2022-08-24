@@ -16,10 +16,10 @@ const routes: Routes = [
     path:'add', component:AddbusComponent
   },
   {
-    path:'edit/:BusNo', component:EditbusComponent
+    path:'edit/:BusId', component:EditbusComponent
   },
   {
-    path:'remove/:BusNo', component:RemovebusComponent
+    path:'remove/:BusId', component:RemovebusComponent
   },
   {
     path:'find/:id', component:FindbusComponent
