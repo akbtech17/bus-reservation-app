@@ -1,1 +1,43 @@
-<p>findbus works!</p>
+<div class="container">
+    <h2 class="text-success">Bus {{busdata.BusId}} Info</h2>
+    <div class="jumbotron">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>BusId</th>
+                    <th>BusNo</th>
+                    <th>Bus type</th>
+                    <th>Driver Name</th>
+                    <th>Driver Contact</th>
+                    <th>Rows</th>
+                    <th>Cols</th>
+                    <th>Departure Time</th>
+                    <th>Arrival time</th>
+                    <th>Pick up</th>
+                    <th>Seat Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+               <tr>
+                    <td>{{busdata.BusId}}</td>
+                    <td>{{busdata.BusNo}}</td>
+                    <td>{{busdata.TypeOfBus}}</td>
+                    <td>{{busdata.DriverName}}</td>
+                    <td>{{busdata.DriverContact}}</td>
+                    <td>{{busdata.Rows}}</td>
+                    <td>{{busdata.Cols}}</td>
+                    <td>{{busdata.DTime}}</td>
+                    <td>{{busdata.Atime}}</td>
+                    <td>{{busdata.Pickup}}</td>
+                    <td>{{busdata.SeatCost}}</td>
+                    <td></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+    <button type="button" class="btn btn-info" routerLink="/list" style="margin-left:600px">
+        Back to List
+     </button>
+</div>
+
+

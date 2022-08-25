@@ -15,6 +15,10 @@ import{MatIconModule} from '@angular/material/icon';
 import{MatButtonModule} from '@angular/material/button';
 import{MatInputModule} from '@angular/material/input';
 import{MatCardModule} from '@angular/material/card';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactComponent } from './contact/contact.component';
+import { NavadminComponent } from './navadmin/navadmin.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,7 @@ import{MatCardModule} from '@angular/material/card';
     FindbusComponent,
     AddbusComponent,
     EditbusComponent,
-    RemovebusComponent,
+    RemovebusComponent
 
   ],
   imports: [

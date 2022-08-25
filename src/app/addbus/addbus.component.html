@@ -1,1 +1,109 @@
-<p>addbus works!</p>
+<h2 style="color:blueviolet;text-align: center;" >Adding New Bus</h2>
+<hr/>
+<div style="margin-left:500px;margin-top: 5px;margin-right: 500px;">
+<form  (ngSubmit)="saveBus(busdata)" #busform="ngForm">
+    <div class="form-group">
+        <label for="id">Enter Bus-Id:</label>
+        <input type="number" id="id" name="id" required [(ngModel)]="busdata.BusId" #id="ngModel" />
+        <div *ngIf="id.invalid && (id.dirty || id.touched)" style="color:red;">
+             <div *ngIf="id.errors?.['required']">
+                ID is required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="BusNo">Enter BusNo:</label>
+        <input type="text" id="BusNo" name="BusNo" required [(ngModel)]="busdata.BusNo" #BusNo="ngModel" />
+        <div *ngIf="BusNo.invalid && (BusNo.dirty || BusNo.touched)" style="color:red;">
+             <div *ngIf="BusNo.errors?.['required']">
+                BusNo is required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="Rows">Enter Rows:</label>
+        <input type="number" id="Rows" name="Rows" required [(ngModel)]="busdata.Rows" #Rows="ngModel" />
+        <div *ngIf="Rows.invalid && (Rows.dirty || Rows.touched)" style="color:red;">
+             <div *ngIf="Rows.errors?.['required']">
+                Rows is required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="Cols">Enter Columns:</label>
+        <input type="number" id="Cols" name="Cols" required [(ngModel)]="busdata.Cols" #Cols="ngModel" />
+        <div *ngIf="Cols.invalid && (Cols.dirty || Cols.touched)" style="color:red;">
+             <div *ngIf="Cols.errors?.['required']">
+                Columns are required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="DTime">Enter Departure Time:</label>
+        <input type="text" id="DTime" name="DTime" required [(ngModel)]="busdata.DTime" #DTime="ngModel" />
+        <div *ngIf="DTime.invalid && (DTime.dirty || DTime.touched)" style="color:red;">
+             <div *ngIf="DTime.errors?.['required']">
+                Departure time is required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="Atime">Enter Arrival Time:</label>
+        <input type="text" id="Atime" name="Atime" required [(ngModel)]="busdata.Atime" #Atime="ngModel" />
+        <div *ngIf="Atime.invalid && (Atime.dirty || Atime.touched)" style="color:red;">
+             <div *ngIf="Atime.errors?.['required']">
+                Arrival time is required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="Pickup">Enter Pick up:</label>
+        <input type="text" id="Pickup" name="Pickup" required [(ngModel)]="busdata.Pickup" #Pickup="ngModel" />
+        <div *ngIf="Pickup.invalid && (Pickup.dirty || Pickup.touched)" style="color:red;">
+             <div *ngIf="Pickup.errors?.['required']">
+                Pick up is required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="SeatCost">Enter Ticket Cost:</label>
+        <input type="number" id="SeatCost" name="SeatCost" required [(ngModel)]="busdata.SeatCost" #SeatCost="ngModel" />
+        <div *ngIf="SeatCost.invalid && (SeatCost.dirty || SeatCost.touched)" style="color:red;">
+             <div *ngIf="SeatCost.errors?.['required']">
+                Seat Cost is required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="DriverName">Enter Driver Name:</label>
+        <input type="text" id="DriverName" name="DriverName" required [(ngModel)]="busdata.DriverName" #DriverName="ngModel" />
+        <div *ngIf="DriverName.invalid && (DriverName.dirty || DriverName.touched)" style="color:red;">
+             <div *ngIf="DriverName.errors?.['required']">
+                Driver Name is required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="DriverContact">Enter Driver Contact:</label>
+        <input type="number" id="DriverContact" name="DriverContact" required [(ngModel)]="busdata.DriverContact" #DriverContact="ngModel" />
+        <div *ngIf="DriverContact.invalid && (DriverContact.dirty || DriverContact.touched)" style="color:red;">
+             <div *ngIf="DriverContact.errors?.['required']">
+                Driver Contact is required
+             </div>
+        </div>
+    </div>
+    <div>
+        <label for="TypeOfBus">Enter Type Of Bus:</label>
+        <input type="text" id="TypeOfBus" name="TypeOfBus" required [(ngModel)]="busdata.TypeOfBus" #TypeOfBus="ngModel" />
+        <div *ngIf="TypeOfBus.invalid && (TypeOfBus.dirty || TypeOfBus.touched)" style="color:red;">
+             <div *ngIf="TypeOfBus.errors?.['required']">
+                Type Of Bus is required
+             </div>
+        </div>
+    </div>
+    
+   
+    <br><br>
+    <input type="submit" value="Save" class="btn btn-success" [disabled]="!busform.valid" />
+</form>
+</div>
