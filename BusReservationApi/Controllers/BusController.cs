@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using BusAPI.Models;
 
 namespace BusAPI.Controllers
@@ -12,12 +10,8 @@ namespace BusAPI.Controllers
     public class BusController : Controller
     {
         BusReservationContext db = new BusReservationContext();
-        /*static List<Bu> Buses = new List<Bu> {
-            new Bu{ BusNo="UK123", Rows=4, Columns=5, RouteId=1, Pickup="Swargate", SeatCost=300, DriverName="Vibhor", DriverContact="1234567890"},
-            new Bu{ BusNo="UK124", Rows=4, Columns=5, RouteId=4, Pickup="India Gate", SeatCost=600, DriverName="MahaLakshmi", DriverContact="6584987812"}
-        };*/
-
-        // GET: api/<AdminSigninController>
+       
+        // GET: api/<BusController>
         // to get the details of all admins
         //Edited
         [HttpGet]
