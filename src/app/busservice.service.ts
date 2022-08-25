@@ -10,7 +10,7 @@ import { Observable } from 'rxjs'; // to work or load single component not whole
 })
 export class BusserviceService {
 
-  url = 'http://localhost:30263/api/bus'
+  url = 'http://localhost:16553/api/bus'
   httpOptions = {headers: new HttpHeaders({'Content-type':'application/json'})}
 
   constructor(private httpclient:HttpClient) { }
