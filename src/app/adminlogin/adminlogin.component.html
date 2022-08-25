@@ -1,0 +1,19 @@
+<br/><br/><br/><br/>
+      
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <div style="margin-left:500px;margin-top: 5px;margin-right: 500px;">
+        <h3 style="text-align: center;">Admin Login</h3>
+          <div class="form-group"><br/>
+          <label for="email"><b>Email address</b></label>
+          <input type="email" class="form-control" id="email" required [(ngModel)]="email" placeholder="Enter email" >
+          <small id="emailHelp" class="form-text text-muted"> never share your email with anyone else.</small>
+        </div><br/>
+        <div class="form-group">
+          <label for="password"><b>Password</b></label>
+          <input type="password" class="form-control" id="password" placeholder="Password" >
+        </div>
+      <br/><br/>
+      <a routerLink="/nav">  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+      </a></div>
+      </form>
