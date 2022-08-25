@@ -41,7 +41,7 @@ namespace BusAPI.Controllers
         }
         [HttpPut]
         [Route("editbus/{BusId}")]
-        public IActionResult PutBus(int BusId, Bu bus) {
+        public IActionResult PutBus(int BusId, Bus bus) {
             var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
             try {
                 if (ModelState.IsValid)
@@ -67,7 +67,7 @@ namespace BusAPI.Controllers
         }
         [HttpPost]
         [Route("addbus")]
-        public IActionResult PostBus(Bu bus) {
+        public IActionResult PostBus(Bus bus) {
             try {
                 if (ModelState.IsValid) {
                     db.buses.Add(bus);

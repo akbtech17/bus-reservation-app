@@ -11,7 +11,7 @@ namespace BusAPI.Models
         public int? BusId { get; set; }
         public bool? Available { get; set; }
 
-        public virtual Bu Bus { get; set; }
+        public virtual Bus Bus { get; set; }
         public virtual Seat SeatNoNavigation { get; set; }
     }
 }

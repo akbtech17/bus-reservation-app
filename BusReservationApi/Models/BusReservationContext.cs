@@ -19,7 +19,7 @@ namespace BusAPI.Models
         }
 
         public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<Bu> buses { get; set; }
+        public virtual DbSet<Bus> buses { get; set; }
         public virtual DbSet<BusSeat> BusSeats { get; set; }
         public virtual DbSet<Route> Routes { get; set; }
         public virtual DbSet<Seat> Seats { get; set; }
@@ -37,7 +37,7 @@ namespace BusAPI.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<Bu>(entity =>
+            modelBuilder.Entity<Bus>(entity =>
             {
                 entity.HasKey(e => e.BusId)
                     .HasName("PK__Bus__6A0F60B59B0C3F30");

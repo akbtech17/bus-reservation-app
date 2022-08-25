@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BusAPI.Models
 {
-    public partial class Bu
+    public partial class Bus
     {
         public int BusId { get; set; }
         public string BusNo { get; set; }
