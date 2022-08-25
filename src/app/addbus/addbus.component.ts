@@ -10,17 +10,17 @@ import { Router } from '@angular/router';
 })
 export class AddbusComponent implements OnInit {
   busdata: Ibus = {
-    BusId: 0,
-    BusNo: '',
-    Rows: 0,
-    Cols: 0,
-    DTime: '',
-    Atime: '',
-    Pickup: '',
-    SeatCost: 0,
-    DriverName: '',
-    DriverContact: 0,
-    TypeOfBus: '',
+    busId: 0,
+    busNo: '',
+    rows: 0,
+    cols: 0,
+    dtime: '',
+    atime: '',
+    pickup: '',
+    seatCost: 0,
+    driverName: '',
+    driverContact: 0,
+    typeOfBus: '',
   }
   constructor(private busservice:BusserviceService, private router:Router){ }
   saveBus(bus:Ibus){

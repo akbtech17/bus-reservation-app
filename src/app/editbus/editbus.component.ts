@@ -11,17 +11,17 @@ import { Ibus } from '../ibus';
 })
 export class EditbusComponent implements OnInit {
   busdata: Ibus = {
-    BusId: 0,
-    BusNo: '',
-    Rows: 0,
-    Cols: 0,
-    DTime: '',
-    Atime: '',
-    Pickup: '',
-    SeatCost: 0,
-    DriverName: '',
-    DriverContact: 0,
-    TypeOfBus: '',
+    busId: 0,
+    busNo: '',
+    rows: 0,
+    cols: 0,
+    dtime: '',
+    atime: '',
+    pickup: '',
+    seatCost: 0,
+    driverName: '',
+    driverContact: 0,
+    typeOfBus: '',
   }
   id:number = 0
   constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) { }

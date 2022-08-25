@@ -10,25 +10,27 @@ import { Ibus } from '../ibus';
 })
 export class FindbusComponent implements OnInit {
   busdata: Ibus = {
-    BusId:0,
-    BusNo: '',
-    Rows: 0,
-    Cols: 0,
-    DTime: '',
-    Atime: '',
-    Pickup: '',
-    SeatCost: 0,
-    DriverName: '',
-    DriverContact: 0,
-    TypeOfBus: '',
+    busId:0,
+    busNo: '',
+    rows: 0,
+    cols: 0,
+    dtime: '',
+    atime: '',
+    pickup: '',
+    seatCost: 0,
+    driverName: '',
+    driverContact: 0,
+    typeOfBus: '',
   }
 busId: number = 0
   constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute) {}
 
   ngOnInit(): void {
     const tid = this.activateroute.snapshot.paramMap.get('busId')
+    console.log(tid)
     this.busId = Number(tid)
-    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data})
-
+    console.log(this.busId)
+    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data, console.log(data)})
+    console.log(this.busdata);
   }
 }
