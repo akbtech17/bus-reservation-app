@@ -3,10 +3,10 @@
 <div style="margin-left:500px;margin-top: 5px;margin-right: 500px;">
 <form  (ngSubmit)="saveBus(busdata)" #busform="ngForm">
     <div class="form-group">
-        <label for="id">Enter Bus-Id:</label>
-        <input type="number" id="id" name="id" required [(ngModel)]="busdata.BusId" #id="ngModel" />
-        <div *ngIf="id.invalid && (id.dirty || id.touched)" style="color:red;">
-             <div *ngIf="id.errors?.['required']">
+        <label for="BusId">Enter Bus-Id:</label>
+        <input type="number" id="BusId" name="BusId" required [(ngModel)]="busdata.BusId" #BusId="ngModel" />
+        <div *ngIf="BusId.invalid && (BusId.dirty || BusId.touched)" style="color:red;">
+             <div *ngIf="BusId.errors?.['required']">
                 ID is required
              </div>
         </div>

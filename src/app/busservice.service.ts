@@ -17,13 +17,16 @@ export class BusserviceService {
 
   //To get All the attributes of Bus.
   getBusList():Observable<any>{
+ 
     return this.httpclient.get<any[]>(this.url+'/listbus')
   }
 
   //To get details of particular Bus.
-  getBus(id:number):Observable<Ibus>
+  
+  getBus(busId:number):Observable<Ibus>
   {
-    return this.httpclient.get<Ibus>(this.url + '/listbus/'+ id)
+   
+    return this.httpclient.get<Ibus>(this.url + '/listbus/'+ busId)
   }
 
   //To add Bus Details

@@ -1,6 +1,8 @@
 <div class="container">
-    <h2 class="text-success">Bus {{busdata.BusId}} Info</h2>
+    
     <div class="jumbotron">
+        <h2 class="text-success">Bus {{busdata.BusNo}} Info</h2>
+        BusId : {{busdata.TypeOfBus}}
         <table class="table">
             <thead>
                 <tr>
@@ -35,7 +37,7 @@
             </tbody>
         </table>
     </div>
-    <button type="button" class="btn btn-info" routerLink="/list" style="margin-left:600px">
+    <button type="button" class="btn btn-info" routerLink="/list/" style="margin-left:600px">
         Back to List
      </button>
 </div>
