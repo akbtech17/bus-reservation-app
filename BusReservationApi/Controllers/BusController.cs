@@ -24,21 +24,40 @@ namespace BusAPI.Controllers
             catch (Exception ex) 
             {
                 return BadRequest(ex.InnerException.Message);
-            }  
+            }
         }
 
         [HttpGet]
         [Route("{BusId}")]
-        public IActionResult GetBus(int BusId) {
+        public IActionResult GetBus(int BusId)
+        {
             try
             {
                 var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
                 return Ok(data);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return BadRequest(ex.InnerException.Message);
             }
         }
+
+        [HttpGet]
+        [Route("seatsavb/{BusId}")]
+        public IActionResult GetBusAvbSeats(int BusId)
+        {
+            try
+            {
+                var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId && busSeat.Available.Equals(true)).Count();
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
+
+
         [HttpPut]
         [Route("editbus/{BusId}")]
         public IActionResult PutBus(int BusId, Bus bus) {
