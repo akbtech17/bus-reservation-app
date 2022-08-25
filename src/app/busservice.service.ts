@@ -18,15 +18,15 @@ export class BusserviceService {
   //To get All the attributes of Bus.
   getBusList():Observable<any>{
  
-    return this.httpclient.get<any[]>(this.url+'/listbus')
+    return this.httpclient.get<any[]>(this.url+'/')
   }
 
   //To get details of particular Bus.
   
   getBus(busId:number):Observable<Ibus>
   {
-   
-    return this.httpclient.get<Ibus>(this.url + '/listbus/'+ busId)
+    console.log(busId);
+    return this.httpclient.get<Ibus>(this.url + '/'+ busId)
   }
 
   //To add Bus Details
@@ -38,7 +38,7 @@ export class BusserviceService {
   //To edit Bus Details
   editBus(busdata:Ibus):Observable<Ibus>
   {
-    return this.httpclient.put<Ibus>(this.url + '/editbus/' + busdata.BusId, this.httpOptions)
+    return this.httpclient.put<Ibus>(this.url + '/editbus/' + busdata.busId, this.httpOptions)
   }
 
   //To delete the Bus Details
@@ -46,5 +46,4 @@ export class BusserviceService {
   {
     return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+id, this.httpOptions)
   }
-
 }
