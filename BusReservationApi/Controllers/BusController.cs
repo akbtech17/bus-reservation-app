@@ -2,6 +2,8 @@
 using System;
 using System.Linq;
 using BusReservationApi.Models;
+using Microsoft.EntityFrameworkCore;
+using BusReservationApi.ViewModel;
 
 namespace BusAPI.Controllers
 {
@@ -11,28 +13,51 @@ namespace BusAPI.Controllers
     {
         BusReservationContext db = new BusReservationContext();
        
-        // GET: api/<BusController>
-        // to get the details of all admins
-        //Edited
         [HttpGet]
-        [Route("listbus")]
-        public IActionResult GetBus()
+        public IActionResult Get()
         {
-            var data = db.buses.ToList();
-            return Ok(data);
+            try
+            {
+                var data = db.BusInfo.FromSqlInterpolated<BusInfo>($"BusList");
+                return Ok(data);
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
         }
+
         [HttpGet]
-        [Route("listbus/{BusId}")]
-        public IActionResult GetBus(int BusId) {
+        [Route("{BusId}")]
+        public IActionResult GetBus(int BusId)
+        {
             try
             {
                 var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
                 return Ok(data);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return BadRequest(ex.InnerException.Message);
             }
         }
+
+        [HttpGet]
+        [Route("seatsavb/{BusId}")]
+        public IActionResult GetBusAvbSeats(int BusId)
+        {
+            try
+            {
+                var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId && busSeat.Available.Equals(true)).Count();
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
+
+
         [HttpPut]
         [Route("editbus/{BusId}")]
         public IActionResult PutBus(int BusId, Bus bus) {

@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-#nullable disable
-
-namespace BusReservationApi.Models
+namespace BusReservationApi.ViewModel
 {
-    public partial class Bus
+    public class BusInfo
     {
+        [Key]
         public int BusId { get; set; }
         public string BusNo { get; set; }
         public int Rows { get; set; }
         public int Cols { get; set; }
-        public DateTime Dtime { get; set; }
+        public DateTime DTime { get; set; }
         public DateTime? Atime { get; set; }
         public int? RouteId { get; set; }
         public string Pickup { get; set; }
@@ -19,6 +18,8 @@ namespace BusReservationApi.Models
         public string DriverName { get; set; }
         public string DriverContact { get; set; }
         public string TypeOfBus { get; set; }
-        public virtual Route Route { get; set; }
+        public string Source { get; set; }
+        public string? Destination { get; set; }
+        public int Distance { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BusReservationApi.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -22,6 +23,7 @@ namespace BusReservationApi.Models
         public virtual DbSet<BusSeat> BusSeats { get; set; }
         public virtual DbSet<Route> Routes { get; set; }
         public virtual DbSet<Seat> Seats { get; set; }
+        public virtual DbSet<BusInfo> BusInfo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
