@@ -27,7 +27,11 @@ import { NavadminComponent } from './navadmin/navadmin.component';
     FindbusComponent,
     AddbusComponent,
     EditbusComponent,
-    RemovebusComponent
+    RemovebusComponent,
+    AdminloginComponent,
+    AboutusComponent,
+    ContactComponent,
+    NavadminComponent
 
   ],
   imports: [
