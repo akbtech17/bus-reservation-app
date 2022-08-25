@@ -1,7 +1,10 @@
-﻿namespace BusReservationApi.ViewModel
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BusReservationApi.ViewModel
 {
     public class BusInfo
     {
+        [Key]
         public int BusId { get; set; }
         public string BusNo { get; set; }
         public int Rows { get; set; }
