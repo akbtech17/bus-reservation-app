@@ -2,6 +2,8 @@
 using System;
 using System.Linq;
 using BusReservationApi.Models;
+using Microsoft.EntityFrameworkCore;
+using BusReservationApi.ViewModel;
 
 namespace BusAPI.Controllers
 {
@@ -16,7 +18,7 @@ namespace BusAPI.Controllers
         {
             try
             {
-                var data = db.buses.ToList();
+                var data = db.BusInfo.FromSqlInterpolated<BusInfo>($"BusList");
                 return Ok(data);
             }
             catch (Exception ex) 
