@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminserviceService {
-  url = 'http://localhost:16553/api/admin'
+  url = 'http://localhost:16553/api/admin/email?password='
   httpOptions = {headers: new HttpHeaders({'Content-type':'application/json'})}
   constructor(private httpclient:HttpClient) { }
  //Get Details of Particular Admin.
