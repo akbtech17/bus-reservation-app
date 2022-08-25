@@ -14,8 +14,15 @@ namespace BusAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var data = db.buses.ToList();
-            return Ok(data);
+            try
+            {
+                var data = db.buses.ToList();
+                return Ok(data);
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(ex.InnerException.Message);
+            }  
         }
 
         [HttpGet]
