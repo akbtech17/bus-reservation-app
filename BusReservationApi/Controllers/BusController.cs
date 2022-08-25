@@ -26,7 +26,7 @@ namespace BusAPI.Controllers
         }
 
         [HttpGet]
-        [Route("listbus/{BusId}")]
+        [Route("{BusId}")]
         public IActionResult GetBus(int BusId) {
             try
             {
