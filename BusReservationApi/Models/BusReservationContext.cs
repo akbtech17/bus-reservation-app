@@ -1,11 +1,10 @@
 ﻿using System;
-using BusReservationApi.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace BusAPI.Models
+namespace BusReservationApi.Models
 {
     public partial class BusReservationContext : DbContext
     {
@@ -29,7 +28,7 @@ namespace BusAPI.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("server = .\\sqlexpress; database = BusReservation; trusted_connection = true;");
+                optionsBuilder.UseSqlServer("server=.\\sqlexpress; database=BusReservation; trusted_connection=true;");
             }
         }
 
@@ -37,10 +36,40 @@ namespace BusAPI.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
+            modelBuilder.Entity<Admin>(entity =>
+            {
+                entity.ToTable("Admin");
+
+                entity.HasIndex(e => e.Email, "UQ__Admin__A9D105348E4374FD")
+                    .IsUnique();
+
+                entity.Property(e => e.AdminId).ValueGeneratedNever();
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(9)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Bus>(entity =>
             {
                 entity.HasKey(e => e.BusId)
-                    .HasName("PK__Bus__6A0F60B59B0C3F30");
+                    .HasName("PK__Bus__6A0F60B5349C58A4");
 
                 entity.ToTable("Bus");
 
@@ -78,7 +107,7 @@ namespace BusAPI.Models
                 entity.HasOne(d => d.Route)
                     .WithMany(p => p.Bus)
                     .HasForeignKey(d => d.RouteId)
-                    .HasConstraintName("FK__Bus__RouteId__5EBF139D");
+                    .HasConstraintName("FK__Bus__RouteId__02FC7413");
             });
 
             modelBuilder.Entity<BusSeat>(entity =>
@@ -96,12 +125,12 @@ namespace BusAPI.Models
                 entity.HasOne(d => d.Bus)
                     .WithMany()
                     .HasForeignKey(d => d.BusId)
-                    .HasConstraintName("FK__BusSeat__BusId__6477ECF3");
+                    .HasConstraintName("FK__BusSeat__BusId__07C12930");
 
                 entity.HasOne(d => d.SeatNoNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.SeatNo)
-                    .HasConstraintName("FK__BusSeat__SeatNo__6383C8BA");
+                    .HasConstraintName("FK__BusSeat__SeatNo__06CD04F7");
             });
 
             modelBuilder.Entity<Route>(entity =>
@@ -124,7 +153,7 @@ namespace BusAPI.Models
             modelBuilder.Entity<Seat>(entity =>
             {
                 entity.HasKey(e => e.SeatNo)
-                    .HasName("PK__Seat__3116FB41DEF93DBC");
+                    .HasName("PK__Seat__3116FB415FD9C100");
 
                 entity.ToTable("Seat");
 

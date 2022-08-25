@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace BusAPI.Models
+namespace BusReservationApi.Models
 {
     public partial class Route
     {

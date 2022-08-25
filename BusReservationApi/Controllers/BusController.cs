@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
-using BusAPI.Models;
+using BusReservationApi.Models;
 
 namespace BusAPI.Controllers
 {
