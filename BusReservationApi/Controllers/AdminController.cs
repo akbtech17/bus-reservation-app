@@ -19,7 +19,7 @@ namespace BusReservationApi.Controllers
         BusReservationContext db = new BusReservationContext();
 
         // GET: api/<AdminSigninController>
-        // to get the details of all admins
+        // to get the details of all admins table.
         [HttpGet]
         [Route("list")]
         public IActionResult GetAdmin()
