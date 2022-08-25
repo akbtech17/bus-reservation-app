@@ -23,13 +23,14 @@ import{MatCardModule} from '@angular/material/card';
     FindbusComponent,
     AddbusComponent,
     EditbusComponent,
-    RemovebusComponent
+    RemovebusComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,FormsModule,
+    HttpClientModule,
+    FormsModule,
     BrowserAnimationsModule,MatButtonModule,MatIconModule,MatToolbarModule,MatCardModule,MatInputModule
   ],
   providers: [],
