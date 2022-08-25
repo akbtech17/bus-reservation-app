@@ -11,16 +11,13 @@ namespace BusAPI.Controllers
     {
         BusReservationContext db = new BusReservationContext();
        
-        // GET: api/<BusController>
-        // to get the details of all admins
-        //Edited
         [HttpGet]
-        [Route("listbus")]
-        public IActionResult GetBus()
+        public IActionResult Get()
         {
             var data = db.buses.ToList();
             return Ok(data);
         }
+
         [HttpGet]
         [Route("listbus/{BusId}")]
         public IActionResult GetBus(int BusId) {

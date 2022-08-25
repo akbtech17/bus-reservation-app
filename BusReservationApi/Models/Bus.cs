@@ -19,7 +19,6 @@ namespace BusReservationApi.Models
         public string DriverName { get; set; }
         public string DriverContact { get; set; }
         public string TypeOfBus { get; set; }
-
         public virtual Route Route { get; set; }
     }
 }
