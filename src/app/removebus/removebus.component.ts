@@ -9,7 +9,7 @@ import { Ibus } from '../ibus';
 })
 export class RemovebusComponent implements OnInit {
 id: number = 0
-
+//divya
   constructor(private busservice:BusserviceService,private activateroute:ActivatedRoute) { }
 
   ngOnInit(): void {
