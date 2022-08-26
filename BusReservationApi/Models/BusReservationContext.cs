@@ -21,6 +21,7 @@ namespace BusReservationApi.Models
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Bus> buses { get; set; }
         public virtual DbSet<BusSeat> BusSeats { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Route> Routes { get; set; }
         public virtual DbSet<Seat> Seats { get; set; }
         public virtual DbSet<BusInfo> BusInfo { get; set; }
@@ -77,7 +78,9 @@ namespace BusReservationApi.Models
 
                 entity.Property(e => e.BusId).ValueGeneratedNever();
 
-                entity.Property(e => e.Atime).HasColumnType("datetime");
+                entity.Property(e => e.Atime)
+                    .HasColumnType("datetime")
+                    .HasColumnName("ATime");
 
                 entity.Property(e => e.BusNo)
                     .IsRequired()
@@ -133,6 +136,45 @@ namespace BusReservationApi.Models
                     .WithMany()
                     .HasForeignKey(d => d.SeatNo)
                     .HasConstraintName("FK__BusSeat__SeatNo__06CD04F7");
+            });
+
+            modelBuilder.Entity<Customer>(entity =>
+            {
+                entity.ToTable("Customer");
+
+                entity.Property(e => e.CustomerId).ValueGeneratedNever();
+
+                entity.Property(e => e.Dob).HasColumnType("datetime");
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Gender)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Mobile)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(9)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Route>(entity =>

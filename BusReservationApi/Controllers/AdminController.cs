@@ -50,19 +50,21 @@ namespace BusReservationApi.Controllers
                 var data = db.Admins.Where(admin => admin.AdminId == id).FirstOrDefault();
                 return Ok(data);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                return BadRequest(ex.InnerException.Message);    
+                return BadRequest(ex.InnerException.Message);
             }
         }
 
         [HttpPost]
         [Route("validate")]
-        public IActionResult PostAdmin(Credentials creds) {
-            if (ModelState.IsValid) {
+        public IActionResult PostAdmin(Credentials creds)
+        {
+            if (ModelState.IsValid)
+            {
                 try
                 {
-                    var data = db.Admins.Where(admin => admin.Email == creds.Email && admin.Password == creds.Password).FirstOrDefault(); 
+                    var data = db.Admins.Where(admin => admin.Email == creds.Email && admin.Password == creds.Password).FirstOrDefault();
                     if (data != null) return Ok(data);
                     else return NotFound("Admin is not registered");
                 }
