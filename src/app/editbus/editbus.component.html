@@ -3,19 +3,19 @@
 <div style="margin-left:500px;margin-top: 5px;margin-right: 500px;">
 <form  (ngSubmit)="saveBus(busdata)" #busform="ngForm">
     <div class="form-group">
-        <label for="BusId">Enter Bus-Id:</label>
-        <input type="number" id="BusId" name="BusId" required [(ngModel)]="busdata.busId" #BusId="ngModel" />
-        <div *ngIf="BusId.invalid && (BusId.dirty || BusId.touched)" style="color:red;">
-             <div *ngIf="BusId.errors?.['required']">
+        <label for="busId">Enter Bus-Id:</label>
+        <input type="number" id="busId" name="busId" required [(ngModel)]="busdata.busId" #busId="ngModel" />
+        <div *ngIf="busId.invalid && (busId.dirty || busId.touched)" style="color:red;">
+             <div *ngIf="busId.errors?.['required']">
                 ID is required
              </div>
         </div>
     </div>
     <div>
-        <label for="BusNo">Enter BusNo:</label>
-        <input type="text" id="BusNo" name="BusNo" required [(ngModel)]="busdata.busNo" #BusNo="ngModel" />
-        <div *ngIf="BusNo.invalid && (BusNo.dirty || BusNo.touched)" style="color:red;">
-             <div *ngIf="BusNo.errors?.['required']">
+        <label for="busNo">Enter BusNo:</label>
+        <input type="text" id="busNo" name="busNo" required [(ngModel)]="busdata.busNo" #busNo="ngModel" />
+        <div *ngIf="busNo.invalid && (busNo.dirty || busNo.touched)" style="color:red;">
+             <div *ngIf="busNo.errors?.['required']">
                 BusNo is required
              </div>
         </div>

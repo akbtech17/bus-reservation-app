@@ -23,13 +23,13 @@ export class EditbusComponent implements OnInit {
     driverContact: 0,
     typeOfBus: '',
   }
-  id:number = 0
+  busId:number = 0
   constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const tid = this.activatedroute.snapshot.paramMap.get('id')
-    this.id = Number(tid)
-    this.busservice.getBus(this.id).subscribe((data:Ibus)=>{this.busdata=data})
+    const tid = this.activatedroute.snapshot.paramMap.get('busId')
+    this.busId = Number(tid)
+    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data})
   }
 saveBus(bus:Ibus){
   this.busdata = bus
