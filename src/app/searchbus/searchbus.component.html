@@ -1,1 +1,37 @@
-<p>searchbus works!</p>
+<br/><br/><br/><br/>
+<div class="container" style="padding-top:60px;">  
+  <div class="row">  
+    <div class="col-md-6 mx-auto">  
+      <div class="card-group">  
+        <div class="card p-4">  
+          <div class="card-body">  
+            <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">   
+              <h1 style="text-align:center;">Find Buses</h1>  
+               
+                <div class="input-group mb-3">    
+                    <input type="text" name="source" [(ngModel)]="searchquery.source" class="form-control sty1" placeholder="Source" #source="ngModel" required> 
+                </div>
+                
+                <div class="input-group mb-3">
+                <input type="text" name="destination" [(ngModel)]="searchquery.destination" class="form-control sty1" placeholder="Destination" #destination="ngModel" required> 
+                </div>
+
+                <div class="input-group mb-4 mt-2">   
+                    Date of Journey
+                    <br>
+                    <input  type="date" name="dDate" [(ngModel)]="searchquery.dDate"class="form-control" placeholder="Date of Booking" #dDate="ngModel" required>  
+                </div>  
+            
+                <div class="row">  
+                    <div class="col-6">  
+                    <button type="submit" class="btn btn-success px-4">Find Buses</button>  
+                    </div>   
+                </div>  
+                
+            </form>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+</div>     

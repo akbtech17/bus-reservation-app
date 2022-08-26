@@ -10,6 +10,7 @@ import { FindbusComponent } from './findbus/findbus.component';
 import { EditbusComponent } from './editbus/editbus.component';
 import { AddbusComponent } from './addbus/addbus.component';
 import { RemovebusComponent } from './removebus/removebus.component';
+import { SearchbusComponent } from './searchbus/searchbus.component';
 //import { UserloginComponent } from './userlogin/userlogin.component';
 
 const routes: Routes = [
@@ -42,6 +43,9 @@ const routes: Routes = [
   },
   {
     path: 'list', component:ListbusComponent
+  },
+  {
+    path: 'searchbus', component:SearchbusComponent
   }
   
 ];
