@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BusserviceService } from '../busservice.service';
+import { ActivatedRoute } from '@angular/router';
 import { Ibus } from '../ibus';
 import { Router } from '@angular/router';
 
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddbusComponent implements OnInit {
   busdata: Ibus = {
-    busId: 0,
+    busId:0,
     busNo: '',
     rows: 0,
     cols: 0,
@@ -21,14 +22,20 @@ export class AddbusComponent implements OnInit {
     driverName: '',
     driverContact: 0,
     typeOfBus: '',
+    source: '',
+    destination: '',
+    distance: 0,
   }
-  constructor(private busservice:BusserviceService, private router:Router){ }
+  constructor(private busservice:BusserviceService, private router:Router, private activateroute: ActivatedRoute){ }
   saveBus(bus:Ibus){
+   
     this.busdata = bus
+    console.log(this.busdata);
     this.busservice.addBus(this.busdata).subscribe(
-      ()=>{
+      ()=>{ 
+        console.log(this.busdata)
         alert('Record saved successfully')
-        this.router.navigate(['/list/'])
+        this.router.navigate(['/list'])
       }
     )
   }

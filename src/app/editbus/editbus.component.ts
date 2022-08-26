@@ -11,7 +11,7 @@ import { Ibus } from '../ibus';
 })
 export class EditbusComponent implements OnInit {
   busdata: Ibus = {
-    busId: 0,
+    busId:0,
     busNo: '',
     rows: 0,
     cols: 0,
@@ -22,6 +22,9 @@ export class EditbusComponent implements OnInit {
     driverName: '',
     driverContact: 0,
     typeOfBus: '',
+    source: '',
+    destination: '',
+    distance: 0,
   }
   busId:number = 0
   constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) { }
@@ -32,12 +35,15 @@ export class EditbusComponent implements OnInit {
     this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data})
   }
 saveBus(bus:Ibus){
+  console.log(this.busdata)
   this.busdata = bus
   this.busservice.editBus(this.busdata).subscribe(
     ()=>{
-      alert("Records Edited")
-      this.router.navigate(['/list/'])
+      alert("Records Edited.")
+      // console.log(this.busdata);
+      this.router.navigate(['/list'])
     }
   )
+
 }
 }

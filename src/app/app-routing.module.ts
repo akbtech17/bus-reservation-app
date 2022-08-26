@@ -35,7 +35,7 @@ const routes: Routes = [
     path:'edit/:busId', component:EditbusComponent
   },
   {
-    path:'remove/:BusId', component:RemovebusComponent
+    path:'remove/:busId', component:RemovebusComponent
   },
   {
     path:'find/:busId', component:FindbusComponent

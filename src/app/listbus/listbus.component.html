@@ -30,7 +30,7 @@
                     <td>{{bus.typeOfBus}}</td>
                     <td>{{bus.driverName}}</td>
                     <td>{{bus.driverContact}}</td>
-                    <td>{{bus.dTime}}</td>
+                    <td>{{bus.dtime}}</td>
                     <td>{{bus.atime}}</td>
                     
                     <td>{{bus.seatCost}}</td>
@@ -38,7 +38,7 @@
                     <td>
                         <a [routerLink]="['/find/',bus.busId]">Details</a>&nbsp;&nbsp;
                         <a [routerLink]="['/edit/',bus.busId]">Edit</a>&nbsp;&nbsp;
-                        <a [routerLink]="['/remove/',bus.No]">Remove</a>&nbsp;&nbsp;
+                        <a [routerLink]="['/remove/',bus.busId]">Remove</a>&nbsp;&nbsp;
                     </td>
                 </tr> 
             </tbody>

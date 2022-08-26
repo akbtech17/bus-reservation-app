@@ -10,4 +10,7 @@ export interface Ibus {
     driverName: string
     driverContact: number
     typeOfBus: string
+    source: string
+    destination: string
+    distance: number
 }

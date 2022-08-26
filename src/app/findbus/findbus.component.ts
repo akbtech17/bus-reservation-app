@@ -21,16 +21,20 @@ export class FindbusComponent implements OnInit {
     driverName: '',
     driverContact: 0,
     typeOfBus: '',
+    source: '',
+    destination: '',
+    distance: 0,
   }
 busId: number = 0
   constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute) {}
 
   ngOnInit(): void {
     const tid = this.activateroute.snapshot.paramMap.get('busId')
-    console.log(tid)
+ 
     this.busId = Number(tid)
-    console.log(this.busId)
-    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data, console.log(data)})
+   
+    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data})
     console.log(this.busdata);
   }
+
 }
