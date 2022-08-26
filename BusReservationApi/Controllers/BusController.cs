@@ -84,6 +84,7 @@ namespace BusAPI.Controllers
             db.SaveChanges(); 
             return Ok();
         }
+        
         [HttpPost]
         [Route("addbus")]
         public IActionResult PostBus(Bus bus) {
@@ -98,6 +99,7 @@ namespace BusAPI.Controllers
             db.SaveChanges();
             return Created("Record Successfully Added", bus);
         }
+        
         [HttpDelete]
         [Route("deletebus/{BusId}")]
         public IActionResult DeleteBus(int BusId) {
@@ -105,7 +107,7 @@ namespace BusAPI.Controllers
                 var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
                 db.buses.Remove(data);
                 db.SaveChanges();
-                return Ok();
+                return Ok("Successfully deleted the bus");
             }
             catch (Exception ex) {
                 return BadRequest(ex.InnerException.Message);
