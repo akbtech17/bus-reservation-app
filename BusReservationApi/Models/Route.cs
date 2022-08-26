@@ -9,7 +9,7 @@ namespace BusReservationApi.Models
     {
         public Route()
         {
-            Bus = new HashSet<Bu>();
+            Bus = new HashSet<Bus>();
         }
 
         public int RouteId { get; set; }
@@ -17,6 +17,6 @@ namespace BusReservationApi.Models
         public string Destination { get; set; }
         public int Distance { get; set; }
 
-        public virtual ICollection<Bu> Bus { get; set; }
+        public virtual ICollection<Bus> Bus { get; set; }
     }
 }

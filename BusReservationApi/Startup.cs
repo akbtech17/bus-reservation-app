@@ -21,7 +21,7 @@ namespace BusReservationApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<BusReservationContext>(opt=>opt.UseSqlServer(Configuration.GetConnectionString("mycon")));
+           // services.AddDbContext<BusReservationContext>(opt=>opt.UseSqlServer(Configuration.GetConnectionString("mycon")));
             services.AddCors();                             //Add CORS ---- Cross Origin Resourse Shard
         }
 

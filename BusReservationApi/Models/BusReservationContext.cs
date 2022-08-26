@@ -69,7 +69,7 @@ namespace BusReservationApi.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Bu>(entity =>
+            modelBuilder.Entity<Bus>(entity =>
             {
                 entity.HasKey(e => e.BusId)
                     .HasName("PK__Bus__6A0F60B5349C58A4");
