@@ -13,7 +13,7 @@
                     <th>Driver Contact</th>
                     <th>Rows</th>
                     <th>Cols</th>
-                    <!-- <th>Total Seats</th> -->
+                 <th>Total Seats</th>
                   <th>Departure Time</th>   
                     <th>Arrival time</th>
                     <th>Pick up</th>
@@ -21,6 +21,7 @@
                     <th>Source</th>
                     <th>Destination</th>
                     <th>Distance</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +33,7 @@
                     <td>{{busdata.driverContact}}</td>
                     <td>{{busdata.rows}}</td>
                     <td>{{busdata.cols}}</td>
-                    <!-- <td>{{busdata.rows*busdata.cols}}</td> -->
+                    <td>{{busdata.rows*busdata.cols}}</td> 
                     <td>{{busdata.dtime}}</td>
                     <td>{{busdata.atime}}</td>
                     <td>{{busdata.pickup}}</td>
@@ -40,10 +41,12 @@
                     <td>{{busdata.source}}</td>
                     <td>{{busdata.destination}}</td>
                     <td>{{busdata.distance}}</td>
-                    <td></td>
+               
                     </tr>
             </tbody>
         </table>
+        
+        
     </div>
     <button type="button" class="btn btn-info" routerLink="/list/" style="margin-left:600px">
         Back to List

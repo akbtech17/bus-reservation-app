@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
 import { AdminserviceService } from '../adminservice.service';
 import { Iadmin } from '../iadmin';
+
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-adminlogin',
@@ -11,22 +12,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminloginComponent implements OnInit {
   logindata:Iadmin={
-    Email:'' ,
-    Password: ''
+    email:'' ,
+    password: ''
   }
-constructor(private loginAuth:AdminserviceService,private router:Router) { }
-loginSubmitted(data:Iadmin){
-    this.logindata=data
-    console.log(this.logindata)
-   this.loginAuth.loginUser(this.logindata).subscribe(()=>
-   {   
-      alert('login unsuccessful')
-      this.router.navigate(['/nav'])
-  }
+constructor(private adminservice:AdminserviceService,private router:Router) { }
 
-  )}
   ngOnInit(): void {
   
   }
-  
+  login(){
+
+   this.adminservice.loginAdmin(this.logindata).subscribe(
+    data=>
+   {   
+    
+      if(data)
+      {
+        alert("Welcome Admin")
+        this.router.navigate(['/nav'])
+      }
+     
+  }
+   
+  )}
 }
