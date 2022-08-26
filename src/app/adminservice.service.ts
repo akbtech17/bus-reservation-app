@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminserviceService {
-  url = 'http://localhost:16553/api/admin/email?password='
+  url = 'http://localhost:16553/api/admin/'
   httpOptions = {headers: new HttpHeaders({'Content-type':'application/json'})}
   constructor(private httpclient:HttpClient) { }
- //Get Details of Particular Admin.
- getAdmin(id:number):Observable<Iadmin>
+
+ loginUser(loginInfo:Iadmin):Observable<Iadmin>
  {
-  return this.httpclient.get<Iadmin>(this.url + '/list/' + id);
+  return this.httpclient.get<Iadmin>(this.url + '/validate' + loginInfo,this.httpOptions);
  }
 
 }
