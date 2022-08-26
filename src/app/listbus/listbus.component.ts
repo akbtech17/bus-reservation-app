@@ -13,7 +13,7 @@ import { Ibus } from '../ibus';
 export class ListbusComponent implements OnInit {
   busId: number = 0
  
-Buslist: any[] = []
+  Buslist: any[] = []
   constructor(private busservice:BusserviceService, private router: Router, public activatedroute:ActivatedRoute) {
       //Subscribe is a kind of callback, it is necessary for execution
     //Definition for passing data to the method

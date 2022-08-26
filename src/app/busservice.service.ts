@@ -3,6 +3,7 @@ import { Ibus } from './ibus'; //importing interface
 import {HttpHeaders} from '@angular/common/http'
 import {HttpClient} from '@angular/common/http' //hhtp client object helps with all WEBApi methods
 import { Observable } from 'rxjs'; // to work or load single component not whole page or app.
+import { Isearchbus } from './isearchbus';
 
 
 @Injectable({
@@ -47,5 +48,12 @@ export class BusserviceService {
   {
     console.log("Hello")
     return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+ busdata.busId, this.httpOptions)
+  }
+
+  // to search the avb buses
+  searchBuses(searchquery:Isearchbus):Observable<any>
+  {
+    console.log(searchquery);
+    return this.httpclient.post<any[]>(this.url + '/search', searchquery, this.httpOptions);
   }
 }
