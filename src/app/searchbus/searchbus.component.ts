@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { BusserviceService } from '../busservice.service';
 import { Isearchbus } from '../isearchbus';
 
@@ -15,15 +15,13 @@ export class SearchbusComponent implements OnInit {
     "dDate" : "",
   }
   Buslist: any[] = []
-  constructor(private busservice: BusserviceService) { }
+  constructor(private busservice: BusserviceService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    alert("searching bus for"+ this.searchquery.source);
     this.busservice.searchBuses(this.searchquery).subscribe(data=> {  this.Buslist = data });
     console.log(this.Buslist);
-    alert("serched buses");
   }
 }
