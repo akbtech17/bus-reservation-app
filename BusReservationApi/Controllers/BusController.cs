@@ -42,7 +42,7 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpGet]
-        [Route("seatsavb/{BusId}")]
+        [Route("seatsavb/{BusId}")]  // 
         public IActionResult GetBusAvbSeats(int BusId)
         {
             try
@@ -117,7 +117,7 @@ namespace BusReservationApi.Controllers
                 var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
                 db.buses.Remove(data);
                 db.SaveChanges();
-                return Ok("Successfully deleted the bus");
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -144,6 +144,8 @@ namespace BusReservationApi.Controllers
                 return BadRequest(ex.InnerException.Message);
             }
         }
+
+        
     }
 
     public class SearchQuery
