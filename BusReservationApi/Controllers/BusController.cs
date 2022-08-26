@@ -125,6 +125,32 @@ namespace BusReservationApi.Controllers
             }
 
         }
+
+        [HttpGet]
+        [Route("search")]
+        public IActionResult SearchListOfBus(SearchQuery sq)
+        {
+            try
+            {
+                var data = db.buses.Where(b => 
+                    b.Destination.Equals(sq.Destination) && 
+                    b.Source.Equals(sq.Source) && sq.DDate.Date.Equals(b.Dtime.Date)
+                 );
+           
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
+    }
+
+    public class SearchQuery
+    {
+        public DateTime DDate { get; set; }
+        public string Source { get; set; }
+        public string Destination { get; set; }
     }
 }
 
