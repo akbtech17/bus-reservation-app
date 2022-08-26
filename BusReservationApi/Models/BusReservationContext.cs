@@ -1,5 +1,4 @@
 ﻿using System;
-using BusReservationApi.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -22,9 +21,7 @@ namespace BusReservationApi.Models
         public virtual DbSet<Bus> buses { get; set; }
         public virtual DbSet<BusSeat> BusSeats { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Route> Routes { get; set; }
         public virtual DbSet<Seat> Seats { get; set; }
-        public virtual DbSet<BusInfo> BusInfo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -72,7 +69,7 @@ namespace BusReservationApi.Models
             modelBuilder.Entity<Bus>(entity =>
             {
                 entity.HasKey(e => e.BusId)
-                    .HasName("PK__Bus__6A0F60B5349C58A4");
+                    .HasName("PK__Bus__6A0F60B50D3A8B7A");
 
                 entity.ToTable("Bus");
 
@@ -83,6 +80,11 @@ namespace BusReservationApi.Models
                     .HasColumnName("ATime");
 
                 entity.Property(e => e.BusNo)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Destination)
                     .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
@@ -104,15 +106,15 @@ namespace BusReservationApi.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TypeOfBus)
+                entity.Property(e => e.Source)
                     .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Route)
-                    .WithMany(p => p.Bus)
-                    .HasForeignKey(d => d.RouteId)
-                    .HasConstraintName("FK__Bus__RouteId__02FC7413");
+                entity.Property(e => e.TypeOfBus)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<BusSeat>(entity =>
@@ -130,12 +132,12 @@ namespace BusReservationApi.Models
                 entity.HasOne(d => d.Bus)
                     .WithMany()
                     .HasForeignKey(d => d.BusId)
-                    .HasConstraintName("FK__BusSeat__BusId__07C12930");
+                    .HasConstraintName("FK__BusSeat__BusId__3587F3E0");
 
                 entity.HasOne(d => d.SeatNoNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.SeatNo)
-                    .HasConstraintName("FK__BusSeat__SeatNo__06CD04F7");
+                    .HasConstraintName("FK__BusSeat__SeatNo__3493CFA7");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -174,23 +176,6 @@ namespace BusReservationApi.Models
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(9)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<Route>(entity =>
-            {
-                entity.ToTable("Route");
-
-                entity.Property(e => e.RouteId).ValueGeneratedNever();
-
-                entity.Property(e => e.Destination)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Source)
-                    .IsRequired()
-                    .HasMaxLength(10)
                     .IsUnicode(false);
             });
 
