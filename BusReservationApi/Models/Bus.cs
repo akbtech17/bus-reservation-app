@@ -13,13 +13,13 @@ namespace BusReservationApi.Models
         public int Cols { get; set; }
         public DateTime Dtime { get; set; }
         public DateTime? Atime { get; set; }
-        public int? RouteId { get; set; }
         public string Pickup { get; set; }
         public int SeatCost { get; set; }
         public string DriverName { get; set; }
         public string DriverContact { get; set; }
         public string TypeOfBus { get; set; }
-
-        public virtual Route Route { get; set; }
+        public string Source { get; set; }
+        public string Destination { get; set; }
+        public int Distance { get; set; }
     }
 }

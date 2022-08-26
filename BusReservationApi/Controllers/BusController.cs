@@ -3,7 +3,6 @@ using System;
 using System.Linq;
 using BusReservationApi.Models;
 using Microsoft.EntityFrameworkCore;
-using BusReservationApi.ViewModel;
 
 namespace BusReservationApi.Controllers
 {
@@ -18,7 +17,7 @@ namespace BusReservationApi.Controllers
         {
             try
             {
-                var data = db.BusInfo.FromSqlInterpolated<BusInfo>($"BusList");
+                var data = db.buses;
                 return Ok(data);
             }
             catch (Exception ex)
@@ -76,6 +75,9 @@ namespace BusReservationApi.Controllers
                     data.DriverName = bus.DriverName;
                     data.DriverContact = bus.DriverContact;
                     data.TypeOfBus = bus.TypeOfBus;
+                    data.Source = bus.Source;
+                    data.Destination = bus.Destination;
+                    data.Distance = bus.Distance;
                 }
             }
             catch (Exception ex)
@@ -83,7 +85,8 @@ namespace BusReservationApi.Controllers
                 return BadRequest(ex.InnerException.Message);
             }
             db.SaveChanges();
-            return Ok();
+            var edited_record = GetBus(BusId);
+            return Ok(edited_record);
         }
 
         [HttpPost]
