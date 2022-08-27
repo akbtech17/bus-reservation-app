@@ -21,7 +21,7 @@ export class CustomerRegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onRegister() {
     alert("Registered")
   }
   
