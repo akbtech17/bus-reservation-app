@@ -1,0 +1,87 @@
+<br/><br/><br/><br/>
+<div class="container" style="padding-top:60px;">  
+  <div class="row">  
+    <div class="col-md-6 mx-auto">  
+      <div class="card-group">  
+        <div class="card p-4">  
+          <div class="card-body">  
+            <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">   
+              <h1 style="text-align:center;">Find Buses</h1>  
+               
+                <div class="input-group mb-3">    
+                    <input type="text" name="source" [(ngModel)]="searchquery.source" class="form-control sty1" placeholder="Source" #source="ngModel" required> 
+                </div>
+                
+                <div class="input-group mb-3">
+                <input type="text" name="destination" [(ngModel)]="searchquery.destination" class="form-control sty1" placeholder="Destination" #destination="ngModel" required> 
+                </div>
+
+                <div class="input-group mb-4 mt-2">   
+                    Date of Journey
+                    <br>
+                    <input  type="date" name="dDate" [(ngModel)]="searchquery.dDate"class="form-control" placeholder="Date of Booking" #dDate="ngModel" required>  
+                </div>  
+            
+                <div class="row">  
+                    <div class="col-6">  
+                    <button type="submit" class="btn btn-success px-4">Find Buses</button>  
+                    </div>   
+                </div>  
+                
+            </form>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+  <br/>
+<button type="button" class="btn btn-info" routerLink="/add" style="margin-left:600px">
+    Add Bus
+ </button>
+ <button type="button" class="btn btn-info" routerLink="/nav" style="margin-left:450px">
+    Back
+ </button>
+ <br/>
+
+<h4 style="color:blueviolet">Bus List</h4>
+<div class="container">
+
+    <div  class="jumbotron"><hr/>
+        <table class="table">
+            <thead class="head">
+                <tr>
+                    <th>BusId</th>
+                    <th>BusNo</th>
+                    <th>Bus type</th>
+                    <th>Driver Name</th>
+                    <th>Driver Contact</th>
+                    <th>Departure Time</th>
+                    <th>Arrival time</th>
+                    
+                    <th>Seat Cost</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bus of Buslist">
+                    <td>{{bus.busId}}</td>
+                    <td>{{bus.busNo}}</td>
+                    <td>{{bus.typeOfBus}}</td>
+                    <td>{{bus.driverName}}</td>
+                    <td>{{bus.driverContact}}</td>
+                    <td>{{bus.dtime}}</td>
+                    <td>{{bus.atime}}</td>
+                    
+                    <td>{{bus.seatCost}}</td>
+                    <td></td>
+                    <td>
+                        <a [routerLink]="['/find/',bus.busId]">Book Now</a>&nbsp;&nbsp;
+                    </td>
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+</div>     
