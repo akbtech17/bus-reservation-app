@@ -42,7 +42,7 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpGet]
-        [Route("seatsavb/{BusId}")]
+        [Route("seatsavb/{BusId}")]  // 
         public IActionResult GetBusAvbSeats(int BusId)
         {
             try
@@ -117,7 +117,7 @@ namespace BusReservationApi.Controllers
                 var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
                 db.buses.Remove(data);
                 db.SaveChanges();
-                return Ok("Successfully deleted the bus");
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -125,6 +125,34 @@ namespace BusReservationApi.Controllers
             }
 
         }
+
+        [HttpPost]
+        [Route("search")]
+        public IActionResult SearchListOfBus(SearchQuery sq)
+        {
+            try
+            {
+                var data = db.buses.Where(b => 
+                    b.Destination.Equals(sq.Destination) && 
+                    b.Source.Equals(sq.Source) && sq.DDate.Date.Equals(b.Dtime.Date)
+                 );
+           
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
+
+        
+    }
+
+    public class SearchQuery
+    {
+        public DateTime DDate { get; set; }
+        public string Source { get; set; }
+        public string Destination { get; set; }
     }
 }
 

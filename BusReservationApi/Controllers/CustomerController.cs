@@ -28,6 +28,7 @@ namespace BusReservationApi.Controllers
                 return BadRequest(e.InnerException.Message);
             }
         }
+
         [HttpGet]
         [Route("{CustomerId}")]
         public IActionResult GetCust(int CustomerId)
@@ -42,6 +43,7 @@ namespace BusReservationApi.Controllers
                 return BadRequest(e.InnerException.Message);
             }
         }
+
         [HttpPost]
         [Route("validate")]
         public IActionResult PostCust(Credentials creds)
@@ -61,6 +63,7 @@ namespace BusReservationApi.Controllers
             }
             return BadRequest("Something went wrong");
         }
+
         [HttpPut]
         [Route("{CustomerId}")]
         public IActionResult PutCust(int CustomerId, Customer Cust)
@@ -86,6 +89,7 @@ namespace BusReservationApi.Controllers
             db.SaveChanges();
             return Ok();
         }
+
         [HttpPost]
         public IActionResult PostCust(Customer Cust)
         {
@@ -104,8 +108,6 @@ namespace BusReservationApi.Controllers
             return Created("Record Successfully Added", Cust);
         }
 
-
-
         [HttpDelete]
         [Route("{CustomerId}")]
         public IActionResult DeleteCust(int CustomerId)
@@ -122,5 +124,9 @@ namespace BusReservationApi.Controllers
                 return BadRequest(ex.InnerException.Message);
             }
         }
+
+
+        
     }
+
 }
