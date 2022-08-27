@@ -6,4 +6,5 @@ export interface Icustomer {
     mobile: string
     email: string
     password: string
+    dob: string
 }
