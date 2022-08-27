@@ -13,6 +13,7 @@ import { RemovebusComponent } from './removebus/removebus.component';
 import { SearchbusComponent } from './searchbus/searchbus.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
 import { LogincustomerComponent } from './logincustomer/logincustomer.component';
+import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
 import { SeatbookComponent } from './seatbook/seatbook.component';
 //import { UserloginComponent } from './userlogin/userlogin.component';
 
@@ -56,9 +57,11 @@ const routes: Routes = [
   },
   {
     path: 'clogin', component:LogincustomerComponent
+  },{
+    path:'sidebarcust',component:SidebarcustomerComponent
   },
   {
-    path: 'sbook/:busId', component:SeatbookComponent
+    path:'sbook/:busId',component:SeatbookComponent
   }
 ]
 
