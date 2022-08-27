@@ -11,7 +11,9 @@ import { EditbusComponent } from './editbus/editbus.component';
 import { AddbusComponent } from './addbus/addbus.component';
 import { RemovebusComponent } from './removebus/removebus.component';
 import { SearchbusComponent } from './searchbus/searchbus.component';
+import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
 //import { UserloginComponent } from './userlogin/userlogin.component';
+
 
 const routes: Routes = [
   {
@@ -46,6 +48,9 @@ const routes: Routes = [
   },
   {
     path: 'searchbus', component:SearchbusComponent
+  },
+  {
+    path: 'cregister', component:CustomerRegistrationComponent
   }
   
 ];
