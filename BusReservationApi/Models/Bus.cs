@@ -7,6 +7,13 @@ namespace BusReservationApi.Models
 {
     public partial class Bus
     {
+        public Bus()
+        {
+            BusSeats = new HashSet<BusSeat>();
+            TransactionDetails = new HashSet<TransactionDetail>();
+            TransactionSeats = new HashSet<TransactionSeat>();
+        }
+
         public int BusId { get; set; }
         public string BusNo { get; set; }
         public int Rows { get; set; }
@@ -21,5 +28,9 @@ namespace BusReservationApi.Models
         public string Source { get; set; }
         public string Destination { get; set; }
         public int Distance { get; set; }
+
+        public virtual ICollection<BusSeat> BusSeats { get; set; }
+        public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
+        public virtual ICollection<TransactionSeat> TransactionSeats { get; set; }
     }
 }

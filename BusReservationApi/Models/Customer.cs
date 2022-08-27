@@ -7,6 +7,11 @@ namespace BusReservationApi.Models
 {
     public partial class Customer
     {
+        public Customer()
+        {
+            TransactionDetails = new HashSet<TransactionDetail>();
+        }
+
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,5 +20,7 @@ namespace BusReservationApi.Models
         public string Mobile { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+
+        public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
     }
 }

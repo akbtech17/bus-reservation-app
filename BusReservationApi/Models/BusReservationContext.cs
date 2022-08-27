@@ -21,14 +21,16 @@ namespace BusReservationApi.Models
         public virtual DbSet<Bus> buses { get; set; }
         public virtual DbSet<BusSeat> BusSeats { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Seat> Seats { get; set; }
+        public virtual DbSet<Passenger> Passengers { get; set; }
+        public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
+        public virtual DbSet<TransactionSeat> TransactionSeats { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("server=.\\sqlexpress;database=BusReservation;trusted_connection=true;");
+                optionsBuilder.UseSqlServer("server=.\\sqlexpress; database=BusReservation; trusted_connection=true;");
             }
         }
 
@@ -119,25 +121,22 @@ namespace BusReservationApi.Models
 
             modelBuilder.Entity<BusSeat>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.SeatNo, e.BusId })
+                    .HasName("PK_SeatNo_BusId");
 
                 entity.ToTable("BusSeat");
-
-                entity.Property(e => e.Available).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.SeatNo)
                     .HasMaxLength(2)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Bus)
-                    .WithMany()
-                    .HasForeignKey(d => d.BusId)
-                    .HasConstraintName("FK__BusSeat__BusId__3587F3E0");
+                entity.Property(e => e.Available).HasDefaultValueSql("((1))");
 
-                entity.HasOne(d => d.SeatNoNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.SeatNo)
-                    .HasConstraintName("FK__BusSeat__SeatNo__3493CFA7");
+                entity.HasOne(d => d.Bus)
+                    .WithMany(p => p.BusSeats)
+                    .HasForeignKey(d => d.BusId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__BusSeat__BusId__41EDCAC5");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -179,16 +178,91 @@ namespace BusReservationApi.Models
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Seat>(entity =>
+            modelBuilder.Entity<Passenger>(entity =>
             {
-                entity.HasKey(e => e.SeatNo)
-                    .HasName("PK__Seat__3116FB415FD9C100");
+                entity.HasKey(e => e.Pid)
+                    .HasName("PK__Passenge__C577554052939F8A");
 
-                entity.ToTable("Seat");
+                entity.ToTable("Passenger");
+
+                entity.Property(e => e.Pid)
+                    .ValueGeneratedNever()
+                    .HasColumnName("PId");
+
+                entity.Property(e => e.Adhaar)
+                    .IsRequired()
+                    .HasMaxLength(12)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Gender)
+                    .IsRequired()
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Pname)
+                    .IsRequired()
+                    .HasMaxLength(40)
+                    .IsUnicode(false)
+                    .HasColumnName("PName");
+
+                entity.Property(e => e.Tid).HasColumnName("TId");
+
+                entity.HasOne(d => d.TidNavigation)
+                    .WithMany(p => p.Passengers)
+                    .HasForeignKey(d => d.Tid)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Passenger__TId__4C6B5938");
+            });
+
+            modelBuilder.Entity<TransactionDetail>(entity =>
+            {
+                entity.HasKey(e => e.Tid)
+                    .HasName("PK__Transact__C456D7494A2FF853");
+
+                entity.Property(e => e.Tid)
+                    .ValueGeneratedNever()
+                    .HasColumnName("TId");
+
+                entity.Property(e => e.DateOfBooking).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Bus)
+                    .WithMany(p => p.TransactionDetails)
+                    .HasForeignKey(d => d.BusId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Transacti__BusId__489AC854");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.TransactionDetails)
+                    .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Transacti__Custo__498EEC8D");
+            });
+
+            modelBuilder.Entity<TransactionSeat>(entity =>
+            {
+                entity.HasKey(e => new { e.Tid, e.BusId, e.SeatNo })
+                    .HasName("PK_TId");
+
+                entity.ToTable("TransactionSeat");
+
+                entity.Property(e => e.Tid).HasColumnName("TId");
 
                 entity.Property(e => e.SeatNo)
                     .HasMaxLength(2)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.Bus)
+                    .WithMany(p => p.TransactionSeats)
+                    .HasForeignKey(d => d.BusId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Transacti__BusId__5BAD9CC8");
+
+                entity.HasOne(d => d.TidNavigation)
+                    .WithMany(p => p.TransactionSeats)
+                    .HasForeignKey(d => d.Tid)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Transaction__TId__5AB9788F");
             });
 
             OnModelCreatingPartial(modelBuilder);
