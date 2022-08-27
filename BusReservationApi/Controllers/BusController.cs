@@ -99,13 +99,16 @@ namespace BusReservationApi.Controllers
                 if (ModelState.IsValid)
                 {
                     db.buses.Add(bus);
+                    db.SaveChanges();
+                    // call procedure to add the seats for the added bus
+                    db.Database.ExecuteSqlInterpolated($"AddBusSeat {bus.BusId}");
+                    db.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.InnerException.Message);
             }
-            db.SaveChanges();
             return Created("Record Successfully Added", bus);
         }
 
