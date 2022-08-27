@@ -20,6 +20,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavadminComponent } from './navadmin/navadmin.component';
 import { SearchbusComponent } from './searchbus/searchbus.component';
+import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SearchbusComponent } from './searchbus/searchbus.component';
     AboutusComponent,
     ContactComponent,
     NavadminComponent,
-    SearchbusComponent
+    SearchbusComponent,
+    CustomerRegistrationComponent
 
   ],
   imports: [
