@@ -52,7 +52,6 @@ const routes: Routes = [
   {
     path: 'cregister', component:CustomerRegistrationComponent
   }
-  
 ];
 
 @NgModule({

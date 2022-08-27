@@ -4,8 +4,8 @@
 <form  #busform="ngForm" (ngSubmit)="onRegister()" #f="ngForm">
     
     <div class="form-group mb-3">
-        <div><label for="adminId">Enter Customer Id</label></div>
-        <input type="number" class="form-control" id="adminId" name="adminId" required  placeholder="eg, Anshul" [(ngModel)]="cdata.customerId"  #customerId="ngModel" />
+        <div><label for="customerId">Enter Customer Id</label></div>
+        <input type="number" class="form-control" id="customerId" name="customerId" required  placeholder="eg, Anshul" [(ngModel)]="cdata.customerId"  #customerId="ngModel" />
     </div>
 
     <div class="mb-3">
@@ -20,12 +20,17 @@
 
     <div class="mb-3">
         <label for="email">Enter Email:</label>&nbsp;&nbsp;
-        <input type="email" class="form-control" id="email" name="email" required placeholder="eg, akb.tech17@gmail.com" [(ngModel)]="cdata.email"  #email="ngModel" />
+        <input type="text" class="form-control" id="email" name="email" required placeholder="eg, akb.tech17@gmail.com" [(ngModel)]="cdata.email"  #email="ngModel" />
     </div>
 
     <div class="mb-3">
         <label for="password">Enter Password</label>&nbsp;&nbsp;
         <input type="password" class="form-control" id="password" name="password" required placeholder="eg, 34@nsh$" [(ngModel)]="cdata.password"  #password="ngModel" />
+    </div>
+
+    <div class="mb-3">
+        <label for="mobile">Enter Mobile</label>&nbsp;&nbsp;
+        <input type="mobile" class="form-control" id="mobile" name="mobile" required placeholder="eg, 34@nsh$" [(ngModel)]="cdata.mobile"  #mobile="ngModel" />
     </div>
    
     <br><br>
