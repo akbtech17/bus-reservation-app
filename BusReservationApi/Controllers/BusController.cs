@@ -4,6 +4,7 @@ using System.Linq;
 using BusReservationApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace BusReservationApi.Controllers
 {
@@ -58,10 +59,11 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpGet]
-        [Route("seatsavb/details/{BusId}")]
-        public IActionResult GetAvbDetails(int BusId) {
+        [Route("seatdetails/{BusId}")]
+        public IActionResult GetAvbDetails(int BusId)
+        {
             //var data = from bs in db.BusSeats where bs.BusId == BusId && bs.Available.Equals(true) select bs(map => new { });
-            var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId && busSeat.Available.Equals(true)).Select(map => new { map.BusId, map.SeatNo, map.Available}) ;
+            var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId).Select(map => new { map.BusId, map.SeatNo, map.Available });
             return Ok(data);
         }
 
@@ -140,25 +142,85 @@ namespace BusReservationApi.Controllers
         {
             try
             {
-                var data = db.buses.Where(b => 
-                    b.Destination.Equals(sq.Destination) && 
+                var data = db.buses.Where(b =>
+                    b.Destination.Equals(sq.Destination) &&
                     b.Source.Equals(sq.Source) && sq.DDate.Date.Equals(b.Dtime.Date)
                  );
-           
+
                 return Ok(data);
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.InnerException.Message);
             }
-        }   
-    }
+        }
 
-    public class SearchQuery
-    {
-        public DateTime DDate { get; set; }
-        public string Source { get; set; }
-        public string Destination { get; set; }
+        [HttpPut]
+        [Route("bookseat")]
+        public IActionResult Setavbseat(Setseats ss)
+        {
+            var data = db.BusSeats.Where(busSeats => busSeats.BusId == ss.busId && busSeats.SeatNo.Equals(ss.seatno)).FirstOrDefault();
+            if (data.Available.Equals(false)) return BadRequest("Seat Already Booked..! Please choose available seats");
+            try {
+                db.Database.ExecuteSqlInterpolated($"ResetSeat {ss.busId},{ss.seatno}");
+            }
+            catch (Exception ex) {
+                return BadRequest(ex.InnerException.Message);
+            }
+            return Ok("Ticket Booked Successfully..!");
+        }
+
+        [HttpPut]
+        [Route("cancelseat")]
+        public IActionResult Resetavbseat(Setseats ss)
+        {
+            var data = db.BusSeats.Where(busSeats => busSeats.BusId == ss.busId && busSeats.SeatNo.Equals(ss.seatno)).FirstOrDefault();
+            try
+            {
+                db.Database.ExecuteSqlInterpolated($"ResetSeat {ss.busId},{ss.seatno}");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+            return Ok("Ticket Cancelled Successfully..!");
+        }
+
+        [HttpPut]
+        [Route("bookseats")]
+        public IActionResult Setavbseats(Setmulseats ss)
+        {
+            foreach (string seat in ss.seatno) {
+                var data = db.BusSeats.Where(busSeats => busSeats.BusId == ss.busId && busSeats.SeatNo.Equals(seat)).FirstOrDefault();
+                if (data.Available.Equals(false)) return BadRequest("Seat Already Booked..! Please choose available seats");
+                try
+                {
+                    db.Database.ExecuteSqlInterpolated($"ResetSeat {ss.busId},{seat}");
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.InnerException.Message);
+                }
+            }      
+            return Ok("Tickets Booked Successfully..!");
+        }
+
+        public class SearchQuery
+        {
+            public DateTime DDate { get; set; }
+            public string Source { get; set; }
+            public string Destination { get; set; }
+        }
+        public class Setseats
+        {
+            public int busId { get; set; }
+            public string seatno { get; set; }
+        }
+        public class Setmulseats
+        {
+            public int busId { get; set; }
+            public string[] seatno { get; set; }
+        }
     }
 }
 
