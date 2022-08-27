@@ -1,5 +1,5 @@
 export interface Iseat {
     busId: number
-    seatNo: number
-    available: string
+    seatNo: string
+    available: boolean
 }
