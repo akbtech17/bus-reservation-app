@@ -34,16 +34,17 @@ export class EditbusComponent implements OnInit {
     this.busId = Number(tid)
     this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data})
   }
-saveBus(bus:Ibus){
-  console.log(this.busdata)
-  this.busdata = bus
-  this.busservice.editBus(this.busdata).subscribe(
-    ()=>{
-      alert("Records Edited.")
-      // console.log(this.busdata);
-      this.router.navigate(['/list'])
-    }
-  )
-
-}
+  saveBus(bus:Ibus){
+    console.log(this.busdata)
+    this.busdata = bus
+    this.busservice.editBus(this.busdata).subscribe(
+      ()=>{
+        alert("Records Edited.")
+        this.router.navigate(['/list'])
+      }
+    )
+  }
+  GoToList() {
+    this.router.navigate(['/list']);
+  }
 }
