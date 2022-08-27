@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerserviceService } from '../customerservice.service';
 import { Icustomer } from '../icustomer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-registration',
@@ -12,21 +13,24 @@ export class CustomerRegistrationComponent implements OnInit {
       customerId: 0,
       firstName: "",
       lastName: "",
-      gender: "F",
+      gender: "",
       mobile: "",
       email: "",
       password: "",
-      dob:"1996-10-23T12:45:56"
+      dob:""
   }
-  constructor(private customerservice: CustomerserviceService) { }
+  constructor(private customerservice: CustomerserviceService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onRegister() {
     this.customerservice.postCustomer(this.cdata).subscribe (
-      ()=>{ 
+      data=>{ 
+      
         alert('Record saved successfully')
+        this.router.navigate(['/nav'])
+        
       }
     )
   }

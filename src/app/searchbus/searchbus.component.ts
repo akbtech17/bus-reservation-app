@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { BusserviceService } from '../busservice.service';
 import { Isearchbus } from '../isearchbus';
 
@@ -21,7 +21,11 @@ export class SearchbusComponent implements OnInit {
   }
 
   onSubmit() {
-    this.busservice.searchBuses(this.searchquery).subscribe(data=> {  this.Buslist = data });
+    this.busservice.searchBuses(this.searchquery).subscribe(
+      data=>
+
+       {  this.Buslist = data }
+       );
     console.log(this.Buslist);
   }
 }
