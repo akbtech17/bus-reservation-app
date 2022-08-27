@@ -8,3 +8,21 @@
 .tr{
     padding: 1px;
 }
+
+.lst{
+    border: 2px solid blue;
+    padding: 11px 24px;
+    margin-left: 95px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.lst:hover{
+    background-color:rgba(137, 43, 226, 0.384) ;
+    color: white;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}

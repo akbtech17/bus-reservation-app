@@ -26,7 +26,7 @@ export class CustomerRegistrationComponent implements OnInit {
 
   onRegister() {
     this.customerservice.postCustomer(this.cdata).subscribe (
-      data=>{ 
+      ()=>{ 
       
         alert('Record saved successfully')
         this.router.navigate(['/nav'])
