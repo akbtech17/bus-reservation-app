@@ -23,6 +23,7 @@ import { SearchbusComponent } from './searchbus/searchbus.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
 import { LogincustomerComponent } from './logincustomer/logincustomer.component';
 import { SeatbookComponent } from './seatbook/seatbook.component';
+import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SeatbookComponent } from './seatbook/seatbook.component';
     SearchbusComponent,
     CustomerRegistrationComponent,
     LogincustomerComponent,
-    SeatbookComponent
+    SeatbookComponent,
+    SidebarcustomerComponent
 
   ],
   imports: [
