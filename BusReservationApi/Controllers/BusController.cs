@@ -44,7 +44,7 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpGet]
-        [Route("seatsavb/{BusId}")]  // 
+        [Route("seatsavb/{BusId}")]
         public IActionResult GetBusAvbSeats(int BusId)
         {
             try
@@ -56,15 +56,6 @@ namespace BusReservationApi.Controllers
             {
                 return BadRequest(ex.InnerException.Message);
             }
-        }
-
-        [HttpGet]
-        [Route("seatdetails/{BusId}")]
-        public IActionResult GetAvbDetails(int BusId)
-        {
-            //var data = from bs in db.BusSeats where bs.BusId == BusId && bs.Available.Equals(true) select bs(map => new { });
-            var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId).Select(map => new { map.BusId, map.SeatNo, map.Available });
-            return Ok(data);
         }
 
         [HttpPut]
@@ -138,13 +129,13 @@ namespace BusReservationApi.Controllers
 
         [HttpPost]
         [Route("search")]
-        public IActionResult SearchListOfBus(SearchQuery sq)
+        public IActionResult SearchListOfBus(SearchQuery query)
         {
             try
             {
                 var data = db.buses.Where(b =>
-                    b.Destination.Equals(sq.Destination) &&
-                    b.Source.Equals(sq.Source) && sq.DDate.Date.Equals(b.Dtime.Date)
+                    b.Destination.Equals(query.Destination) &&
+                    b.Source.Equals(query.Source) && query.DDate.Date.Equals(b.Dtime.Date)
                  );
 
                 return Ok(data);
@@ -155,54 +146,57 @@ namespace BusReservationApi.Controllers
             }
         }
 
-        [HttpPut]
-        [Route("bookseat")]
-        public IActionResult Setavbseat(Setseats ss)
+        [HttpGet]
+        [Route("seatdetails/{BusId}")]
+        public IActionResult GetAvbDetails(int BusId)
         {
-            var data = db.BusSeats.Where(busSeats => busSeats.BusId == ss.busId && busSeats.SeatNo.Equals(ss.seatno)).FirstOrDefault();
-            if (data.Available.Equals(false)) return BadRequest("Seat Already Booked..! Please choose available seats");
+            var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId).Select(map => new { map.BusId, map.SeatNo, map.Available });
+            return Ok(data);
+        }
+
+        [HttpPut]
+        [Route("resetseat")]
+        public IActionResult ResetSeat(ChangeBusSeatStatusQuery query)
+        {
             try {
-                db.Database.ExecuteSqlInterpolated($"ResetSeat {ss.busId},{ss.seatno}");
+                db.Database.ExecuteSqlInterpolated($"ResetSeat {query.busId},{query.seatNo}");
             }
             catch (Exception ex) {
                 return BadRequest(ex.InnerException.Message);
             }
-            return Ok("Ticket Booked Successfully..!");
+            return Ok("Seat Status is changed to FALSE");
         }
 
         [HttpPut]
-        [Route("cancelseat")]
-        public IActionResult Resetavbseat(Setseats ss)
+        [Route("setseat")]
+        public IActionResult SetSeat(ChangeBusSeatStatusQuery query)
         {
-            var data = db.BusSeats.Where(busSeats => busSeats.BusId == ss.busId && busSeats.SeatNo.Equals(ss.seatno)).FirstOrDefault();
             try
             {
-                db.Database.ExecuteSqlInterpolated($"ResetSeat {ss.busId},{ss.seatno}");
+                db.Database.ExecuteSqlInterpolated($"SetSeat {query.busId},{query.seatNo}");
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.InnerException.Message);
             }
-            return Ok("Ticket Cancelled Successfully..!");
+            return Ok("Seat Status is changed to TRUE");
         }
 
         [HttpPut]
-        [Route("bookseats")]
-        public IActionResult Setavbseats(Setmulseats ss)
+        [Route("resetseats")]
+        public IActionResult Setavbseats(ResetBusSeatQuery query)
         {
-            foreach (string seat in ss.seatno) {
-                var data = db.BusSeats.Where(busSeats => busSeats.BusId == ss.busId && busSeats.SeatNo.Equals(seat)).FirstOrDefault();
-                if (data.Available.Equals(false)) return BadRequest("Seat Already Booked..! Please choose available seats");
+            foreach (string seatNo in query.seats) {
                 try
                 {
-                    db.Database.ExecuteSqlInterpolated($"ResetSeat {ss.busId},{seat}");
+                    db.Database.ExecuteSqlInterpolated($"ResetSeat {query.busId},{seatNo}");
                 }
                 catch (Exception ex)
                 {
                     return BadRequest(ex.InnerException.Message);
                 }
             }      
-            return Ok("Tickets Booked Successfully..!");
+            return Ok();
         }
 
         public class SearchQuery
@@ -211,15 +205,15 @@ namespace BusReservationApi.Controllers
             public string Source { get; set; }
             public string Destination { get; set; }
         }
-        public class Setseats
+        public class ChangeBusSeatStatusQuery
         {
             public int busId { get; set; }
-            public string seatno { get; set; }
+            public string seatNo { get; set; }
         }
-        public class Setmulseats
+        public class ResetBusSeatQuery
         {
             public int busId { get; set; }
-            public string[] seatno { get; set; }
+            public string[]seats { get; set; }
         }
     }
 }
