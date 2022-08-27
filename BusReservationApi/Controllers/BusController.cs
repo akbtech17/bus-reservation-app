@@ -126,7 +126,7 @@ namespace BusReservationApi.Controllers
 
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("search")]
         public IActionResult SearchListOfBus(SearchQuery sq)
         {
