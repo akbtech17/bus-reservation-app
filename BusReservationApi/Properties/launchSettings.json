@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/admin/list",
+      "launchUrl": "api/test/adddata",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "BusReservationApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/admin/list",
+      "launchUrl": "api/test/adddata",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
