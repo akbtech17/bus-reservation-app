@@ -12,6 +12,7 @@ import { AddbusComponent } from './addbus/addbus.component';
 import { RemovebusComponent } from './removebus/removebus.component';
 import { SearchbusComponent } from './searchbus/searchbus.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
+import { LogincustomerComponent } from './logincustomer/logincustomer.component';
 //import { UserloginComponent } from './userlogin/userlogin.component';
 
 
@@ -51,8 +52,11 @@ const routes: Routes = [
   },
   {
     path: 'cregister', component:CustomerRegistrationComponent
+  },
+  {
+    path: 'clogin', component:LogincustomerComponent
   }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

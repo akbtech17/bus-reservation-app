@@ -18,5 +18,9 @@ export class CustomerserviceService {
     console.log("cdata from service", cdata)
     return this.httpclient.post<Icustomer>(this.url+'/',cdata,this.httpOptions)
   }
+  loginCustomer(loginInfo:Icustomer):Observable<Icustomer>
+ {
+  return this.httpclient.post<Icustomer>(this.url + '/validate' ,loginInfo,this.httpOptions);
+ }
 
 }

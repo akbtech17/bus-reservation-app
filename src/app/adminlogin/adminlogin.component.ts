@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AdminloginComponent implements OnInit {
   logindata:Iadmin={
     email:'' ,
-    password: '',
+    password: '', 
     firstName: ''
   }
 constructor(private adminservice:AdminserviceService,private router:Router) { }
