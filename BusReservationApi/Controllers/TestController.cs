@@ -27,7 +27,7 @@ namespace BusReservationApi.Controllers
             return Ok("Your DataBase is Clean Now!");
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("adddata")]
         public IActionResult InsertAllData()
         {
