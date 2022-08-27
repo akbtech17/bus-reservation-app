@@ -16,7 +16,7 @@ export class CustomerserviceService {
 
   postCustomer(cdata:Icustomer):Observable<Icustomer> {
     console.log("cdata from service", cdata)
-    return this.httpclient.post<Icustomer>(this.url+'/',this.httpOptions)
+    return this.httpclient.post<Icustomer>(this.url+'/',cdata,this.httpOptions)
   }
 
 }
