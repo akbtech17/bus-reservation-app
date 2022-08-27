@@ -26,11 +26,10 @@ constructor(private adminservice:AdminserviceService,private router:Router) { }
    this.adminservice.loginAdmin(this.logindata).subscribe(
     data=>
    {   
-    
       if(data)
       {
         alert("Welcome Admin")
-        this.router.navigate(['/nav'])
+        this.router.navigate(['/nav', {adminName: data.firstName}])
       }
      
   }
