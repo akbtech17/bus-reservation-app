@@ -22,6 +22,7 @@ import { NavadminComponent } from './navadmin/navadmin.component';
 import { SearchbusComponent } from './searchbus/searchbus.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
 import { LogincustomerComponent } from './logincustomer/logincustomer.component';
+import { SeatbookComponent } from './seatbook/seatbook.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LogincustomerComponent } from './logincustomer/logincustomer.component'
     NavadminComponent,
     SearchbusComponent,
     CustomerRegistrationComponent,
-    LogincustomerComponent
+    LogincustomerComponent,
+    SeatbookComponent
 
   ],
   imports: [
