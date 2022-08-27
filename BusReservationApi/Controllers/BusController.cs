@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using BusReservationApi.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace BusReservationApi.Controllers
 {
@@ -56,6 +57,13 @@ namespace BusReservationApi.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("seatsavb/details/{BusId}")]
+        public IActionResult GetAvbDetails(int BusId) {
+            //var data = from bs in db.BusSeats where bs.BusId == BusId && bs.Available.Equals(true) select bs(map => new { });
+            var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId && busSeat.Available.Equals(true)).Select(map => new { map.BusId, map.SeatNo, map.Available}) ;
+            return Ok(data);
+        }
 
         [HttpPut]
         [Route("editbus/{BusId}")]
@@ -143,9 +151,7 @@ namespace BusReservationApi.Controllers
             {
                 return BadRequest(ex.InnerException.Message);
             }
-        }
-
-        
+        }   
     }
 
     public class SearchQuery
