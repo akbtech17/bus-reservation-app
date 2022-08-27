@@ -14,6 +14,7 @@ export class SearchbusComponent implements OnInit {
     "destination" : "",
     "dDate" : "",
   }
+  isShown:boolean =false;
   Buslist: any[] = []
   constructor(private busservice: BusserviceService, private router: Router) { }
 
@@ -28,4 +29,9 @@ export class SearchbusComponent implements OnInit {
        );
     console.log(this.Buslist);
   }
+  toggleshow()
+  {
+    this.isShown = !this.isShown;
+  }
+  
 }

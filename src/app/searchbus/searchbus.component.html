@@ -24,7 +24,7 @@
             
                 <div class="row">  
                     <div class="col-6">  
-                    <button type="submit" class="btn btn-success px-4">Find Buses</button>  
+                    <button type="submit" (click)="toggleshow()" class="btn btn-success px-4">Find Buses</button>  
                     </div>   
                 </div>  
                 
@@ -35,8 +35,7 @@
     </div>  
   </div>  
   <br/>
-
-
+ 
  <button type="button" class="btn btn-info" routerLink="/clogin" style="margin-left:450px">
 SignIn
 </button>
@@ -48,9 +47,10 @@ SignIn
  <br/>
  <br/>
 
-<h4 style="color:blueviolet">Bus List</h4>
-<div class="container">
+<div *ngIf="isShown" class="container">
 
+
+  <h4 style="color:blueviolet">Bus List</h4>
     <div  class="jumbotron"><hr/>
         <table class="table">
             <thead class="head">
@@ -86,7 +86,3 @@ SignIn
         </table>
     </div>
 </div>
-
-
-
-</div>     
