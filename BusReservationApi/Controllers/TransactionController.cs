@@ -44,5 +44,28 @@ namespace BusReservationApi.Controllers
                 return BadRequest(ex.InnerException.Message);
             }
         }
+
+        [HttpGet]
+        [Route("seats/{tId}")]
+        public IActionResult GetListOfSeatsBooked(int tId)
+        {
+            try
+            {
+                // find the busid
+                var data = db.TransactionDetails.Where(transaction => transaction.Tid == tId).FirstOrDefault();
+                //if (data == null) {
+                //    return NotFound("Invalid Transaction Id");
+                //}
+                int busId = data.BusId;
+
+                // find the list of seats
+                var seats = db.TransactionSeats.Where(ts => ts.Tid == tId && ts.BusId == busId).ToList();
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
     }
 }
