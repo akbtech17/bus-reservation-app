@@ -241,7 +241,7 @@ namespace BusReservationApi.Models
 
             modelBuilder.Entity<TransactionSeat>(entity =>
             {
-                entity.HasKey(e => new { e.Tid, e.BusId, e.SeatNo })
+                entity.HasKey(e => new { e.Tid, e.SeatNo })
                     .HasName("PK_TId");
 
                 entity.ToTable("TransactionSeat");
@@ -252,17 +252,11 @@ namespace BusReservationApi.Models
                     .HasMaxLength(2)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Bus)
-                    .WithMany(p => p.TransactionSeats)
-                    .HasForeignKey(d => d.BusId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Transacti__BusId__5BAD9CC8");
-
                 entity.HasOne(d => d.TidNavigation)
                     .WithMany(p => p.TransactionSeats)
                     .HasForeignKey(d => d.Tid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Transaction__TId__5AB9788F");
+                    .HasConstraintName("FK__Transaction__TId__756D6ECB");
             });
 
             OnModelCreatingPartial(modelBuilder);

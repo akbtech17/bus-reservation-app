@@ -8,10 +8,8 @@ namespace BusReservationApi.Models
     public partial class TransactionSeat
     {
         public int Tid { get; set; }
-        public int BusId { get; set; }
         public string SeatNo { get; set; }
 
-        public virtual Bus Bus { get; set; }
         public virtual TransactionDetail TidNavigation { get; set; }
     }
 }

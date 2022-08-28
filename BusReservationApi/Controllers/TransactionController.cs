@@ -52,15 +52,16 @@ namespace BusReservationApi.Controllers
             try
             {
                 // find the busid
-                var data = db.TransactionDetails.Where(transaction => transaction.Tid == tId).FirstOrDefault();
+                //var data = db.TransactionDetails.Where(transaction => transaction.Tid == tId).FirstOrDefault();
                 //if (data == null) {
                 //    return NotFound("Invalid Transaction Id");
                 //}
-                int busId = data.BusId;
+                //if (data is null) return NotFound();
+            
 
                 // find the list of seats
-                var seats = db.TransactionSeats.Where(ts => ts.Tid == tId && ts.BusId == busId).ToList();
-                return Ok(data);
+                var seats = db.TransactionSeats.Where(ts => ts.Tid == tId).Select(ts => ts);
+                return Ok(seats);
             }
             catch (Exception ex)
             {

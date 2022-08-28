@@ -11,7 +11,6 @@ namespace BusReservationApi.Models
         {
             BusSeats = new HashSet<BusSeat>();
             TransactionDetails = new HashSet<TransactionDetail>();
-            TransactionSeats = new HashSet<TransactionSeat>();
         }
 
         public int BusId { get; set; }
@@ -31,6 +30,5 @@ namespace BusReservationApi.Models
 
         public virtual ICollection<BusSeat> BusSeats { get; set; }
         public virtual ICollection<TransactionDetail> TransactionDetails { get; set; }
-        public virtual ICollection<TransactionSeat> TransactionSeats { get; set; }
     }
 }
