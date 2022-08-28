@@ -40,7 +40,10 @@ namespace BusReservationApi.Controllers
             {
                 return BadRequest(ex.InnerException.Message);
             }
-            return Ok("Your DataBase is UpToDate Now!");
+            return Ok("Anshul have cleared your previous data \n" +
+                "and created new data in your database\n\n" +
+                "Keep working... \n\n" +
+                "ALL THE BEST");
         }
     }
 }
