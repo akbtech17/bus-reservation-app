@@ -59,5 +59,24 @@ namespace BusReservationApi.Controllers
                 return BadRequest(ex.InnerException.Message);
             }
         }
+
+        [HttpPost]
+        [Route("seats/{tId}")]
+        public IActionResult PostListOfSeatsBooked(int tId,string []seats)
+        {
+            try
+            {
+                foreach (var seat in seats)
+                {
+                    db.TransactionSeats.Add(new TransactionSeat { Tid = tId, SeatNo = seat });
+                }
+                db.SaveChanges();
+                return Ok(seats);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
     }
 }
