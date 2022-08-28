@@ -192,7 +192,7 @@ namespace BusReservationApi.Controllers
 
         [HttpPut]
         [Route("resetseats")]
-        public IActionResult Setavbseats(ResetBusSeatQuery query)
+        public IActionResult ResetAvbSeats(MultipleBusSeatQuery query)
         {
             foreach (string seatNo in query.seats) {
                 try
@@ -207,6 +207,24 @@ namespace BusReservationApi.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [Route("setseats")]
+        public IActionResult SetAvbSeats(MultipleBusSeatQuery query)
+        {
+            foreach (string seatNo in query.seats)
+            {
+                try
+                {
+                    db.Database.ExecuteSqlInterpolated($"SetSeat {query.busId},{seatNo}");
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.InnerException.Message);
+                }
+            }
+            return Ok();
+        }
+
         public class SearchQuery
         {
             public DateTime DDate { get; set; }
@@ -218,7 +236,7 @@ namespace BusReservationApi.Controllers
             public int busId { get; set; }
             public string seatNo { get; set; }
         }
-        public class ResetBusSeatQuery
+        public class MultipleBusSeatQuery
         {
             public int busId { get; set; }
             public string[]seats { get; set; }
