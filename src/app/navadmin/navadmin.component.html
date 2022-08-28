@@ -1,20 +1,42 @@
-<br/>
-<nav  style="background-color: #e3f2fd; text-align:center; height: 50px; ">
-  <span style="float: left; margin-left: 2rem; margin-right:1rem; margin-top:7px" class>
-    <h2>Hi, {{adminName}}</h2>
-  </span>
-  <a routerLink="/list" > 
-    <button type="button" class="btn btn-primary" style="margin-top:7px">
-      List of Buses
-    </button>
-  </a>
-  <a  routerLink="/Adminlogin">
+<!-- <br/> -->
+
+  <!-- <a  routerLink="/Adminlogin">
     <button type="button" style="margin-left: 3rem; margin-right:1rem; margin-top:7px" class="btn btn-primary float-right">
       Logout
     </button>
-  </a>
-</nav>
-  
+  </a> -->
+
+<div class="wrapper">
+    
+  <div class="sidebar">
+ 
+      <ul style="list-style:none;">
+        <li>
+         <p style="font-size:larger;">
+          <span >
+            <h2>Hi, {{adminName}}</h2>
+          </span>   
+               
+            </p>
+        </li>
+       
+        <li> <a routerLink="/list" > 
+   
+        <span>  List of Buses
+</span>        
+      </a>
+          
+      </li>
+      <li>
+      <a  routerLink="/Adminlogin">
+       
+          <span>Logout</span>
+      </a>
+          </li> 
+      
+    </ul>
+</div>
+  </div> 
 
 
 
