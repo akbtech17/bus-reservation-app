@@ -9,15 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 export class SidebarcustomerComponent implements OnInit {
 
   custName: string = ''
-  display = false
+  tabIndex = 0
   constructor(private activateroute: ActivatedRoute) { }
 
   ngOnInit(): void {
     var data = this.activateroute.snapshot.paramMap.get('custName')
     if(data != null) this.custName = data.toString();
   }
-  onPress(){
-    this.display = true
+  onPress(index:number){
+    this.tabIndex = index;
   }
+ 
 
 }

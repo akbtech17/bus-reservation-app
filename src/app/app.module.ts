@@ -24,6 +24,10 @@ import { CustomerRegistrationComponent } from './customer-registration/customer-
 import { LogincustomerComponent } from './logincustomer/logincustomer.component';
 import { SeatbookComponent } from './seatbook/seatbook.component';
 import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
+import { BookingsComponent } from './bookings/bookings.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.comp
     CustomerRegistrationComponent,
     LogincustomerComponent,
     SeatbookComponent,
-    SidebarcustomerComponent
+    SidebarcustomerComponent,
+    BookingsComponent,
+    ProfileComponent,
+    ChangepasswordComponent,
+    WalletComponent
 
   ],
   imports: [

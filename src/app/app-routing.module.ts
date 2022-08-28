@@ -15,6 +15,10 @@ import { CustomerRegistrationComponent } from './customer-registration/customer-
 import { LogincustomerComponent } from './logincustomer/logincustomer.component';
 import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
 import { SeatbookComponent } from './seatbook/seatbook.component';
+import { BookingsComponent } from './bookings/bookings.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 //import { UserloginComponent } from './userlogin/userlogin.component';
 
 
@@ -58,11 +62,24 @@ const routes: Routes = [
   {
     path: 'clogin', component:LogincustomerComponent
   },{
-    path:'sidebarcust',component:SidebarcustomerComponent
+    path:'bookings',component:BookingsComponent
+  },
+  {
+    path:'wallet',component:WalletComponent
+  },
+  {
+    path:'profile',component:ProfileComponent
+  },
+  {
+    path:'changepass',component:ChangepasswordComponent
   },
   {
     path:'sbook/:busId',component:SeatbookComponent
-  }
+  },
+  {
+    path:'sidebarcust',component:SidebarcustomerComponent
+  },
+
 ]
 
 @NgModule({

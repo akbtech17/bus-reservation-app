@@ -39,7 +39,7 @@
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active{
     color: blueviolet;
-
+    transition: 0.2 s ease-in;
     background:white;
    
 }
@@ -51,6 +51,18 @@
     display: block;
 }
 
-.comp-render{
-  margin-left: 215px;
+.container{
+    margin-left: 15rem;
+}
+#btn{
+    border: none;
+    padding: 5px 5px;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 1rem;
+}
+#btn:hover{
+    background-color: white;
+    color: blueviolet;
+    transition: 0.4s ease-out;
 }
