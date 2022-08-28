@@ -14,13 +14,24 @@ export class SeatbookComponent implements OnInit {
   seatdata: any[]=[]
   cols:number[]=[1,2,3,4,5]
   busId:number = 0
+  selected:[]=[]
+  select = false
+  status = 'disable'
+  tabIndex = 0
+  onSelect(){
+    this.select=!this.select;
+    this.status = this.select?'disable':'enable';
+    console.log("Selected")
+  }
+  onClick(index:number){
+    this.tabIndex = index
+  }
 
   // seatmap: any[][] = []
   // rseat:any[] = []
   // cnt: number = 0
   // row: number = 0
 
- 
 
   constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute) { }
 
@@ -29,7 +40,7 @@ export class SeatbookComponent implements OnInit {
     this.busId = Number(tid)
     this.seatservice.getseats(this.busId).subscribe(
       (data:any[])=>
-      {this.seatdata = data, console.log(this.seatdata,"VAlue from callback")}
+      {this.seatdata = data, console.log(this.seatdata,"Value from callback")}
       
     )
     console.log(this.seatdata)

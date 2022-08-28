@@ -26,12 +26,11 @@
       <th>Row4</th>
     </thead>
     <tbody >
-      <tr>
-        <td>{{seatdata[0].seatNo}}</td>
-        <td>{{seatdata[1].seatNo}}</td>
-        <td>{{seatdata[2].seatNo}}</td>
+      <td>{{seatdata[0].seatNo}}</td>
+      <td>{{seatdata[1].seatNo}}</td>
+       <td>{{seatdata[2].seatNo}}</td>
         <td>{{seatdata[3].seatNo}}</td>
-      </tr>
+      
       <tr>
         <td>{{seatdata[4].seatNo}}</td>
         <td>{{seatdata[5].seatNo}}</td>
@@ -89,8 +88,17 @@
       <tr>
         <td>{{seatdata[39].seatNo}}</td>
         
-      </tr>
+      
 
     </tbody>
   </table>
    
+
+    <!-- <button (click)="onSelect()"[ngClass]="{'green':select, 'red':!select}"
+        (click)="onClick(1)" >
+        {{seatdata[0].seatNo}}
+        </button><td>
+       <td> <button (click)="onSelect()"[ngClass]="{'green':select, 'red':!select}"
+        (click)="onClick(2)" >
+        {{seatdata[1].seatNo}}
+        </button> -->
