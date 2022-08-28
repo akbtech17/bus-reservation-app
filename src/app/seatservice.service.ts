@@ -9,7 +9,7 @@ import { Observable } from 'rxjs'; // to work or load single component not whole
   providedIn: 'root'
 })
 export class SeatserviceService {
-  url = 'http://localhost:16553/api/bus/seatsavb/details';
+  url = 'http://localhost:16553/api/bus/seatdetails';
 
   httpOptions = {headers: new HttpHeaders({'Content-type':'application/json'})}
 
