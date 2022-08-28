@@ -31,7 +31,7 @@ export class LogincustomerComponent implements OnInit {
         if(data)
         {
           alert("Welcome")
-          this.router.navigate(['/sidebarcust', {customerName: data.firstName}])
+          this.router.navigate(['/sidebarcust', {custName: data.firstName}])
         }
         console.log("Error")
       }

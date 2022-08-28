@@ -50,3 +50,7 @@
 .wrapper .sidebar ul li a.active:before{
     display: block;
 }
+
+.comp-render{
+  margin-left: 215px;
+}

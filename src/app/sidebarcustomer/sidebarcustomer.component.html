@@ -6,7 +6,7 @@
           <li>
            <p style="font-size:larger;">
                   
-                  <span class="item"><b>Hello User!</b></span>
+                  <span class="item"><b>Hello {{custName}}</b></span>
               </p>
           </li>
           <li>
@@ -16,11 +16,9 @@
               </p>
           </li>
           <li>
-            <a routerLink="/searchbus">
-                
-                <span class="item">Search</span>
-            </a>
+            <button (click)="onPress()">Search</button>
         </li>
+      
           <li>
             <a href="#">
                 
@@ -48,4 +46,9 @@
         
       </ul>
   </div>
+    </div>
+    <div class="container">
+      <div id="comp-render" *ngIf="display">
+        <app-searchbus></app-searchbus>
+      </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidebarcustomer',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarcustomerComponent implements OnInit {
 
-  constructor() { }
+  custName: string = ''
+  display = false
+  constructor(private activateroute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    var data = this.activateroute.snapshot.paramMap.get('custName')
+    if(data != null) this.custName = data.toString();
+  }
+  onPress(){
+    this.display = true
   }
 
 }

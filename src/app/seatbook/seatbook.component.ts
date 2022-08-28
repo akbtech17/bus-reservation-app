@@ -12,7 +12,7 @@ import { SeatserviceService } from '../seatservice.service';
 })
 export class SeatbookComponent implements OnInit {
   seatdata: any[]=[]
-  cols:number[]=[1,2,3,4,5]
+  //cols:number[]=[1,2,3,4,5]
   busId:number = 0
 
   // seatmap: any[][] = []
