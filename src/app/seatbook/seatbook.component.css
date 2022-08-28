@@ -26,3 +26,16 @@ td:hover {
 .red{
     background-color: red;
 }
+.seat {
+        background-color:#f00;
+        padding: 10px;
+        margin-left: 10px;
+        margin-top: 5px;
+  }
+  
+.selected {
+    background-color: green;
+  }
+
+ 
+  
