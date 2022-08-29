@@ -119,6 +119,41 @@ namespace BusReservationApi.Controllers
                 return BadRequest(ex.InnerException.Message);
             }
         }
+
+
+        [HttpDelete]
+        [Route("{tId}")]
+        public IActionResult DeleteTransaction(int tId)
+        {
+            try
+            {
+                // 1. remove the passengers from the table
+                var passengers = db.Passengers.Where(pass => pass.Tid == tId).Select(pass => pass);
+                foreach (var pass in passengers)
+                {
+                    db.Passengers.Remove(pass);
+                }
+                db.SaveChanges();
+
+                // 2. make the seats empty for that transaction 
+                var seats = db.TransactionSeats.Where(seat => seat.Tid == tId).Select(pass => pass);
+                foreach (var seat in seats)
+                {
+                    db.TransactionSeats.Remove(seat);
+                }
+                db.SaveChanges();
+
+                // 3. set the trasaction table
+                var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
+                db.TransactionDetails.Remove(transactionDetails);
+                db.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
     }
 
     public class TransactionQuery {
