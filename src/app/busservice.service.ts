@@ -60,7 +60,7 @@ export class BusserviceService {
 
    avbSeates(busId:number):Observable<any>
    {
-     return this.httpclient.get<any[]>(this.url + '/seatsavb/' + busId)
+     return this.httpclient.get<any>(this.url + '/seatsavb/' + busId)
   }
 
 }

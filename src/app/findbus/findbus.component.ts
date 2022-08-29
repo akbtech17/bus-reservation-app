@@ -29,19 +29,18 @@ export class FindbusComponent implements OnInit {
   }
 
    
-  seatAvb: any[] = []
+  seatAvb: any
 busId: number = 0
   constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute) {}
 
   ngOnInit(): void {
     const tid = this.activateroute.snapshot.paramMap.get('busId')
- 
     this.busId = Number(tid)
 
    
     this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data,
       this.busservice.avbSeates(this.busId).subscribe(
-        (data:any[])=>{
+        (data:any)=>{
           this.seatAvb = data
           console.log(this.seatAvb)
         }

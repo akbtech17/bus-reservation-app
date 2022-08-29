@@ -10,6 +10,7 @@ export class TransactionserviceService {
 url='http://localhost:16533/api/transaction'
 httpOptions=  {headers: new HttpHeaders({'Content-type':'application/json'})}
   constructor(private httpclient:HttpClient) { }
+  
 getTransactiondetails(pId:number):Observable<Itransaction>{
   return this.httpclient.get<Itransaction>(this.url+'/'+pId)
 }

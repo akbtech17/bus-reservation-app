@@ -11,15 +11,14 @@ import { Ibus } from '../ibus';
   styleUrls: ['./listbus.component.css']
 })
 export class ListbusComponent implements OnInit {
-  busId: number = 0
+ 
  
   Buslist: any[] = []
   constructor(private busservice:BusserviceService, private router: Router, public activatedroute:ActivatedRoute) {
       //Subscribe is a kind of callback, it is necessary for execution
     //Definition for passing data to the method
     //Client subscribing to the method to get the data
-    this.busservice.getBusList().subscribe(data=>{this.Buslist=data
-    })
+    this.busservice.getBusList().subscribe(data=>{this.Buslist=data})
     console.log(this.Buslist)
     
    }

@@ -70,7 +70,7 @@ export class SeatbookComponent implements OnInit {
           }
           this.seatmap.push(detseat)
         })
-        
+        this.router.navigate(['/sbook'])
         // line 6
         console.log(this.seatmap)
         
