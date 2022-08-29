@@ -1,17 +1,20 @@
-<h3>Selected Seats Count : {{selectedSeatsCount}}</h3> 
-<h3>Selected Seats List :</h3>
-<div *ngFor="let seat of selectedSeats">
-  <span>{{seat}},</span>
-</div>
 
-<table border=1 solid ng-app="myApp" ng-controller="myCtrl">
+<hr/>
+<h1 class="heading">Book Your Seats</h1>
+<hr/>
+<div class="container">
+<table>
   <thead>
-    <th>A</th>
-    <th>B</th>
-    <th>C</th>
-    <th>D</th>
-  </thead>
-  <tbody>
+      
+    <th style="text-align: center;">Window </th>
+    <th style="text-align: center;">Aisle</th>
+    <th style="text-align: center;">Aisle</th>
+    <th style="text-align: center;">Window</th>
+ </thead>
+  <br>
+  <br>
+  
+ <tbody id="A">
     <tr>
       <td id="{{seatmap[0].available == 0 ? 'notavb' : seatmap[0].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[0].seatNo)">{{seatmap[0].seatNo}}</td>
       <td id="{{seatmap[10].available == 0 ? 'notavb' : seatmap[10].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[10].seatNo)">{{seatmap[10].seatNo}}</td>
@@ -42,6 +45,8 @@
       <td id="{{seatmap[24].available == 0 ? 'notavb' : seatmap[24].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[24].seatNo)">{{seatmap[24].seatNo}}</td>
       <td id="{{seatmap[34].available == 0 ? 'notavb' : seatmap[34].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[34].seatNo)">{{seatmap[34].seatNo}}</td>
     </tr>
+  </tbody>
+  <tbody id="B">
     <tr>
       <td id="{{seatmap[5].available == 0 ? 'notavb' : seatmap[5].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[5].seatNo)">{{seatmap[5].seatNo}}</td>
       <td id="{{seatmap[15].available == 0 ? 'notavb' : seatmap[15].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[15].seatNo)">{{seatmap[15].seatNo}}</td>
@@ -74,8 +79,29 @@
     </tr>
   </tbody>
 </table>
+<div class="card bg-light border-info mb-3" style="width: 20rem; text-align:center">
+  <br>
+  <h5 class="card-title" >Total Seats</h5> 
+  <hr/>
+  {{selectedSeatsCount}}
+  <hr/>
+  <h5 class="card-title">Seats</h5>
+  <hr/>
+  <br>
+<div class="s">
+  <div class="seatbtn" *ngFor="let seat of selectedSeats">
+    <span>  <button class="selectedseat">{{seat}}</button></span>
+  </div>
+</div>
+  </div>
+</div>
+<br>
+<div class="btndiv">
+<button class="confirm" (click)="onSubmit()">Confirm</button>
+<button routerLink="/passdetails" class="next">Next</button>
 
-<button (click)="onSubmit()">Click me</button>
+</div>
+
 
 
 
