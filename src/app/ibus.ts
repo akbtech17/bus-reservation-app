@@ -15,5 +15,5 @@ export interface Ibus {
     source: string
     destination: string
     distance: number
-    avbSeats: number
+
 }
