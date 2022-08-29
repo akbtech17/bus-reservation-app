@@ -112,7 +112,7 @@ namespace BusReservationApi.Controllers
                     });
                 }
                 db.SaveChanges();
-                return Ok(query);
+                return Ok();
             }
             catch (Exception ex)
             {
