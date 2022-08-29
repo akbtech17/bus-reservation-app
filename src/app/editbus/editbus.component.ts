@@ -25,7 +25,7 @@ export class EditbusComponent implements OnInit {
     source: '',
     destination: '',
     distance: 0,
-    avbSeats: 0
+ 
   }
   busId:number = 0
   constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) { }

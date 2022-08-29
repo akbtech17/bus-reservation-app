@@ -25,8 +25,11 @@ export class FindbusComponent implements OnInit {
     source: '',
     destination: '',
     distance: 0,
-    avbSeats: 0
+
   }
+
+   
+  seatAvb: any[] = []
 busId: number = 0
   constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute) {}
 
@@ -36,7 +39,14 @@ busId: number = 0
     this.busId = Number(tid)
 
    
-    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data})
+    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data,
+      this.busservice.avbSeates(this.busId).subscribe(
+        (data:any[])=>{
+          this.seatAvb = data
+          console.log(this.seatAvb)
+        }
+      )
+    })
    
 
   }

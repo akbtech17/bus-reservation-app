@@ -18,7 +18,8 @@ export class ListbusComponent implements OnInit {
       //Subscribe is a kind of callback, it is necessary for execution
     //Definition for passing data to the method
     //Client subscribing to the method to get the data
-    this.busservice.getBusList().subscribe(data=>{this.Buslist=data})
+    this.busservice.getBusList().subscribe(data=>{this.Buslist=data
+    })
     console.log(this.Buslist)
     
    }

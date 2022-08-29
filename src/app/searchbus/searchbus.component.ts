@@ -16,6 +16,7 @@ export class SearchbusComponent implements OnInit {
   }
   isShown:boolean =false;
   Buslist: any[] = []
+    seatAvb: any[] = []
   constructor(private busservice: BusserviceService, private router: Router) { }
 
   ngOnInit(): void {
