@@ -28,6 +28,8 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { WalletComponent } from './wallet/wallet.component';
+import { PassengerComponent } from './passenger/passenger.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -49,14 +51,16 @@ import { WalletComponent } from './wallet/wallet.component';
     BookingsComponent,
     ProfileComponent,
     ChangepasswordComponent,
-    WalletComponent
-
+    WalletComponent,
+    PassengerComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,ReactiveFormsModule,
+  
     BrowserAnimationsModule,MatButtonModule,MatIconModule,MatToolbarModule,MatCardModule,MatInputModule
   ],
   providers: [],

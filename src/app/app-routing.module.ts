@@ -19,6 +19,8 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { PassengerComponent } from './passenger/passenger.component';
+import { TransactionComponent } from './transaction/transaction.component';
 //import { UserloginComponent } from './userlogin/userlogin.component';
 
 
@@ -79,7 +81,12 @@ const routes: Routes = [
   {
     path:'sidebarcust',component:SidebarcustomerComponent
   },
-
+  {
+    path: 'passdetails',component:PassengerComponent
+  },
+  {
+    path: 'transaction',component:TransactionComponent
+  },
 ]
 
 @NgModule({
