@@ -30,6 +30,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { WalletComponent } from './wallet/wallet.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
@@ -55,6 +56,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     WalletComponent,
     PassengerComponent,
     TransactionComponent,
+    CarddetailsComponent,
     FeedbackComponent
   ],
   imports: [
