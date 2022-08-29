@@ -34,6 +34,9 @@ export class SeatbookComponent implements OnInit {
   }
 
   onSubmit() {
+    // reset the selected seats on confirmation
+    this.selectedSeats = []
+    this.selectedSeatsCount = 0
     this.seatmap.forEach(object => {
       var seatNo = object.seatNo
       if(object.available==2) {
