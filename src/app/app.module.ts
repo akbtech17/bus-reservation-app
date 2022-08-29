@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import{FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +31,7 @@ import { WalletComponent } from './wallet/wallet.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -57,12 +57,11 @@ import { CarddetailsComponent } from './carddetails/carddetails.component';
     PassengerComponent,
     TransactionComponent,
     CarddetailsComponent,
-   
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-  
     HttpClientModule,
     FormsModule,ReactiveFormsModule,
   

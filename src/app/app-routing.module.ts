@@ -22,6 +22,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { PassengerComponent } from './passenger/passenger.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 //import { UserloginComponent } from './userlogin/userlogin.component';
 
 
@@ -89,8 +90,10 @@ const routes: Routes = [
     path: 'transaction',component:TransactionComponent
   },
   {
-    path: 'card',component:CarddetailsComponent
-  },
+    path:'card',component:CarddetailsComponent
+  },{
+    path:'feedback' ,component:FeedbackComponent
+  }
 ]
 
 @NgModule({
