@@ -143,7 +143,7 @@ namespace BusReservationApi.Controllers
                 }
                 db.SaveChanges();
 
-                // 3. set the trasaction table
+                // 3. reset the trasaction table
                 var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
                 db.TransactionDetails.Remove(transactionDetails);
                 db.SaveChanges();
