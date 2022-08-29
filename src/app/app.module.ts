@@ -30,6 +30,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { WalletComponent } from './wallet/wallet.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { TransactionComponent } from './transaction/transaction.component';
     ChangepasswordComponent,
     WalletComponent,
     PassengerComponent,
-    TransactionComponent
+    TransactionComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

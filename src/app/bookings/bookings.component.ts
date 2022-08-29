@@ -12,7 +12,7 @@ tdata:Itransaction={
 tId:0,
 busId:0,
 customerId:0,
-dateOfBooking:'',
+dateOfBooking:new Date(),
 totalcost:0
 }
   constructor(private transactionservice:TransactionserviceService,private activateroute:ActivatedRoute) { }

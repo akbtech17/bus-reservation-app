@@ -2,6 +2,6 @@ export interface Itransaction {
     tId:number
     busId:number
     customerId:number
-    dateOfBooking:string
+    dateOfBooking:Date
     totalcost:number 
 }
