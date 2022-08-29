@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BusserviceService } from '../busservice.service';
 import { Ibus } from '../ibus';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-findbus',
@@ -33,9 +34,11 @@ busId: number = 0
     const tid = this.activateroute.snapshot.paramMap.get('busId')
  
     this.busId = Number(tid)
+
    
     this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data})
-    console.log(this.busdata);
+   
+
   }
 
 }
