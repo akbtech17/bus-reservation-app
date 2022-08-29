@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { SeatserviceService } from '../seatservice.service';
 
 @Component({
@@ -47,7 +48,7 @@ export class SeatbookComponent implements OnInit {
 }
 
 
-  constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute) { 
+  constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute, private router:Router) { 
   }
 
   ngOnInit(): void {
@@ -69,6 +70,7 @@ export class SeatbookComponent implements OnInit {
         
         // line 6
         console.log(this.seatmap)
+        
       }
     )
   } 
