@@ -51,7 +51,7 @@
 }
 .wrapper .sidebar{
     background: blueviolet;
-    position: fixed;
+    position: absolute;
     top: 0;
     margin-top: 3.9%;
     text-decoration: none;
@@ -92,6 +92,11 @@
 .wrapper .sidebar ul li a:hover:before,
 .wrapper .sidebar ul li a.active:before{
     display: block;
+}
+
+.container{
+  margin-top: 50px;
+  margin-left: 200px;
 }
 
  
