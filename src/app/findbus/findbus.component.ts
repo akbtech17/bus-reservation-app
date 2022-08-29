@@ -24,6 +24,7 @@ export class FindbusComponent implements OnInit {
     source: '',
     destination: '',
     distance: 0,
+    avbSeats: 0
   }
 busId: number = 0
   constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute) {}

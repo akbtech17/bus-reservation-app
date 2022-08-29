@@ -56,4 +56,9 @@ export class BusserviceService {
     console.log(searchquery);
     return this.httpclient.post<any[]>(this.url + '/search', searchquery, this.httpOptions);
   }
+
+  avbSeates(busId:number):Observable<Ibus>
+  {
+    return this.httpclient.get<Ibus>(this.url + '/seatsavb/' + busId, this.httpOptions)
+  }
 }

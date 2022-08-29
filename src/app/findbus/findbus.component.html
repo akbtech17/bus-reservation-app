@@ -13,6 +13,7 @@
                     <th>Rows</th>
                     <th>Cols</th>
                  <th>Total Seats</th>
+                 <th>Seats Available</th>
                   <th>Departure Time</th>   
                     <th>Arrival time</th>
                     <th>Pick up</th>
@@ -20,6 +21,7 @@
                     <th>Source</th>
                     <th>Destination</th>
                     <th>Distance</th>
+                    
                    
                 </tr>
             </thead>
@@ -32,7 +34,8 @@
                     <td>{{busdata.driverContact}}</td>
                     <td>{{busdata.rows}}</td>
                     <td>{{busdata.cols}}</td>
-                    <td>{{busdata.rows*busdata.cols}}</td> 
+                    <td>{{busdata.rows*busdata.cols}}</td>
+                    <td>{{busdata.avbSeats}}</td> 
                     <td>{{busdata.dtime}}</td>
                     <td>{{busdata.atime}}</td>
                     <td>{{busdata.pickup}}</td>

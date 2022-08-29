@@ -25,6 +25,7 @@ export class AddbusComponent implements OnInit {
     source: '',
     destination: '',
     distance: 0,
+    avbSeats:0
   }
   constructor(private busservice:BusserviceService, private router:Router, private activateroute: ActivatedRoute){ }
   saveBus(bus:Ibus){
