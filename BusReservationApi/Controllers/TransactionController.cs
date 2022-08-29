@@ -154,6 +154,62 @@ namespace BusReservationApi.Controllers
                 return BadRequest(ex.InnerException.Message);
             }
         }
+
+
+        [HttpGet]
+        [Route("{tId}")]
+        public IActionResult GetTransactionDetails(int tId)
+        {
+            TransactionResponse response = new TransactionResponse();
+            try
+            {
+                // get the transaction details from the transaction table
+                var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
+                response.tId = transactionDetails.Tid;
+                response.busId = transactionDetails.BusId;
+                response.totalCost = transactionDetails.TotalCost;
+                response.customerId = transactionDetails.CustomerId;
+
+                // get the passengers details
+                var data = db.Passengers.Where(pass => pass.Tid == tId).Select(pass => pass).ToList();
+                int cnt = data.Count();
+
+                response.passengers = new PassengerData[cnt];
+                for (int i = 0; i < cnt; i++) {
+                    PassengerData pdata = new PassengerData();
+                    pdata.Pid = data[i].Pid;
+                    pdata.Pname = data[i].Pname;
+                    pdata.Adhaar = data[i].Adhaar;
+                    pdata.Gender = data[i].Gender;
+                    pdata.Age = data[i].Age;
+
+                    response.passengers[i] = pdata;
+                }
+
+
+                // get the seats booked list
+                var seats = db.TransactionSeats.Where(seat => seat.Tid == tId).ToList();
+                response.seats = new string[seats.Count];
+                for (int i = 0; i < seats.Count; i++)
+                {
+                    response.seats[i] = seats[i].SeatNo;
+                }
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
+    }
+
+    public class PassengerData {
+        public int Pid { get; set; }
+        public string Pname { get; set; }
+        public int Age { get; set; }
+        public string Adhaar { get; set; }
+        public string Gender { get; set; }
     }
 
     public class TransactionQuery {
@@ -164,5 +220,16 @@ namespace BusReservationApi.Controllers
         public DateTime dateOfBooking { get; set; }
         public string[] seats { get; set; }
         public Passenger[] passengers { get; set; }
+    }
+
+    public class TransactionResponse
+    {
+        public int tId { get; set; }
+        public int busId { get; set; }
+        public int totalCost { get; set; }
+        public int customerId { get; set; }
+        public DateTime dateOfBooking { get; set; }
+        public string[] seats { get; set; }
+        public PassengerData[] passengers { get; set; }
     }
 }
