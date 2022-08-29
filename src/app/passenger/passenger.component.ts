@@ -18,6 +18,9 @@ export class PassengerComponent implements OnInit {
   }
   seat_arr: string[] = ['A0','B1']
   cnt:number=0
+  BusId:number=0
+  seats:string[]=[]
+  count:number=0
     
     /*{"PId": 2, "TId":1, "PName":"Ashish", "Age":24,"Adhar":"392266402198","Gender": "M"},
     {"PId": 3, "TId":1, "PName":"Omkar", "Age":27,"Adhar":"392266402198","Gender": "M"},
@@ -25,9 +28,12 @@ export class PassengerComponent implements OnInit {
     {"PId": 5, "TId":2, "PName":"George", "Age":41,"Adhar":"392266402198","Gender": "M"},
     {"PId": 6, "TId":2, "PName":"Rekha", "Age":64,"Adhar":"392266402198","Gender": "F"}
   */
-  constructor(private router:Router ) {}
+  constructor(private router:Router, private activateroute: ActivatedRoute ) {}
 
   ngOnInit(): void {
+    const data = this.activateroute.snapshot.paramMap.get('BusId')
+   
+    console.log("Bus id is" + data)
   }
   show(passdet:Ipassenger){
     alert("Submitted Successfully..!")

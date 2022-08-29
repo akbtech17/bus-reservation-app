@@ -70,12 +70,13 @@ export class SeatbookComponent implements OnInit {
           }
           this.seatmap.push(detseat)
         })
-        this.router.navigate(['/sbook'])
+       
         // line 6
         console.log(this.seatmap)
         
       }
     )
+    this.router.navigate(['/passdetails', {BusId:this.busId},{seats:this.selectedSeats},{count:this.selectedSeatsCount}])
   } 
 }
 
