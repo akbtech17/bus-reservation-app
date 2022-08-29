@@ -1,41 +1,36 @@
 table, th, td {
     border: 1px solid black;
-    margin-left: 250px;
+    margin-left: 600px;
+    margin-top: 50px;
   }
 
 th {
-    background-color: lime;
-    width: 200px;
+    background-color: bisque;
+    width: 80px;
     height: 50px;
 }
 
 td {
-    background-color: #f00;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
+}
+
+
+#available {
+    background-color:rgb(95, 236, 95);
     cursor: pointer;
 }
-
-td:hover {
-    background-color: aquamarine;
-}
-.green{
-    background-color: green;
+#available:hover {
+    background-color: aquamarine;  
 }
 
-.red{
-    background-color: red;
+#notavb {
+    background-color: brown;
 }
-.seat {
-        background-color:#f00;
-        padding: 10px;
-        margin-left: 10px;
-        margin-top: 5px;
-  }
-  
-.selected {
-    background-color: green;
-  }
 
+#selected {
+    background-color: blue;
+    cursor: pointer;
+}
  
   

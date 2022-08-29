@@ -1,4 +1,94 @@
-<div>
+<h3>Selected Seats Count : {{selectedSeatsCount}}</h3> 
+<h3>Selected Seats List :</h3>
+<div *ngFor="let seat of selectedSeats">
+  <span>{{seat}},</span>
+</div>
+
+<table border=1 solid ng-app="myApp" ng-controller="myCtrl">
+  <thead>
+    <th>A</th>
+    <th>B</th>
+    <th>C</th>
+    <th>D</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="{{seatmap[0].available == 0 ? 'notavb' : seatmap[0].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[0].seatNo)">{{seatmap[0].seatNo}}</td>
+      <td id="{{seatmap[10].available == 0 ? 'notavb' : seatmap[10].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[10].seatNo)">{{seatmap[10].seatNo}}</td>
+      <td id="{{seatmap[20].available == 0 ? 'notavb' : seatmap[20].available == 1 ? 'available':'selected'}}" onclick="onClick(seatmap[20].seatNo)">{{seatmap[20].seatNo}}</td>
+      <td id="{{seatmap[30].available == 0 ? 'notavb' : seatmap[30].available == 1 ? 'available':'selected'}}" onclick="onClick(seatmap[30].seatNo)">{{seatmap[30].seatNo}}</td>
+    </tr>
+    <tr>
+      <td id="{{seatmap[1].available == 0 ? 'notavb' : seatmap[1].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[1].seatNo)">{{seatmap[1].seatNo}}</td>
+      <td id="{{seatmap[11].available == 0 ? 'notavb' : seatmap[11].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[11].seatNo)" >{{seatmap[11].seatNo}}</td>
+      <td id="{{seatmap[21].available == 0 ? 'notavb' : seatmap[21].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[21].seatNo)" >{{seatmap[21].seatNo}}</td>
+      <td id="{{seatmap[31].available == 0 ? 'notavb' : seatmap[31].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[31].seatNo)" >{{seatmap[31].seatNo}}</td>
+    </tr>  
+    <tr>
+      <td id="{{seatmap[2].available == 0 ? 'notavb' : seatmap[2].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[2].seatNo)" >{{seatmap[2].seatNo}}</td>
+      <td id="{{seatmap[12].available == 0 ? 'notavb' : seatmap[12].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[12].seatNo)" >{{seatmap[12].seatNo}}</td>
+      <td id="{{seatmap[22].available == 0 ? 'notavb' : seatmap[22].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[22].seatNo)" >{{seatmap[22].seatNo}}</td>
+      <td id="{{seatmap[32].available == 0 ? 'notavb' : seatmap[32].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[32].seatNo)" >{{seatmap[32].seatNo}}</td>
+    </tr>
+    <tr>
+      <td id="{{seatmap[3].available == 0 ? 'notavb' : seatmap[3].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[3].seatNo)" >{{seatmap[3].seatNo}}</td>
+      <td id="{{seatmap[13].available == 0 ? 'notavb' : seatmap[13].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[13].seatNo)" >{{seatmap[13].seatNo}}</td>
+      <td id="{{seatmap[23].available == 0 ? 'notavb' : seatmap[23].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[23].seatNo)" >{{seatmap[23].seatNo}}</td>
+      <td id="{{seatmap[33].available == 0 ? 'notavb' : seatmap[33].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[33].seatNo)" >{{seatmap[33].seatNo}}</td>
+    </tr>
+    <tr>
+      <td id="{{seatmap[4].available == 0 ? 'notavb' : seatmap[4].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[4].seatNo)">{{seatmap[4].seatNo}}</td>
+      <td id="{{seatmap[14].available == 0 ? 'notavb' : seatmap[14].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[14].seatNo)">{{seatmap[14].seatNo}}</td>
+      <td id="{{seatmap[24].available == 0 ? 'notavb' : seatmap[24].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[24].seatNo)">{{seatmap[24].seatNo}}</td>
+      <td id="{{seatmap[34].available == 0 ? 'notavb' : seatmap[34].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[34].seatNo)">{{seatmap[34].seatNo}}</td>
+    </tr>
+    <tr>
+      <td id="{{seatmap[5].available == 0 ? 'notavb' : seatmap[5].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[5].seatNo)">{{seatmap[5].seatNo}}</td>
+      <td id="{{seatmap[15].available == 0 ? 'notavb' : seatmap[15].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[15].seatNo)">{{seatmap[15].seatNo}}</td>
+      <td id="{{seatmap[25].available == 0 ? 'notavb' : seatmap[25].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[25].seatNo)">{{seatmap[25].seatNo}}</td>
+      <td id="{{seatmap[35].available == 0 ? 'notavb' : seatmap[35].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[35].seatNo)">{{seatmap[35].seatNo}}</td>
+    </tr>
+    <tr>
+      <td id="{{seatmap[6].available == 0 ? 'notavb' : seatmap[6].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[6].seatNo)">{{seatmap[6].seatNo}}</td>
+      <td id="{{seatmap[16].available == 0 ? 'notavb' : seatmap[16].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[16].seatNo)">{{seatmap[16].seatNo}}</td>
+      <td id="{{seatmap[26].available == 0 ? 'notavb' : seatmap[26].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[26].seatNo)">{{seatmap[26].seatNo}}</td>
+      <td id="{{seatmap[36].available == 0 ? 'notavb' : seatmap[36].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[36].seatNo)">{{seatmap[36].seatNo}}</td>
+    </tr>
+    <tr>
+      <td id="{{seatmap[7].available == 0 ? 'notavb' : seatmap[7].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[7].seatNo)">{{seatmap[7].seatNo}}</td>
+      <td id="{{seatmap[17].available == 0 ? 'notavb' : seatmap[17].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[17].seatNo)">{{seatmap[17].seatNo}}</td>
+      <td id="{{seatmap[27].available == 0 ? 'notavb' : seatmap[27].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[27].seatNo)">{{seatmap[27].seatNo}}</td>
+      <td id="{{seatmap[37].available == 0 ? 'notavb' : seatmap[37].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[37].seatNo)">{{seatmap[37].seatNo}}</td>
+    </tr>
+    <tr>
+      <td id="{{seatmap[8].available == 0 ? 'notavb' : seatmap[8].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[8].seatNo)">{{seatmap[8].seatNo}}</td>
+      <td id="{{seatmap[18].available == 0 ? 'notavb' : seatmap[18].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[18].seatNo)">{{seatmap[18].seatNo}}</td>
+      <td id="{{seatmap[28].available == 0 ? 'notavb' : seatmap[28].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[28].seatNo)">{{seatmap[28].seatNo}}</td>
+      <td id="{{seatmap[38].available == 0 ? 'notavb' : seatmap[38].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[38].seatNo)">{{seatmap[38].seatNo}}</td>
+    </tr>
+    <tr>
+      <td id="{{seatmap[9].available == 0 ? 'notavb' : seatmap[9].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[9].seatNo)">{{seatmap[9].seatNo}}</td>
+      <td id="{{seatmap[19].available == 0 ? 'notavb' : seatmap[19].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[19].seatNo)">{{seatmap[19].seatNo}}</td>
+      <td id="{{seatmap[29].available == 0 ? 'notavb' : seatmap[29].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[29].seatNo)">{{seatmap[29].seatNo}}</td>
+      <td id="{{seatmap[39].available == 0 ? 'notavb' : seatmap[39].available == 1 ? 'available':'selected'}}" (click)="onClick(seatmap[39].seatNo)">{{seatmap[39].seatNo}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="onSubmit()">Click me</button>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div>
 <h1>{{this.msg}}</h1>
 </div>
 <br>
@@ -188,95 +278,4 @@
  </button>
  </div> 
 
-  <!-- <table border=1 solid>
-    <thead>
-      <th>Row1</th>
-      <th>Row2</th>
-      <th>Row3</th>
-      <th>Row4</th>
-    </thead>
-     <tbody >
-      <td>{{seatdata[0].seatNo}}</td>
-      <td>{{seatdata[1].seatNo}}</td>
-       <td>{{seatdata[2].seatNo}}</td>
-        <td>{{seatdata[3].seatNo}}</td>
-      
-      <tr>
-        <td>{{seatdata[4].seatNo}}</td>
-        <td>{{seatdata[5].seatNo}}</td>
-        <td>{{seatdata[6].seatNo}}</td>
-        <td>{{seatdata[7].seatNo}}</td>
-      </tr>
-      <tr>
-        <td>{{seatdata[8].seatNo}}</td>
-        <td>{{seatdata[9].seatNo}}</td>
-        <td>{{seatdata[10].seatNo}}</td>
-        <td>{{seatdata[11].seatNo}}</td>
-      </tr>
-      <tr>
-        <td>{{seatdata[12].seatNo}}</td>
-        <td>{{seatdata[13].seatNo}}</td>
-        <td>{{seatdata[14].seatNo}}</td>
-        <td>{{seatdata[15].seatNo}}</td>
-      </tr>
-      <tr>
-        <td>{{seatdata[16].seatNo}}</td>
-        <td>{{seatdata[17].seatNo}}</td>
-        <td>{{seatdata[18].seatNo}}</td>
-        <td>{{seatdata[19].seatNo}}</td>
-      </tr>
-      <tr>
-        <td>{{seatdata[20].seatNo}}</td>
-        <td>{{seatdata[21].seatNo}}</td>
-        <td>{{seatdata[22].seatNo}}</td>
-        <td>{{seatdata[23].seatNo}}</td>
-      </tr>
-      <tr>
-        <td>{{seatdata[23].seatNo}}</td>
-        <td>{{seatdata[24].seatNo}}</td>
-        <td>{{seatdata[25].seatNo}}</td>
-        <td>{{seatdata[26].seatNo}}</td>
-      </tr>
-      <tr>
-        <td>{{seatdata[27].seatNo}}</td>
-        <td>{{seatdata[28].seatNo}}</td>
-        <td>{{seatdata[29].seatNo}}</td>
-        <td>{{seatdata[30].seatNo}}</td>
-      </tr>
-      <tr>
-        <td>{{seatdata[31].seatNo}}</td>
-        <td>{{seatdata[32].seatNo}}</td>
-        <td>{{seatdata[33].seatNo}}</td>
-        <td>{{seatdata[34].seatNo}}</td>
-      </tr>
-      <tr>
-        <td>{{seatdata[35].seatNo}}</td>
-        <td>{{seatdata[36].seatNo}}</td>
-        <td>{{seatdata[37].seatNo}}</td>
-        <td>{{seatdata[38].seatNo}}</td>
-      </tr>
-      <tr>
-        <td>{{seatdata[39].seatNo}}</td>
-        
-      
-
-    </tbody>
-  </table> 
-   -->
-<!-- 
-
-  
-
-
-<!-- <div *ngIf="tabIndex==0">
-     <button  (click)="onSelect()"[ngClass]="{'green':select, 'red':!select}" (click)="onClick(1)">
-        {{seatdata[1].seatNo}}
-        </button> </div>
-        
-        <div *ngIf="tabIndex==1">
-        <button (click)="onSelect()"[ngClass]="{'green':select, 'red':!select}">
-          {{seatdata[0].seatNo}}
-          </button>
-        </div> -->
-
-     
+      -->
