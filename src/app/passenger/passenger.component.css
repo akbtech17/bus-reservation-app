@@ -21,3 +21,10 @@
     background-color: blueviolet;
 }
 
+.passenger{
+    border-radius: 2rem;
+    /* background: linear-gradient(45deg, rgb(0, 225, 255), rgb(212, 0, 255)); */
+}
+
+
+

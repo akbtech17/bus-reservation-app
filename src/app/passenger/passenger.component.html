@@ -1,42 +1,40 @@
-<br><br>
-<h2 style="color:blueviolet;text-align: center;" >Add Passenger Details</h2><br>
-<div style="margin-left:500px;margin-top: 5px;margin-right: 500px;">
+
+<h2 style="color:blueviolet;text-align: center;" >Add Passenger Details</h2>
+<hr/><br>
+<div style="margin-left:500px;margin-right: 500px;" >
 <form (ngSubmit)="show(passdetails)" #passform="ngForm">
 
     <b class="lst"style="color:white">Seat {{seat_arr[cnt]}}</b><br><br>
-    <div style="border:2px solid blueviolet; padding: 10px 15px;">
+    <div  class="passenger" style="border:2px solid blueviolet; padding: 10px 15px;">
+    <div class="form-group mb-3">
     <label for="pid">Enter Passenger Id :</label>
-    <input type="text" placeholder="Enter Passenger ID" name="PId" id="PId" required [(ngModel)]="passdetails.PId" #PId="ngModel">
+    <input class="form-control" type="text" placeholder="Enter Passenger ID" name="PId" id="PId" required [(ngModel)]="passdetails.PId" #PId="ngModel">
     <div *ngIf="PId.invalid && (PId.dirty || PId.touched)" style="color:red;">    
         <div *ngIf="PId.errors?.['required']">
             PId is required
         </div>
     </div>
-    <br><br>
-    <label for="tid">Enter Ticket Id :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" placeholder="Enter Ticket ID" name="TId" id="TId" required [(ngModel)]="passdetails.TId" #TId="ngModel">
-    <div *ngIf="TId.invalid && (TId.dirty || TId.touched)" style="color:red;">    
-        <div *ngIf="TId.errors?.['required']">
-            TId is required
-        </div>
-    </div><br><br>
+</div>
+<div class="form-group mb-3">
     <label for="pname">Enter Passenger Name :</label>
-    <input type="text" placeholder="Enter Passenger Name" name="PName" id="PName" required [(ngModel)]="passdetails.PName" #PName="ngModel">
+    <input type="text" class="form-control" placeholder="Enter Passenger Name" name="PName" id="PName" required [(ngModel)]="passdetails.PName" #PName="ngModel">
     <div *ngIf="PName.invalid && (PName.dirty || PName.touched)" style="color:red;">    
         <div *ngIf="PName.errors?.['required']">
             Passenger Name is required
         </div>
-    </div><br><br>
+    </div></div>
+    <div class="form-group mb-3">
     <label for="age">Enter Age :</label>
-    <input type="text" placeholder="Enter Passenger Age" name="Age" id="Age" required [(ngModel)]="passdetails.Age" #Age="ngModel">
+    <input type="text" class="form-control" placeholder="Enter Passenger Age" name="Age" id="Age" required [(ngModel)]="passdetails.Age" #Age="ngModel">
     <div *ngIf="Age.invalid && (Age.dirty || Age.touched)" style="color:red;">    
         <div *ngIf="Age.errors?.['required']">
             Age is required
         </div>
     </div>
-    <br><br>
-    <label for="Adhar">Enter Adhaar no :</label>
-    <input type="text" placeholder="Enter Passenger Adhaar" name="Adhar" id="Adhar" required minlength="12" maxlength="12" [(ngModel)]="passdetails.Adhar" #Adhar="ngModel">
+</div>
+<div class="form-group mb-3">
+    <label for="Adhar">Enter Aadhaar no :</label>
+    <input type="text" class="form-control" placeholder="Enter Passenger Adhaar" name="Adhar" id="Adhar" required minlength="12" maxlength="12" [(ngModel)]="passdetails.Adhar" #Adhar="ngModel">
     <div *ngIf="Adhar.invalid && (Adhar.dirty || Adhar.touched)" style="color:red;">    
         <div *ngIf="Adhar.errors?.['required']">
             Adhaar is required
@@ -46,18 +44,19 @@
         </div>
 
     </div>
-    <br><br>
+</div>
+<div class="form-group mb-3">
     <label for="Gender">Enter Gender(M/F):</label>
-    <input type="text" placeholder="Enter Passenger Gender" name="Gender" id="Gender" required [(ngModel)]="passdetails.Gender" #Gender="ngModel">
+    <input type="text" class="form-control" placeholder="Enter Passenger Gender" name="Gender" id="Gender" required [(ngModel)]="passdetails.Gender" #Gender="ngModel">
     <div *ngIf="Gender.invalid && (Gender.dirty || Gender.touched)" style="color:red;">    
         <div *ngIf="Gender.errors?.['required']">
             Gender is required
         </div>
-    </div>
-    <br><br>
-    <input type="submit" value="Submit" class="btn btn-info" [disabled]="!passform">&nbsp;&nbsp;&nbsp;
-    <input value="Cancel" class="btn btn-danger" style="width:6rem;">&nbsp;&nbsp;&nbsp;
-    <input type="reset" value="Clear" class="btn btn-success">
+    </div></div>
+    
+    <input type="submit" value="Submit" class="btn btn-success" [disabled]="!passform.valid">&nbsp;&nbsp;&nbsp;
+  
+    <input type="reset" value="Clear" class="btn btn-secondary">
 </div>
 </form>
 </div>

@@ -41,7 +41,7 @@ export class PassengerComponent implements OnInit {
     this.passdetails.Gender=''
     if(this.cnt==this.seat_arr.length){
       //call the service to add passenger details in Passenger Table
-      this.router.navigate(["/transaction"]);
+      this.router.navigate(["/card"]);
     }
     else{
       //call the service to add passenger details in Passenger Table

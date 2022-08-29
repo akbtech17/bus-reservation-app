@@ -28,6 +28,7 @@ export class BusserviceService {
   {
     console.log(busId);
     return this.httpclient.get<Ibus>(this.url + '/'+ busId)
+    
   }
 
   //To add Bus Details
@@ -56,4 +57,10 @@ export class BusserviceService {
     console.log(searchquery);
     return this.httpclient.post<any[]>(this.url + '/search', searchquery, this.httpOptions);
   }
+
+   avbSeates(busId:number):Observable<any>
+   {
+     return this.httpclient.get<any[]>(this.url + '/seatsavb/' + busId)
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { SeatserviceService } from '../seatservice.service';
 
 @Component({
@@ -33,6 +34,9 @@ export class SeatbookComponent implements OnInit {
   }
 
   onSubmit() {
+    // reset the selected seats on confirmation
+    this.selectedSeats = []
+    this.selectedSeatsCount = 0
     this.seatmap.forEach(object => {
       var seatNo = object.seatNo
       if(object.available==2) {
@@ -47,7 +51,7 @@ export class SeatbookComponent implements OnInit {
 }
 
 
-  constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute) { 
+  constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute, private router:Router) { 
   }
 
   ngOnInit(): void {
@@ -69,6 +73,7 @@ export class SeatbookComponent implements OnInit {
         
         // line 6
         console.log(this.seatmap)
+        
       }
     )
   } 
