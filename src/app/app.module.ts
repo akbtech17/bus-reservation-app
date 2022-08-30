@@ -33,6 +33,7 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SummaryComponent } from './summary/summary.component';
+import { PassbookedComponent } from './passbooked/passbooked.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { SummaryComponent } from './summary/summary.component';
     TransactionComponent,
     CarddetailsComponent,
     FeedbackComponent,
-    SummaryComponent
+    SummaryComponent,
+    PassbookedComponent
   ],
   imports: [
     BrowserModule,

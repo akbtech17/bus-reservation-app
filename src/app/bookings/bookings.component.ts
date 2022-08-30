@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TransactionserviceService } from '../transactionservice.service';
 import { Itransactionres } from '../itransactionres';
 import { TransactionDetails } from '../transaction-details';
+import { Bookingpassenger } from '../bookingpassenger';
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
@@ -10,6 +11,7 @@ import { TransactionDetails } from '../transaction-details';
 })
 export class BookingsComponent implements OnInit {
   transactiondata:any[]=[]
+  
   // transactiondata :  Itransactionres ={
     
   //   tId: 0,
@@ -34,9 +36,12 @@ export class BookingsComponent implements OnInit {
    
     this.transactionservice.getTransactiondet(TransactionDetails.customerId).subscribe(
     (data:any)=>{
+      console.log(data[0].passengers)
+      Bookingpassenger.passengers  = data.passengers
       this.transactiondata = data
       console.log(data.busId)
       console.log(this.transactiondata)
+      
   }
   
    ) 
