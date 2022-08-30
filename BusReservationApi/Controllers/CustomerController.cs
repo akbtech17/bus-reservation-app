@@ -125,7 +125,26 @@ namespace BusReservationApi.Controllers
             }
         }
 
-
-        
+        [HttpPut]
+        [Route("changepassword/{CustomerId}")]
+        public IActionResult DeleteCust(ChangePasswordQuery query)
+        {
+            try
+            {
+                var data = db.Customers.Where(cust => cust.CustomerId == query.customerId).FirstOrDefault();
+                data.Password = query.newPassword;
+                db.SaveChanges();
+                return Ok("Password change success!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
+    }
+    public class ChangePasswordQuery
+    {
+        public int customerId { get; set; }
+        public string newPassword { get; set; }
     }
 }
