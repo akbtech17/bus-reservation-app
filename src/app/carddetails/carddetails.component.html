@@ -5,6 +5,10 @@
 
     <!-- <b class="lst"style="color:white">Seat {{seat_arr[cnt]}}</b><br><br> -->
     <div style="border:2px solid blueviolet; padding: 10px 15px;">
+
+    <input type="number" placeholder="Enter TID" name="tId" required id="tId" [(ngModel)]="tId">
+    
+
     <label for="cardNumber">Enter Card no :</label>
     <input type="text" placeholder="Enter card no" name="cardNumber" id="cardNumber" required minlength="16" maxlength="16" [(ngModel)]="carddetails.cardNumber" #cardNumber="ngModel">
     <div *ngIf="cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)" style="color:red;">    
@@ -16,6 +20,7 @@
         </div>
     </div>
     <br><br>
+    
     <label for="cvv">Enter CVV :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" placeholder="Enter CVV" name="cvv" id="cvv" required minlength="3" maxlength="3" [(ngModel)]="carddetails.cvv" #cvv="ngModel">
     <div *ngIf="cvv.invalid && (cvv.dirty || cvv.touched)" style="color:red;">    

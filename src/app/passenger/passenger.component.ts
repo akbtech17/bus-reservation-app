@@ -1,9 +1,5 @@
-import { transition } from '@angular/animations';
-import { ParseError } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { concatWith } from 'rxjs';
-import { Ipassenger } from '../ipassenger';
 import { Passenger } from '../passenger';
 import { TransactionDetails } from '../transaction-details';
 
@@ -18,7 +14,7 @@ export class PassengerComponent implements OnInit {
     "TId": 0, 
     "PName": '', 
     "Age": 0,
-    "Adhaar": '',
+    "Adhar": '',
     "Gender": ''
   }
   // seat_arr: string[] = TransactionDetails.seats
@@ -37,7 +33,7 @@ export class PassengerComponent implements OnInit {
     
     // this.passdetails = passdet;
     console.log(this.passdetails)
-    this.passengerArray.push(new Passenger(this.passdetails.PId, this.passdetails.TId, this.passdetails.PName, this.passdetails.Age, this.passdetails.Adhaar, this.passdetails.Gender))
+    this.passengerArray.push(new Passenger(this.passdetails.PId, this.passdetails.TId, this.passdetails.PName, this.passdetails.Age, this.passdetails.Adhar, this.passdetails.Gender))
     this.cnt++;
 
     // resetting the passenger
@@ -45,7 +41,7 @@ export class PassengerComponent implements OnInit {
     this.passdetails.TId=0 
     this.passdetails.PName=''
     this.passdetails.Age=0
-    this.passdetails.Adhaar=''
+    this.passdetails.Adhar=''
     this.passdetails.Gender=''
 
     if(this.cnt==this.seat_arr.length){

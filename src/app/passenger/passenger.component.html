@@ -34,7 +34,7 @@
 </div>
 <div class="form-group mb-3">
     <label for="Adhar">Enter Aadhaar no :</label>
-    <input type="text" class="form-control" placeholder="Enter Passenger Adhaar" name="Adhar" id="Adhaar" required minlength="12" maxlength="12" [(ngModel)]="passdetails.Adhaar" #Adhaar="ngModel">
+    <input type="text" class="form-control" placeholder="Enter Passenger Adhaar" name="Adhar" id="Adhaar" required minlength="12" maxlength="12" [(ngModel)]="passdetails.Adhar" #Adhaar="ngModel">
     <div *ngIf="Adhaar.invalid && (Adhaar.dirty || Adhaar.touched)" style="color:red;">    
         <div *ngIf="Adhaar.errors?.['required']">
             Adhaar is required
