@@ -22,7 +22,7 @@ export class PassengerComponent implements OnInit {
     "Gender": ''
   }
   // seat_arr: string[] = TransactionDetails.seats
-  seat_arr: string[] = ['A0']
+  seat_arr: string[] = TransactionDetails.seats
   cnt:number=0
   BusId:number=0
   seats:string[]=[]
