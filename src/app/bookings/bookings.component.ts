@@ -23,7 +23,7 @@ export class BookingsComponent implements OnInit {
   // }
   
   customerId:number = 0
-  dateofBooking :Date=new Date()
+  today :Date= new Date();
     constructor(private transactionservice:TransactionserviceService, private activateroute:ActivatedRoute) {
      
      }
@@ -35,19 +35,20 @@ export class BookingsComponent implements OnInit {
     this.transactionservice.getTransactiondet(TransactionDetails.customerId).subscribe(
     (data:any)=>{
       this.transactiondata = data
+      console.log(data.busId)
       console.log(this.transactiondata)
   }
-   
+  
    ) 
    
   }
 
-
 }
 
-// today :Date= new Date();
 
-  // isDateEqual(dateOfBooking:Date) {
-  //     if(dateOfBooking.getTime()>this.today.getTime())
-  //       return true;
-  //   return false;
+function isDateEqual() {
+  throw new Error('Function not implemented.');
+}
+// 
+
+ 
