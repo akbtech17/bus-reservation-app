@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { SeatserviceService } from '../seatservice.service';
+import { TransactionDetails } from '../transaction-details';
 
 @Component({
   selector: 'app-seatbook',
@@ -46,13 +47,16 @@ export class SeatbookComponent implements OnInit {
       }
       }
     )
-    console.log("count of selected seats are : " + this.selectedSeatsCount)
-    console.log("list of selected seats : " + this.selectedSeats)
+    // console.log("count of selected seats are : " + this.selectedSeatsCount)
+    // console.log("list of selected seats : " + this.selectedSeats)
 }
 
 onNext() {
-    console.log("busid from seatbook is : " + this.busId)
-    this.router.navigate(['/passdetails',{BusId:this.busId}])
+    // console.log("busid from seatbook is : " + this.busId)
+    TransactionDetails.seatCount = this.selectedSeatsCount
+    TransactionDetails.seats = this.selectedSeats
+    // console.log("count from seatbook",TransactionDetails.seatCount)
+    this.router.navigate(['/passdetails'])
 }
 
 
@@ -62,11 +66,12 @@ onNext() {
   ngOnInit(): void {
     const tid = this.activatedroute.snapshot.paramMap.get('busId')
     this.busId = Number(tid)
+    TransactionDetails.busId = this.busId
     this.seatservice.getseats(this.busId).subscribe(
       (data:any[])=>
       {
         this.seatdata = data
-        console.log(this.seatdata)
+        // console.log(this.seatdata)
 
         this.seatdata.forEach(data => {
           var detseat = {

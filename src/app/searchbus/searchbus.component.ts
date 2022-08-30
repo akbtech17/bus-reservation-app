@@ -3,6 +3,7 @@ import {  Router } from '@angular/router';
 import { BusserviceService } from '../busservice.service';
 import { Isearchbus } from '../isearchbus';
 import { ActivatedRoute } from '@angular/router';
+import { TransactionDetails } from '../transaction-details';
 
 @Component({
   selector: 'app-searchbus',
@@ -18,7 +19,7 @@ export class SearchbusComponent implements OnInit {
   busId:number = 0
   isShown:boolean =false;
   Buslist: any[] = []
-    seatAvb: any[] = []
+  seatAvb: any[] = []
   constructor(private busservice: BusserviceService) { }
 
   ngOnInit(): void {
@@ -28,8 +29,10 @@ export class SearchbusComponent implements OnInit {
   onSubmit() {
     this.busservice.searchBuses(this.searchquery).subscribe(
       data=>
-
-       {  this.Buslist = data }
+      {  
+        this.Buslist = data
+        
+      }
        );
     console.log(this.Buslist);
    
