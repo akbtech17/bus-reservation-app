@@ -87,7 +87,7 @@ const routes: Routes = [
     path: 'passdetails',component:PassengerComponent
   },
   {
-    path: 'transaction',component:TransactionComponent
+    path: 'transaction/:cId',component:TransactionComponent
   },
   {
     path:'card',component:CarddetailsComponent

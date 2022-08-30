@@ -1,6 +1,9 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Itransaction } from '../itransaction';
+import { Itransactionres } from '../itransactionres';
+import { ActivatedRoute } from '@angular/router';
+import { TransactionserviceService } from '../transactionservice.service';
+import { Ipassengerdet } from '../ipassengerdet';
 
 @Component({
   selector: 'app-transaction',
@@ -8,40 +11,40 @@ import { Itransaction } from '../itransaction';
   styleUrls: ['./transaction.component.css']
 })
 export class TransactionComponent implements OnInit {
-tdetails:Itransaction[]=[{
-  tId:1,
-  busId:1,
-  customerId:1,
-  dateOfBooking:new Date('09.02.2022'),
-  totalcost:300
-},{
-  tId:2,
-  busId:2,
-  customerId:2,
-  dateOfBooking:new Date('08.30.2022'),
-  totalcost:300
-},{
-  tId:3,
-  busId:2,
-  customerId:2,
-  dateOfBooking: new Date('08.28.2022'),
-  totalcost:400
-}]
-today :Date= new Date();
 
-  constructor() {
+transactiondata: Itransactionres ={
+  tId: 0,
+  busId: 0,
+  totalCost: 0,
+  customerId: 0,
+  dateofBooking:'',
+  seats:[],
+  passengers:[]
+  
+}
+customerId:number = 0
+  constructor(private transactionservice:TransactionserviceService, private activateroute:ActivatedRoute) {
    
    }
 
   ngOnInit(): void {
-  }
-  isDateEqual(dateOfBooking:Date) {
-      if(dateOfBooking.getTime()>this.today.getTime())
-        return true;
-    return false;
-     
-  }
- onclick(){
-  alert("Want to cancel the Booking")
- }
+  const tid = this.activateroute.snapshot.paramMap.get('customerId')
+  this.customerId = Number(tid)
+ 
+  this.transactionservice.getTransactiondet(this.customerId).subscribe(
+  (data:Itransactionres)=>{
+    this.transactiondata = data
+    
 }
+ 
+ ) 
+ 
+}
+}
+// today :Date= new Date();
+
+  // isDateEqual(dateOfBooking:Date) {
+  //     if(dateOfBooking.getTime()>this.today.getTime())
+  //       return true;
+  //   return false;
+     
