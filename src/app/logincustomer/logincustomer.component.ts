@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Icustomer } from '../icustomer';
 import { CustomerserviceService } from '../customerservice.service';
 import { Router } from '@angular/router';
+import { TransactionDetails } from '../transaction-details';
 
 @Component({
   selector: 'app-logincustomer',
@@ -31,6 +32,7 @@ export class LogincustomerComponent implements OnInit {
         if(data)
         {
           alert("Welcome")
+          TransactionDetails.cId = data.customerId
           this.router.navigate(['/sidebarcust', {custName: data.firstName}])
         }
         console.log("Error")
