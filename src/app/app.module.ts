@@ -32,6 +32,7 @@ import { PassengerComponent } from './passenger/passenger.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     PassengerComponent,
     TransactionComponent,
     CarddetailsComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

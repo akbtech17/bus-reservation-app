@@ -23,7 +23,7 @@ export class CarddetailsComponent implements OnInit {
   Show(card:Icard){
     alert("Payment Done Successfully..!")
     console.log(this.carddetails);
-    this.router.navigate(['/transaction']);
+    this.router.navigate(['summary']);
   }
 
   ngOnInit(): void {
