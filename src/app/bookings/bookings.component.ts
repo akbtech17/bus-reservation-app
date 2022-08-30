@@ -9,17 +9,21 @@ import { TransactionDetails } from '../transaction-details';
   styleUrls: ['./bookings.component.css']
 })
 export class BookingsComponent implements OnInit {
-  transactiondata: Itransactionres ={
-    tId: 0,
-    busId: 0,
-    totalCost: 0,
-    customerId: 0,
-    dateofBooking:new Date(),
-    seats:[],
-    passengers:[]
-  }
-  customerId:number = 0
+  transactiondata:any[]=[]
+  // transactiondata :  Itransactionres ={
+    
+  //   tId: 0,
+  //   busId: 0,
+  //   totalCost: 0,
+  //   customerId: 0,
+  //   dateofBooking:new Date(),
+  //   seats:[],
+  //   passengers:[]
+    
+  // }
   
+  customerId:number = 0
+  dateofBooking :Date=new Date()
     constructor(private transactionservice:TransactionserviceService, private activateroute:ActivatedRoute) {
      
      }
@@ -29,7 +33,7 @@ export class BookingsComponent implements OnInit {
     this.customerId = Number(tid)
    
     this.transactionservice.getTransactiondet(TransactionDetails.customerId).subscribe(
-    (data:Itransactionres)=>{
+    (data:any)=>{
       this.transactiondata = data
       console.log(this.transactiondata)
   }
@@ -37,6 +41,7 @@ export class BookingsComponent implements OnInit {
    ) 
    
   }
+
 
 }
 

@@ -1,1 +1,34 @@
-<p>bookings works!</p>
+
+<div class="container">
+    <div class="jumbotron">
+        <table class="table">
+            <thead class="head">
+                <tr>
+                <th>  TId</th>
+                <th>BusId</th>
+                <th>CustomerId</th>
+                <th>DateOfBooking</th>
+                <th>TotalCost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of transactiondata">
+                    <td>{{data.tId}}</td>
+                    <td>{{data.busId}}</td>
+                    <td>{{data.customerId}}</td>
+                    <td>{{data.dateOfBooking|date:'short'}}</td>
+                    <td>{{data.totalCost}}</td>
+
+                     <!-- <td><div *ngIf="isDateEqual(data.dateOfBooking); else elseBlock">
+                        <button class="btn btn-danger" ng-click = "onclick();">Cancel</button>
+                     </div>
+                      <ng-template #elseBlock>
+                        <button class="btn btn-danger" [disabled]="true">Cancel</button>&nbsp;&nbsp;
+                        <a routerLink="/feedback">Feedback</a>
+                      </ng-template>
+                    </td> -->
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
