@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BusserviceService } from '../busservice.service';
 import { Ibus } from '../ibus';
 import { forkJoin } from 'rxjs';
+import { TransactionDetails } from '../transaction-details';
 
 @Component({
   selector: 'app-findbus',
@@ -38,7 +39,10 @@ busId: number = 0
     this.busId = Number(tid)
 
    
-    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data,
+    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data
+    
+
+
       this.busservice.avbSeates(this.busId).subscribe(
         (data:any)=>{
           this.seatAvb = data
@@ -46,8 +50,6 @@ busId: number = 0
         }
       )
     })
-   
-
   }
 
 }

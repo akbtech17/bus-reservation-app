@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BusserviceService } from '../busservice.service';
 import { TransactionDetails } from '../transaction-details';
 import { Ibus } from '../ibus';
+import { Passenger } from '../passenger';
 
 @Component({
   selector: 'app-carddetails',
@@ -23,6 +24,7 @@ export class CarddetailsComponent implements OnInit {
   Show(card:Icard){
     alert("Payment Done Successfully..!")
     console.log(this.carddetails);
+    TransactionDetails.cardNumber = this.carddetails.cardNumber
     this.router.navigate(['summary']);
   }
 
@@ -31,6 +33,7 @@ export class CarddetailsComponent implements OnInit {
     console.log(TransactionDetails.seatCount);
     this.busservice.getBus(TransactionDetails.busId).subscribe((data:Ibus)=>{
       this.totcost=TransactionDetails.seatCount*data.seatCost
+      TransactionDetails.totalCost = this.totcost
       console.log("data.seatcost :",this.totcost)
     });
   }
