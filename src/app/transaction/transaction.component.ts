@@ -4,6 +4,7 @@ import { Itransactionres } from '../itransactionres';
 import { ActivatedRoute } from '@angular/router';
 import { TransactionserviceService } from '../transactionservice.service';
 import { Ipassengerdet } from '../ipassengerdet';
+import { TransactionDetails } from '../transaction-details';
 
 @Component({
   selector: 'app-transaction',
@@ -31,10 +32,11 @@ customerId:number = 0
   const tid = this.activateroute.snapshot.paramMap.get('customerId')
   this.customerId = Number(tid)
  
-  this.transactionservice.getTransactiondet(this.customerId).subscribe(
+  this.transactionservice.getTransactiondet(TransactionDetails.customerId).subscribe(
   (data:Itransactionres)=>{
     this.transactiondata = data
-    
+    console.log(this.transactiondata)
+
 }
  
  ) 

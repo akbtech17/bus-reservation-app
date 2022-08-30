@@ -32,7 +32,7 @@ export class LogincustomerComponent implements OnInit {
         if(data)
         {
           alert("Welcome")
-          TransactionDetails.cId = data.customerId
+          TransactionDetails.customerId = data.customerId
           this.router.navigate(['/sidebarcust', {custName: data.firstName}])
         }
         console.log("Error")
