@@ -3,14 +3,14 @@ export class Passenger {
     TId: number
     PName: string
     Age: number
-    Adhaar: string
+    Adhar: string
     Gender: string
 
-    constructor(pid: number, tid:number, pname:string, age:number, adhaar:string, gender:string) {
+    constructor(pid: number, tid:number, pname:string, age:number, adhar:string, gender:string) {
         this.PId = pid
         this.TId = tid
         this.Age = age
-        this.Adhaar = adhaar
+        this.Adhar = adhar
         this.Gender = gender
         this.PName = pname
     }

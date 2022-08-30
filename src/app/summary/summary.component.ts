@@ -1,14 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { ICreatetransactionrequest } from '../icreatetransactionrequest';
 import { Passenger } from '../passenger';
 import { TransactionDetails } from '../transaction-details';
-
 
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.css']
 })
+
 export class SummaryComponent implements OnInit {
+
+  createTransactionResponse: ICreatetransactionrequest = {
+    tId: 0,
+    busId: 0,
+    totalCost: 0,
+    customerId: 0,
+    dateOfBooking: '',
+    seats: [],
+    passengers: []
+  }
+
+
   customerId: number = TransactionDetails.customerId
   busId: number = TransactionDetails.busId
   seatCount: number = TransactionDetails.seatCount
@@ -37,9 +50,25 @@ export class SummaryComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.passengers.forEach(pass => {
-      console.log(pass.PName);
-    });
+    // this.passengers.forEach(pass => {
+    //   console.log(pass.PName);
+    // });
+
+    // create a transaction here
+    this.createTransactionResponse.tId = TransactionDetails.tId
+    this.createTransactionResponse.busId = TransactionDetails.busId
+    this.createTransactionResponse.totalCost = TransactionDetails.totalCost
+    this.createTransactionResponse.customerId = TransactionDetails.customerId
+
+    this.createTransactionResponse.seats = TransactionDetails.seats
+
+    this.createTransactionResponse.passengers = TransactionDetails.passengers
+    // passData.forEach(pass => {
+    //   var npass = {
+    //     pId: pass.PId
+    //     tId:
+    //   }
+    // });
   }
 
 }
