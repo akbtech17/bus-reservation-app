@@ -61,14 +61,12 @@ export class SummaryComponent implements OnInit {
     this.createTransactionResponse.customerId = TransactionDetails.customerId
 
     this.createTransactionResponse.seats = TransactionDetails.seats
-
-    this.createTransactionResponse.passengers = TransactionDetails.passengers
-    // passData.forEach(pass => {
-    //   var npass = {
-    //     pId: pass.PId
-    //     tId:
-    //   }
-    // });
+    console.log(this.createTransactionResponse);
+    TransactionDetails.passengers.forEach(pass => {
+      pass.tId = TransactionDetails.tId
+      this.createTransactionResponse.passengers.push(pass)
+    });
+    console.log(this.createTransactionResponse);
   }
 
 }

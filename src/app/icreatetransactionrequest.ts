@@ -1,4 +1,5 @@
 import { Ipassenger } from "./ipassenger"
+import { Passenger } from "./passenger"
 
 export interface ICreatetransactionrequest {
     tId: number
@@ -7,5 +8,5 @@ export interface ICreatetransactionrequest {
     customerId: number
     dateOfBooking: string
     seats: string[]
-    passengers: Ipassenger[]
+    passengers: Passenger[]
 }

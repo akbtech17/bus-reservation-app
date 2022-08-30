@@ -8,7 +8,7 @@
     <div  class="passenger" style="border:2px solid blueviolet; padding: 10px 15px;">
     <div class="form-group mb-3">
     <label for="pid">Enter Passenger Id :</label>
-    <input class="form-control" type="text" placeholder="Enter Passenger ID" name="PId" id="PId" required [(ngModel)]="passdetails.PId" #PId="ngModel">
+    <input class="form-control" type="number" placeholder="Enter Passenger ID" name="PId" id="PId" required [(ngModel)]="passdetails.pId" #PId="ngModel">
     <div *ngIf="PId.invalid && (PId.dirty || PId.touched)" style="color:red;">    
         <div *ngIf="PId.errors?.['required']">
             PId is required
@@ -17,7 +17,7 @@
 </div>
 <div class="form-group mb-3">
     <label for="pname">Enter Passenger Name :</label>
-    <input type="text" class="form-control" placeholder="Enter Passenger Name" name="PName" id="PName" required [(ngModel)]="passdetails.PName" #PName="ngModel">
+    <input type="text" class="form-control" placeholder="Enter Passenger Name" name="PName" id="PName" required [(ngModel)]="passdetails.pName" #PName="ngModel">
     <div *ngIf="PName.invalid && (PName.dirty || PName.touched)" style="color:red;">    
         <div *ngIf="PName.errors?.['required']">
             Passenger Name is required
@@ -25,7 +25,7 @@
     </div></div>
     <div class="form-group mb-3">
     <label for="age">Enter Age :</label>
-    <input type="text" class="form-control" placeholder="Enter Passenger Age" name="Age" id="Age" required [(ngModel)]="passdetails.Age" #Age="ngModel">
+    <input type="number" class="form-control" placeholder="Enter Passenger Age" name="Age" id="Age" required [(ngModel)]="passdetails.age" #Age="ngModel">
     <div *ngIf="Age.invalid && (Age.dirty || Age.touched)" style="color:red;">    
         <div *ngIf="Age.errors?.['required']">
             Age is required
@@ -33,8 +33,8 @@
     </div>
 </div>
 <div class="form-group mb-3">
-    <label for="Adhar">Enter Aadhaar no :</label>
-    <input type="text" class="form-control" placeholder="Enter Passenger Adhaar" name="Adhar" id="Adhaar" required minlength="12" maxlength="12" [(ngModel)]="passdetails.Adhar" #Adhaar="ngModel">
+    <label for="Adhaar">Enter Aadhaar no :</label>
+    <input type="text" class="form-control" placeholder="Enter Passenger Adhaar" name="Adhaar" id="Adhaar" required minlength="12" maxlength="12" [(ngModel)]="passdetails.adhaar" #Adhaar="ngModel">
     <div *ngIf="Adhaar.invalid && (Adhaar.dirty || Adhaar.touched)" style="color:red;">    
         <div *ngIf="Adhaar.errors?.['required']">
             Adhaar is required
@@ -47,7 +47,7 @@
 </div>
 <div class="form-group mb-3">
     <label for="Gender">Enter Gender(M/F):</label>
-    <input type="text" class="form-control" placeholder="Enter Passenger Gender" name="Gender" id="Gender" required [(ngModel)]="passdetails.Gender" #Gender="ngModel">
+    <input type="text" class="form-control" placeholder="Enter Passenger Gender" name="Gender" id="Gender" required [(ngModel)]="passdetails.gender" #Gender="ngModel">
     <div *ngIf="Gender.invalid && (Gender.dirty || Gender.touched)" style="color:red;">    
         <div *ngIf="Gender.errors?.['required']">
             Gender is required

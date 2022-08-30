@@ -1,17 +1,17 @@
 export class Passenger {
-    PId: number 
-    TId: number
-    PName: string
-    Age: number
-    Adhar: string
-    Gender: string
+    pId: number 
+    tId: number
+    pName: string
+    age: number
+    adhaar: string
+    gender: string
 
     constructor(pid: number, tid:number, pname:string, age:number, adhar:string, gender:string) {
-        this.PId = pid
-        this.TId = tid
-        this.Age = age
-        this.Adhar = adhar
-        this.Gender = gender
-        this.PName = pname
+        this.pId = pid
+        this.tId = tid
+        this.age = age
+        this.adhaar = adhar
+        this.gender = gender
+        this.pName = pname
     }
 }
