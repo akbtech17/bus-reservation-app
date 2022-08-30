@@ -28,7 +28,7 @@
                   
                         <a routerLink="/feedback"><button class="btn btn-info">Feedback</button></a>
                       </ng-template>
-                      <a routerLink="/passbook:"><button class="btn btn-info">Show More</button></a>
+                      <a [routerLink]="['/passbook/',data.tId]"><button class="btn btn-info">Show More</button></a>
                     </td> 
                    
                 </tr>

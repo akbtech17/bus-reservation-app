@@ -3,6 +3,7 @@ import { Itransactionres } from './itransactionres';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Ipassengerdet } from './ipassengerdet';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,8 @@ getTransactiondet(customerId:number):Observable<Itransactionres>{
 
   console.log(customerId)
   return this.httpclient.get<Itransactionres>(this.url+'/'+customerId)
+}
+getPassenger(tId:number):Observable<Ipassengerdet>{
+  return this.httpclient.get<Ipassengerdet>(this.url + '/passengers/' + tId)
 }
 }

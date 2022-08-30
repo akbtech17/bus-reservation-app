@@ -102,7 +102,7 @@ const routes: Routes = [
     path:'summary' ,component:SummaryComponent
   },
   {
-    path:'passbook' ,component:PassbookedComponent
+    path:'passbook/:tId' ,component:PassbookedComponent
   }
 
 ]

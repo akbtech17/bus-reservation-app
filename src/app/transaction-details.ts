@@ -26,4 +26,5 @@ export class TransactionDetails {
     public static custLastName: string
     public static customerContact: string
     public static email: string
+    public static tId: number
 }
