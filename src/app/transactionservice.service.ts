@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class TransactionserviceService {
+export class TransactionserviceService {  
 
-url='http://localhost:16533/api/transaction'
+url='http://localhost:16553/api/transaction'
 
 httpOptions=  {headers: new HttpHeaders({'Content-type':'application/json'})}
 

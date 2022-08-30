@@ -9,7 +9,7 @@ export interface Itransactionres {
 
     customerId:number,
 
-    dateofBooking:string,
+    dateofBooking:Date,
 
     seats:string[],
 

@@ -35,7 +35,7 @@ export class LogincustomerComponent implements OnInit {
           TransactionDetails.customerId = data.customerId
           this.router.navigate(['/sidebarcust', {custName: data.firstName}])
         }
-        console.log("Error")
+        // console.log("Error")
       }
     )
   }
