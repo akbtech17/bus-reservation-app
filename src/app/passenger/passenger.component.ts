@@ -33,7 +33,7 @@ export class PassengerComponent implements OnInit {
   ngOnInit(): void {
     const data = this.activateroute.snapshot.paramMap.get('BusId')
    
-    console.log("Bus id is" + data)
+    console.log("Bus id in passenger is" + data)
   }
   show(passdet:Ipassenger){
     alert("Submitted Successfully..!")

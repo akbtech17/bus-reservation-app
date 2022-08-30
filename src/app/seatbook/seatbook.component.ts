@@ -50,6 +50,11 @@ export class SeatbookComponent implements OnInit {
     console.log("list of selected seats : " + this.selectedSeats)
 }
 
+onNext() {
+    console.log("busid from seatbook is : " + this.busId)
+    this.router.navigate(['/passdetails',{BusId:this.busId}])
+}
+
 
   constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute, private router:Router) { 
   }
@@ -76,7 +81,7 @@ export class SeatbookComponent implements OnInit {
         
       }
     )
-    this.router.navigate(['/passdetails', {BusId:this.busId},{seats:this.selectedSeats},{count:this.selectedSeatsCount}])
+    
   } 
 }
 
