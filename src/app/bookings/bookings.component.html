@@ -18,17 +18,22 @@
                     <td>{{data.customerId}}</td>
                     <td>{{data.dateOfBooking|date:'short'}}</td>
                     <td>{{data.totalCost}}</td>
-
-                     <!-- <td><div *ngIf="isDateEqual(data.dateOfBooking); else elseBlock">
-                        <button class="btn btn-danger" ng-click = "onclick();">Cancel</button>
-                     </div>
+                    
+                    <td>
+                    <div class="but1"   *ngIf="data.dateOfBooking>today; else elseBlock">
+                        <button class="btn btn-danger" >Cancel</button>
+                     </div> 
+                     
                       <ng-template #elseBlock>
-                        <button class="btn btn-danger" [disabled]="true">Cancel</button>&nbsp;&nbsp;
-                        <a routerLink="/feedback">Feedback</a>
+                  
+                        <a routerLink="/feedback"><button class="btn btn-info">Feedback</button></a>
                       </ng-template>
-                    </td> -->
+                    </td> 
                    
                 </tr>
+                <!-- <tr *ngFor="let pas of transactiondata.passengers">
+                    <td>{{pas.pname}}</td>
+                </tr> -->
             </tbody>
         </table>
     </div>
