@@ -10,12 +10,12 @@ import { TransactionDetails } from '../transaction-details';
 })
 export class PassengerComponent implements OnInit {
   passdetails: Passenger = {
-    "PId": 0, 
-    "TId": 0, 
-    "PName": '', 
-    "Age": 0,
-    "Adhar": '',
-    "Gender": ''
+    pId: 0, 
+    tId: 0, 
+    pName: '', 
+    age: 0,
+    adhaar: '',
+    gender: ''
   }
   // seat_arr: string[] = TransactionDetails.seats
   seat_arr: string[] = TransactionDetails.seats
@@ -33,16 +33,16 @@ export class PassengerComponent implements OnInit {
     
     // this.passdetails = passdet;
     console.log(this.passdetails)
-    this.passengerArray.push(new Passenger(this.passdetails.PId, this.passdetails.TId, this.passdetails.PName, this.passdetails.Age, this.passdetails.Adhar, this.passdetails.Gender))
+    this.passengerArray.push(new Passenger(this.passdetails.pId, this.passdetails.tId, this.passdetails.pName, this.passdetails.age, this.passdetails.adhaar, this.passdetails.gender))
     this.cnt++;
 
     // resetting the passenger
-    this.passdetails.PId=0 
-    this.passdetails.TId=0 
-    this.passdetails.PName=''
-    this.passdetails.Age=0
-    this.passdetails.Adhar=''
-    this.passdetails.Gender=''
+    this.passdetails.pId=0 
+    this.passdetails.tId=0 
+    this.passdetails.pName=''
+    this.passdetails.age=0
+    this.passdetails.adhaar=''
+    this.passdetails.gender=''
 
     if(this.cnt==this.seat_arr.length){
       TransactionDetails.passengers = this.passengerArray
