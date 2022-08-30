@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ICreatetransactionrequest } from '../icreatetransactionrequest';
 import { Passenger } from '../passenger';
 import { TransactionDetails } from '../transaction-details';
+import { TransactionserviceService } from '../transactionservice.service';
 
 @Component({
   selector: 'app-summary',
@@ -11,7 +12,7 @@ import { TransactionDetails } from '../transaction-details';
 
 export class SummaryComponent implements OnInit {
 
-  createTransactionResponse: ICreatetransactionrequest = {
+  createTransactionRequest: ICreatetransactionrequest = {
     tId: 0,
     busId: 0,
     totalCost: 0,
@@ -47,7 +48,9 @@ export class SummaryComponent implements OnInit {
   customerContact: string = TransactionDetails.customerContact
   email: string = TransactionDetails.email
 
-  constructor() { }
+  constructor(private transactionservice: TransactionserviceService) {
+
+   }
 
   ngOnInit(): void {
     // this.passengers.forEach(pass => {
@@ -55,18 +58,28 @@ export class SummaryComponent implements OnInit {
     // });
 
     // create a transaction here
-    this.createTransactionResponse.tId = TransactionDetails.tId
-    this.createTransactionResponse.busId = TransactionDetails.busId
-    this.createTransactionResponse.totalCost = TransactionDetails.totalCost
-    this.createTransactionResponse.customerId = TransactionDetails.customerId
+    this.createTransactionRequest.tId = TransactionDetails.tId
+    this.createTransactionRequest.busId = TransactionDetails.busId
+    this.createTransactionRequest.totalCost = TransactionDetails.totalCost
+    this.createTransactionRequest.customerId = TransactionDetails.customerId
 
-    this.createTransactionResponse.seats = TransactionDetails.seats
-    console.log(this.createTransactionResponse);
+    this.createTransactionRequest.seats = TransactionDetails.seats
+    // var date = new Date()
+    // date.toDateString();
+    this.createTransactionRequest.dateOfBooking = "2022-08-15T12:45:56"
+    console.log(this.createTransactionRequest);
     TransactionDetails.passengers.forEach(pass => {
       pass.tId = TransactionDetails.tId
-      this.createTransactionResponse.passengers.push(pass)
+      this.createTransactionRequest.passengers.push(pass)
     });
-    console.log(this.createTransactionResponse);
+    
+
+    this.transactionservice.createTransaction(this.createTransactionRequest).subscribe(
+      ()=>{ 
+        console.log(this.createTransactionRequest);
+        alert('Transaction is Successfull!')
+      }
+    )
   }
 
 }
