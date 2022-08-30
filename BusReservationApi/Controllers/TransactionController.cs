@@ -157,45 +157,53 @@ namespace BusReservationApi.Controllers
 
 
         [HttpGet]
-        [Route("{tId}")]
-        public IActionResult GetTransactionDetails(int tId)
+        [Route("{cId}")]
+        public IActionResult GetTransactionDetailsForCustomer(int cId)
         {
-            TransactionResponse response = new TransactionResponse();
+            TransactionResponse []mainResponse;
             try
             {
-                // get the transaction details from the transaction table
-                var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
-                response.tId = transactionDetails.Tid;
-                response.busId = transactionDetails.BusId;
-                response.totalCost = transactionDetails.TotalCost;
-                response.customerId = transactionDetails.CustomerId;
-
-                // get the passengers details
-                var data = db.Passengers.Where(pass => pass.Tid == tId).Select(pass => pass).ToList();
-                int cnt = data.Count();
-
-                response.passengers = new PassengerData[cnt];
-                for (int i = 0; i < cnt; i++) {
-                    PassengerData pdata = new PassengerData();
-                    pdata.Pid = data[i].Pid;
-                    pdata.Pname = data[i].Pname;
-                    pdata.Adhaar = data[i].Adhaar;
-                    pdata.Gender = data[i].Gender;
-                    pdata.Age = data[i].Age;
-
-                    response.passengers[i] = pdata;
-                }
-
-
-                // get the seats booked list
-                var seats = db.TransactionSeats.Where(seat => seat.Tid == tId).ToList();
-                response.seats = new string[seats.Count];
-                for (int i = 0; i < seats.Count; i++)
+                var records = db.TransactionDetails.Where(t => t.CustomerId == cId).ToList();
+                mainResponse = new TransactionResponse[records.Count];
+                int cnnt = 0;
+                foreach (var rec in records)
                 {
-                    response.seats[i] = seats[i].SeatNo;
-                }
+                    int tId = rec.Tid;
+                    TransactionResponse response = new TransactionResponse();
+                    // get the transaction details from the transaction table
+                    var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
+                    response.tId = transactionDetails.Tid;
+                    response.busId = transactionDetails.BusId;
+                    response.totalCost = transactionDetails.TotalCost;
+                    response.customerId = transactionDetails.CustomerId;
 
-                return Ok(response);
+                    // get the passengers details
+                    var data = db.Passengers.Where(pass => pass.Tid == tId).Select(pass => pass).ToList();
+                    int cnt = data.Count();
+
+                    response.passengers = new PassengerData[cnt];
+                    for (int i = 0; i < cnt; i++)
+                    {
+                        PassengerData pdata = new PassengerData();
+                        pdata.Pid = data[i].Pid;
+                        pdata.Pname = data[i].Pname;
+                        pdata.Adhaar = data[i].Adhaar;
+                        pdata.Gender = data[i].Gender;
+                        pdata.Age = data[i].Age;
+
+                        response.passengers[i] = pdata;
+                    }
+
+                    // get the seats booked list
+                    var seats = db.TransactionSeats.Where(seat => seat.Tid == tId).ToList();
+                    response.seats = new string[seats.Count];
+                    for (int i = 0; i < seats.Count; i++)
+                    {
+                        response.seats[i] = seats[i].SeatNo;
+                    }
+                    mainResponse[cnnt++] = response;
+                }
+                return Ok(mainResponse);
             }
             catch (Exception ex)
             {
