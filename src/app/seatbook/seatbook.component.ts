@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { BusserviceService } from '../busservice.service';
+import { Ibus } from '../ibus';
 import { SeatserviceService } from '../seatservice.service';
 import { TransactionDetails } from '../transaction-details';
 
@@ -60,7 +62,7 @@ onNext() {
 }
 
 
-  constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute, private router:Router) { 
+  constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute, private router:Router, private busservice: BusserviceService) { 
   }
 
   ngOnInit(): void {
@@ -70,6 +72,20 @@ onNext() {
     this.seatservice.getseats(this.busId).subscribe(
       (data:any[])=>
       {
+        this.busservice.getBus(this.busId).subscribe((busdata:Ibus)=>{
+            TransactionDetails.source = busdata.source
+            TransactionDetails.destination = busdata.destination
+            TransactionDetails.dTime = busdata.dtime
+            TransactionDetails.aTime = busdata.atime
+            TransactionDetails.busNo = busdata.busNo
+            TransactionDetails.driverContact = busdata.driverContact
+            TransactionDetails.driverName = busdata.driverName
+            TransactionDetails.distance = busdata.distance
+            TransactionDetails.pickup = busdata.pickup
+            TransactionDetails.typeOfBus = busdata.typeOfBus
+        })
+          
+       
         this.seatdata = data
         // console.log(this.seatdata)
 

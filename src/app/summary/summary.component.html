@@ -1,0 +1,53 @@
+<h1>Summary</h1>
+
+
+<h3>{{custFirstName}} {{custLastName}}</h3>
+<h3>{{customerContact}}</h3>
+<h3>{{email}}</h3>
+<!-- cname -->
+<!-- cphone -->
+<!-- email -->
+
+
+
+<h4>{{busId}}</h4>
+
+<h4>Source : {{source}}</h4>
+<h4>Destination : {{destination}}</h4>
+<h4>Departure Time : {{dTime}}</h4>
+<h4>Arrival Time : {{aTime}}</h4>
+<h4>Bus No : {{busNo}}</h4>
+<h4>Driver Name : {{driverName}}</h4>
+<h4>Driver Contact : {{driverContact}}</h4>
+<h4>Pickup : {{pickup}}</h4>
+<h4>Type of Bus : {{typeOfBus}}</h4>
+<h4>Total Distance : {{distance}}</h4>
+<br>
+<br>
+
+<h4>Total Seats Booked : {{seatCount}}</h4>
+<h4>Seat Numbers : [{{seats}}]</h4>
+
+<br>
+<br>
+
+<h5 *ngFor="let pass of passengers">
+    <span>{{pass.PName}} {{pass.Gender}} {{pass.Adhaar}} {{pass.Age}}</span>
+    <br>
+</h5>
+<!-- pname -->
+<!-- page -->
+<!-- adhaar -->
+<!-- gender -->
+<br>
+
+
+<h5>Card Number : {{cardNumber}}</h5>
+<h5>Total Cost of the Seats Booked : {{totalCost}}</h5>
+
+
+
+
+
+
+

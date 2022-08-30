@@ -33,6 +33,10 @@ export class LogincustomerComponent implements OnInit {
         {
           alert("Welcome")
           TransactionDetails.customerId = data.customerId
+          TransactionDetails.custFirstName = data.firstName
+          TransactionDetails.custLastName = data.lastName
+          TransactionDetails.customerContact = data.mobile
+          TransactionDetails.email = data.email
           this.router.navigate(['/sidebarcust', {custName: data.firstName}])
         }
         // console.log("Error")
