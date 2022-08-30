@@ -131,7 +131,8 @@ namespace BusReservationApi.Controllers
         {
             try
             {
-                var data = db.Customers.Where(cust => cust.CustomerId == query.customerId).FirstOrDefault();
+                var data = db.Customers.Where(cust => cust.CustomerId == query.customerId && cust.Password == query.oldPassword).FirstOrDefault();
+                if (data == null) return NotFound("Credentials are Invalid!");
                 data.Password = query.newPassword;
                 db.SaveChanges();
                 return Ok("Password change success!");
@@ -145,6 +146,7 @@ namespace BusReservationApi.Controllers
     public class ChangePasswordQuery
     {
         public int customerId { get; set; }
+        public string oldPassword { get; set; }
         public string newPassword { get; set; }
     }
 }
