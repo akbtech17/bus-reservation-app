@@ -2,44 +2,42 @@
 <div class="container">
     <div class="jumbotron">
         <h2 class="text-success">{{cdata.firstName}}'s Info</h2>
-       <hr/>
+        
+        <hr/>
+        
         <table class="table">
             <thead class="head">
                 <tr>
-                    <th>Customer Identification</th>
                     <th>Customer Name</th>
                     <th>Gender</th>
                     <th>Contact</th>
                     <th>Email</th>
                     <th>Password</th>
                     <th>Date Of Birth</th>
-                
-                   
                 </tr>
             </thead>
             <tbody>
                <tr>
-                    <td>{{cdata.customerId}}</td>
                     <td>{{cdata.firstName}}{{cdata.lastName}}</td>
                     <td>{{cdata.gender}}</td>
                     <td>{{cdata.mobile}}</td>
                     <td>{{cdata.email}}</td>
                     <td>{{cdata.password}}</td>
                     <td>{{cdata.dob}}</td>
-                   
-               
-                    </tr>
+                </tr>
             </tbody>
-        </table>
-        
-        
+        </table>  
     </div>
-    <button type="button" class="btn btn-info" routerLink="/sidebarcust" style="margin-left:600px">
-        Go Back
-     </button>
-     <button type="button" class="btn btn-info" [routerLink]="['/editcust/',cdata.customerId]" style="margin-left:600px">
-    Edit
-     </button>
+
+    <div style="margin-bottom: 1rem;">
+        <button type="button" class="btn btn-info" routerLink="/sidebarcust" style="margin-left:600px">
+            Go Back
+         </button>
+    </div> &nbsp; &nbsp;
+
+    <button type="button" class="btn btn-info" [routerLink]="['/editcust/',cdata.customerId]" style="margin-left:600px">
+        Edit
+    </button>
 </div>
 
 
