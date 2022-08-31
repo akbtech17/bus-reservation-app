@@ -126,7 +126,7 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpPut]
-        [Route("changepassword/{CustomerId}")]
+        [Route("changepassword")]
         public IActionResult DeleteCust(ChangePasswordQuery query)
         {
             try
@@ -136,6 +136,24 @@ namespace BusReservationApi.Controllers
                 data.Password = query.newPassword;
                 db.SaveChanges();
                 return Ok("Password change success!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("wallet/{customerId}")]
+        public IActionResult GetWalletAmount(int customerId)
+        {
+            try
+            {
+                var data = db.Customers.Where(cust => cust.CustomerId == customerId).FirstOrDefault();
+                if (data == null) return NotFound("Customer is not registered!");
+
+                var wallet = data.Wallet;
+                return Ok(wallet);
             }
             catch (Exception ex)
             {

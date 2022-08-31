@@ -145,6 +145,13 @@ namespace BusReservationApi.Controllers
 
                 // 3. reset the trasaction table
                 var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
+
+                var customerId = transactionDetails.CustomerId;
+                var ticketAmunt = transactionDetails.TotalCost;
+
+                // 4. update customer wallet
+                UpdateWalletAmount(customerId, ticketAmunt);
+
                 db.TransactionDetails.Remove(transactionDetails);
                 db.SaveChanges();
                 return Ok();
@@ -152,6 +159,22 @@ namespace BusReservationApi.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.InnerException.Message);
+            }
+        }
+
+        public void UpdateWalletAmount(int customerId, int Amount)
+        {
+            try
+            {
+                var data = db.Customers.Where(cust => cust.CustomerId == customerId).FirstOrDefault();
+                if (data == null) return;
+
+                data.Wallet += Amount;
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException.Message);
             }
         }
 
