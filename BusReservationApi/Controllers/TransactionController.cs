@@ -200,8 +200,13 @@ namespace BusReservationApi.Controllers
                     response.totalCost = transactionDetails.TotalCost;
                     response.customerId = transactionDetails.CustomerId;
                     response.dateOfBooking = transactionDetails.DateOfBooking;
+                    
+                    // getting the bus details
                     var busdetail = db.buses.Where(b => b.BusId == transactionDetails.BusId).FirstOrDefault();
                     response.dateOfDeparture = busdetail.Dtime;
+                    response.busNo = busdetail.BusNo;
+                    response.source = busdetail.Source;
+                    response.destination = busdetail.Destination;
 
                     // get the passengers details
                     var data = db.Passengers.Where(pass => pass.Tid == tId).Select(pass => pass).ToList();
@@ -262,6 +267,9 @@ namespace BusReservationApi.Controllers
         public int busId { get; set; }
         public int totalCost { get; set; }
         public int customerId { get; set; }
+        public string busNo { get; set; }
+        public string source { get; set; }
+        public string destination { get; set; }
         public DateTime dateOfBooking { get; set; }
         public DateTime dateOfDeparture { get; set; }
         public string[] seats { get; set; }
