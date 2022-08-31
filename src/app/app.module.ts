@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import{FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NgxPrintModule } from 'ngx-print';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -70,7 +71,7 @@ import { BookingcancelComponent } from './bookingcancel/bookingcancel.component'
     AppRoutingModule,
     HttpClientModule,
     FormsModule,ReactiveFormsModule,
-  
+    NgxPrintModule,
     BrowserAnimationsModule,MatButtonModule,MatIconModule,MatToolbarModule,MatCardModule,MatInputModule
   ],
   providers: [],
