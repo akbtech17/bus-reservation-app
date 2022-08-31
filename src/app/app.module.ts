@@ -34,6 +34,7 @@ import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SummaryComponent } from './summary/summary.component';
 import { PassbookedComponent } from './passbooked/passbooked.component';
+import { BookingcancelComponent } from './bookingcancel/bookingcancel.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { PassbookedComponent } from './passbooked/passbooked.component';
     CarddetailsComponent,
     FeedbackComponent,
     SummaryComponent,
-    PassbookedComponent
+    PassbookedComponent,
+    BookingcancelComponent
   ],
   imports: [
     BrowserModule,
