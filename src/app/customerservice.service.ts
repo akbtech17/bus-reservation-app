@@ -26,4 +26,9 @@ export class CustomerserviceService {
   return this.httpclient.get<any>(this.url+'/wallet/'+cId);
 }
 
+getCustomer(cId:number):Observable<Icustomer>{
+  return this.httpclient.get<Icustomer>(this.url + '/' + cId)
+
+}
+
 }
