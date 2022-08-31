@@ -65,7 +65,7 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpPut]
-        [Route("{CustomerId}")]
+        [Route("editcust/{CustomerId}")]
         public IActionResult PutCust(int CustomerId, Customer Cust)
         {
             var data = db.Customers.Where(cust => cust.CustomerId == CustomerId).FirstOrDefault();
