@@ -22,9 +22,6 @@ export class CustomerserviceService {
  {
   return this.httpclient.post<Icustomer>(this.url + '/validate' ,loginInfo,this.httpOptions);
  }
- getCustomer(customerId:Number):Observable<Icustomer>
- {
-  return this.httpclient.get<Icustomer>(this.url + '/' + customerId)
- }
+
 
 }
