@@ -3,6 +3,7 @@ import { Icustomer } from './icustomer';
 import {HttpHeaders} from '@angular/common/http'
 import {HttpClient} from '@angular/common/http' //hhtp client object helps with all WEBApi methods
 import { Observable } from 'rxjs'; // to work or load single component not whole page or app.
+import { TransactionDetails } from './transaction-details';
 
 
 @Injectable({
@@ -29,6 +30,9 @@ export class CustomerserviceService {
 getCustomer(cId:number):Observable<Icustomer>{
   return this.httpclient.get<Icustomer>(this.url + '/' + cId)
 
+}
+editCustomer(cdata:Icustomer):Observable<TransactionDetails>{
+  return this.httpclient.put<TransactionDetails>(this.url + '/editcust/' + cdata.customerId, cdata, this.httpOptions )
 }
 
 }
