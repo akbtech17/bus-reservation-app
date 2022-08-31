@@ -29,4 +29,8 @@ export class TransactionserviceService {
   createTransaction(req : ICreatetransactionrequest):Observable<any> {
       return this.httpclient.post<any>(this.url,req, this.httpOptions)
   }
+
+  cancelTransaction(tId:number):Observable<any> {
+    return this.httpclient.delete<any>(this.url+'/'+tId)
+  }
 }

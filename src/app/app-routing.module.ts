@@ -107,7 +107,7 @@ const routes: Routes = [
     path:'passbook/:tId' ,component:PassbookedComponent
   },
   {
-    path:'bookingcancel' ,component:BookingcancelComponent
+    path:'bookingcancel/:tId' ,component:BookingcancelComponent
   }
 ]
 
