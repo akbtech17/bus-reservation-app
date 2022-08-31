@@ -21,7 +21,6 @@ constructor(private transactionservice: TransactionserviceService, private activ
   
     const id = this.activatedroute.snapshot.paramMap.get('tId')
     this.tId = Number(id)
-  TransactionDetails.tId = this.tId
     this.transactionservice.getPassenger(this.tId).subscribe(
       (data:any)=>{
         this.passdata = data

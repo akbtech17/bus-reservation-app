@@ -4,11 +4,11 @@
         <table class="table">
             <thead class="head">
                 <tr>
-                <th>  TId</th>
-                <th>BusId</th>
-                <th>CustomerId</th>
-                <th>DateOfBooking</th>
-                <th>TotalCost</th>
+                <th>  Transaction Id</th>
+                <th>Bus Id</th>
+                <th>Customer Id</th>
+                <th>Date Of Departure</th>
+                <th>Total Cost</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,11 +16,11 @@
                     <td>{{data.tId}}</td>
                     <td>{{data.busId}}</td>
                     <td>{{data.customerId}}</td>
-                    <td>{{data.dateOfBooking|date:'short'}}</td>
+                    <td>{{data.dateOfDeparture|date:'short'}}</td>
                     <td>{{data.totalCost}}</td>
                     
                     <td>
-                    <div class="but1"   *ngIf="data.dateOfBooking>today; else elseBlock">
+                    <div class="but1"   *ngIf="data.dateOfDeparture>today; else elseBlock">
                         <button class="btn btn-danger" >Cancel</button>
                      </div> 
                      
