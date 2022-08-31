@@ -127,6 +127,9 @@ namespace BusReservationApi.Controllers
         {
             try
             {
+                var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
+                var busId = transactionDetails.BusId;
+
                 // 1. remove the passengers from the table
                 var passengers = db.Passengers.Where(pass => pass.Tid == tId).Select(pass => pass);
                 foreach (var pass in passengers)
@@ -139,12 +142,19 @@ namespace BusReservationApi.Controllers
                 var seats = db.TransactionSeats.Where(seat => seat.Tid == tId).Select(pass => pass);
                 foreach (var seat in seats)
                 {
+                    // also change the status of the seats
+                    //var busseat = db.BusSeats.Where(rec => rec.SeatNo.Equals(seat.SeatNo) && rec.BusId == busId).FirstOrDefault();
+                    //busseat.Available = true;
+                    //db.SaveChanges();
                     db.TransactionSeats.Remove(seat);
                 }
                 db.SaveChanges();
 
+                
+                
+
                 // 3. reset the trasaction table
-                var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
+                
 
                 var customerId = transactionDetails.CustomerId;
                 var ticketAmunt = transactionDetails.TotalCost;
