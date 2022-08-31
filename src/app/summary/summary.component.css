@@ -1,7 +1,11 @@
 
 .heading{
+    margin-top: 1px;
+    color: white;
+    background-color: rgb(238, 167, 13);
     text-align: center;
     border: 1px solid blueviolet;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .header{
     display: flex;
@@ -118,8 +122,7 @@ img {
     padding: 9px;
     border: 1px solid gray;
     border-radius: 15px;
-    background-color: rgb(223 174 17);
-
+    background-color: rgb(238, 167, 13);
 }
 
 .date time span:last-child {
@@ -133,7 +136,7 @@ img {
     width: 75%;
     font-size: 85%;
     padding: 10px 10px 30px 50px;
-    border: dotted;
+    border: dashed;
     border-left: none;
 }
 .card-cont a {
@@ -190,5 +193,32 @@ img {
 .tr{
     padding: 1px;
 }
+.midhead{
+    border: 1px solid blueviolet;
+    color: white;
+    background: rgb(238, 167, 13);
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
+.cardcost{
+    background-color: rgba(128, 128, 128, 0.123);
+    border:1px dashed;
+    border-radius: 10px;
+    width: 60%;
+    margin-left: 17rem;
+    text-align: center;
+}
+.thank{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+   text-align: center;
+   margin-right: 27rem;
+}
+
+/* .footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
 
