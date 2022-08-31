@@ -176,12 +176,14 @@ namespace BusReservationApi.Models
                     .IsRequired()
                     .HasMaxLength(9)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Wallet).HasDefaultValueSql("((0))");
             });
 
             modelBuilder.Entity<Passenger>(entity =>
             {
                 entity.HasKey(e => e.Pid)
-                    .HasName("PK__Passenge__C577554052939F8A");
+                    .HasName("PK__Passenge__C5775540C1AC4475");
 
                 entity.ToTable("Passenger");
 
@@ -212,13 +214,13 @@ namespace BusReservationApi.Models
                     .WithMany(p => p.Passengers)
                     .HasForeignKey(d => d.Tid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Passenger__TId__4C6B5938");
+                    .HasConstraintName("FK__Passenger__TId__22401542");
             });
 
             modelBuilder.Entity<TransactionDetail>(entity =>
             {
                 entity.HasKey(e => e.Tid)
-                    .HasName("PK__Transact__C456D7494A2FF853");
+                    .HasName("PK__Transact__C456D7492FC2A62D");
 
                 entity.Property(e => e.Tid)
                     .ValueGeneratedNever()
@@ -230,13 +232,13 @@ namespace BusReservationApi.Models
                     .WithMany(p => p.TransactionDetails)
                     .HasForeignKey(d => d.BusId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Transacti__BusId__489AC854");
+                    .HasConstraintName("FK__Transacti__BusId__1E6F845E");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.TransactionDetails)
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Transacti__Custo__498EEC8D");
+                    .HasConstraintName("FK__Transacti__Custo__1F63A897");
             });
 
             modelBuilder.Entity<TransactionSeat>(entity =>
@@ -256,7 +258,7 @@ namespace BusReservationApi.Models
                     .WithMany(p => p.TransactionSeats)
                     .HasForeignKey(d => d.Tid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Transaction__TId__756D6ECB");
+                    .HasConstraintName("FK__Transaction__TId__251C81ED");
             });
 
             OnModelCreatingPartial(modelBuilder);
