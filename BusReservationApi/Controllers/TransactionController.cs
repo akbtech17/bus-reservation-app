@@ -199,6 +199,7 @@ namespace BusReservationApi.Controllers
                     response.busId = transactionDetails.BusId;
                     response.totalCost = transactionDetails.TotalCost;
                     response.customerId = transactionDetails.CustomerId;
+                    response.dateOfBooking = transactionDetails.DateOfBooking;
 
                     // get the passengers details
                     var data = db.Passengers.Where(pass => pass.Tid == tId).Select(pass => pass).ToList();
