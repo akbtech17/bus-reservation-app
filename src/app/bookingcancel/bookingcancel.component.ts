@@ -9,14 +9,16 @@ import { TransactionserviceService } from '../transactionservice.service';
 })
 export class BookingcancelComponent implements OnInit {
   tId: number = 0
+  totalCost = 0
   constructor(private activatedroute: ActivatedRoute, private transactionservice: TransactionserviceService) { }
 
   ngOnInit(): void {
     var tId = this.activatedroute.snapshot.paramMap.get('tId')
     this.tId = Number(tId)
-    console.log(tId);
-    this.transactionservice.cancelTransaction(this.tId).subscribe(()=>{
-      alert("Transaction is Calcelled and Refund is Initiated")
+    
+    this.transactionservice.cancelTransaction(this.tId).subscribe((data:any)=>{
+      this.totalCost = data
+      alert("Transaction is Calcelled and Refund of "+ this.totalCost+" is Initiated")
     })
   }
 }
