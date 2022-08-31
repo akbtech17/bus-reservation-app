@@ -1,4 +1,4 @@
-<div class="main">
+<div id="print-section" class="main">
   <h2 class="heading">Ticket Summary</h2>
 
   <div class="header">
@@ -170,21 +170,23 @@
     </div>
   </div>
   <div class="cardcost">
-   
-    <p class=>Card Number : {{ cardNumber }}</p>
+   <br>
+    <p class="det">
+       <br> Card Number : {{ cardNumber }}</p>
     <br>
     <hr/>
     <br>
-    <p>Total Cost of the Seats Booked : {{ totalCost }}</p>
+    <p  class="det"  >
+        <br>Total Cost of the Seats Booked : {{ totalCost }}</p>
 
    
 </div>
-
-<a routerLink="/feedback"><button class="btn btn-info">Feedback</button></a>&nbsp;&nbsp;
+<br><br>
+<a routerLink="/feedback"><button class="btn btn-info feed">Feedback</button></a>&nbsp;&nbsp;
 <br><br>
 <div class="footer">
     <h3 class="thank">THANK YOU FOR BOOKING!</h3>
-  
+    <button printSectionId="print-section" ngxPrint  class="Print" >Print</button> 
 </div>
 </div>
 
