@@ -4,24 +4,28 @@
         <table class="table">
             <thead class="head">
                 <tr>
-                <th>  Transaction Id</th>
-                <th>Bus Id</th>
-                <th>Customer Id</th>
+                <th>Transaction Id</th>
+                <th>Bus Number</th>
+                <th>Source</th>
+                <th>Destination</th>
                 <th>Date Of Departure</th>
+                <th>Date Of Booking</th>
                 <th>Total Cost</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let data of transactiondata">
                     <td>{{data.tId}}</td>
-                    <td>{{data.busId}}</td>
-                    <td>{{data.customerId}}</td>
+                    <td>{{data.busNo}}</td>
+                    <td>{{data.source}}</td>
+                    <td>{{data.destination}}</td>
                     <td>{{data.dateOfDeparture|date:'short'}}</td>
+                    <td>{{data.dateOfBooking|date:'short'}}</td>
                     <td>{{data.totalCost}}</td>
                     
                     <td>
-                    <div class="but1"   *ngIf="data.dateOfDeparture>today; else elseBlock">
-                        <button class="btn btn-danger" >Cancel</button>
+                    <div class="but1" *ngIf="data.dateOfDeparture>today; else elseBlock">
+                        <button routerLink="/bookingcancel" class="btn btn-danger" >Cancel</button>
                      </div> 
                      
                       <ng-template #elseBlock>

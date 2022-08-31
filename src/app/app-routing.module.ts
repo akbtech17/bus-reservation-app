@@ -25,6 +25,8 @@ import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SummaryComponent } from './summary/summary.component';
 import { PassbookedComponent } from './passbooked/passbooked.component';
+import { BookingcancelComponent } from './bookingcancel/bookingcancel.component';
+
 
 //import { UserloginComponent } from './userlogin/userlogin.component';
 
@@ -103,8 +105,10 @@ const routes: Routes = [
   },
   {
     path:'passbook/:tId' ,component:PassbookedComponent
+  },
+  {
+    path:'bookingcancel' ,component:BookingcancelComponent
   }
-
 ]
 
 @NgModule({
