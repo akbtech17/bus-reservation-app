@@ -22,6 +22,8 @@ export class CustomerserviceService {
  {
   return this.httpclient.post<Icustomer>(this.url + '/validate' ,loginInfo,this.httpOptions);
  }
-
+ getWalletStatement(cId:number):Observable<any> {
+  return this.httpclient.get<any>(this.url+'/wallet/'+cId);
+}
 
 }
