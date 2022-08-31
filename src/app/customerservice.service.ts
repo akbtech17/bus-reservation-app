@@ -36,6 +36,6 @@ export class CustomerserviceService {
   }
 
   changePass(changePassQuery:any): Observable<any> {
-    return this.httpclient.put<any>(this.url+'/changepassword', this.httpOptions)
+    return this.httpclient.put<any>(this.url+'/changepassword', changePassQuery, this.httpOptions)
   }
 }

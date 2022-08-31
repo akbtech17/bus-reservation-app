@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class ChangepasswordComponent implements OnInit {
   changePassQuery : any  = {
-    "customerId": 0,
-    "oldPassword":'',
-    "newPassword":''
+    customerId: 0,
+    oldPassword:'',
+    newPassword:''
   }
   confirmPass: string = ''
 
