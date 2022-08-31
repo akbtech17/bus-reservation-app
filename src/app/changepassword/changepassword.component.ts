@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerserviceService } from '../customerservice.service';
 import { TransactionDetails } from '../transaction-details';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-changepassword',
@@ -8,18 +10,19 @@ import { TransactionDetails } from '../transaction-details';
 })
 export class ChangepasswordComponent implements OnInit {
   changePassQuery : any  = {
-    customerId: 0,
-    oldPassword:'',
-    newPassword:''
+    "customerId": 0,
+    "oldPassword":'',
+    "newPassword":''
   }
   confirmPass: string = ''
-  constructor() { }
+
+  constructor(private customerservice: CustomerserviceService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    this.changePassQuery.oldPassword = TransactionDetails.customerId
+    this.changePassQuery.customerId = TransactionDetails.customerId
     this.changePassQuery.oldPassword = TransactionDetails.password
     if(this.confirmPass != this.changePassQuery.newPassword) {
       alert("Entered passwords do not match")
@@ -30,6 +33,11 @@ export class ChangepasswordComponent implements OnInit {
       return
     }
     console.log(this.changePassQuery)
-    alert("Password Changed Successfuly")
+
+    this.customerservice.changePass(this.changePassQuery).subscribe(
+      ()=>{
+        alert("Password Changed Successfuly")
+      }
+    )
   }
 }

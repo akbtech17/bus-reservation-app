@@ -57,9 +57,8 @@ export class BusserviceService {
     return this.httpclient.post<any[]>(this.url + '/search', searchquery, this.httpOptions);
   }
 
-   avbSeates(busId:number):Observable<any>
-   {
+  avbSeates(busId:number):Observable<any>
+  {
      return this.httpclient.get<any>(this.url + '/seatsavb/' + busId)
   }
-
 }
