@@ -128,6 +128,7 @@ namespace BusReservationApi.Controllers
             try
             {
                 var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
+                var totalCost = transactionDetails.TotalCost;
                 var busId = transactionDetails.BusId;
 
                 // 1. remove the passengers from the table
@@ -164,7 +165,7 @@ namespace BusReservationApi.Controllers
 
                 db.TransactionDetails.Remove(transactionDetails);
                 db.SaveChanges();
-                return Ok();
+                return Ok(totalCost);
             }
             catch (Exception ex)
             {
