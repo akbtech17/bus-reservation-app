@@ -79,7 +79,7 @@ SignIn
                     <td>{{bus.seatCost}}</td>
                     <td></td>
                     <td>
-                        <a [routerLink]="['/sbook/',bus.busId]">Book Now</a>&nbsp;&nbsp;
+                        <a style="color: blue; cursor:pointer;" (click)="onBook(bus.busId)">Book Now</a>&nbsp;&nbsp;
                     </td>
                    
                 </tr> 
