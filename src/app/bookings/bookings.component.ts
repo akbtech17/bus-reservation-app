@@ -16,7 +16,6 @@ export class BookingsComponent implements OnInit {
   
   customerId:number = 0
 
-  // today :Date= new Date();
   today = new Date().toISOString().slice(0, 19).replace('T', ' ');
   
   constructor(private transactionservice:TransactionserviceService, private activateroute:ActivatedRoute) {
@@ -26,7 +25,6 @@ export class BookingsComponent implements OnInit {
   ngOnInit(): void {
     const tid = this.activateroute.snapshot.paramMap.get('customerId')
     this.customerId = Number(tid)
-    console.log(this.today)
    
     this.transactionservice.getTransactiondet(TransactionDetails.customerId).subscribe(
       (data:any)=>{

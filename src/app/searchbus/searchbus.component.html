@@ -17,9 +17,11 @@
                 </div>
 
                 <div class="input-group mb-4 mt-2">   
-                    Date of Journey
+                    <div style="padding-top: 5px; padding-right:1rem">
+                      Date of Journey
+                    </div>
                     <br>
-                    <input  type="date" name="dDate" [(ngModel)]="searchquery.dDate"class="form-control" placeholder="Date of Booking" #dDate="ngModel" required>  
+                    <input  type="date" name="dDate" [(ngModel)]="searchquery.dDate"class="form-control" #dDate="ngModel" required>  
                 </div>  
             
                 <div class="row">  
@@ -79,7 +81,7 @@ SignIn
                     <td>{{bus.seatCost}}</td>
                     <td></td>
                     <td>
-                        <a [routerLink]="['/sbook/',bus.busId]">Book Now</a>&nbsp;&nbsp;
+                        <a style="color: blue; cursor:pointer;" (click)="onBook(bus.busId)">Book Now</a>&nbsp;&nbsp;
                     </td>
                    
                 </tr> 

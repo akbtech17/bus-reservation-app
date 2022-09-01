@@ -37,6 +37,7 @@ export class LogincustomerComponent implements OnInit {
           TransactionDetails.custLastName = data.lastName
           TransactionDetails.customerContact = data.mobile
           TransactionDetails.email = data.email
+          TransactionDetails.password = data.password
           this.router.navigate(['/sidebarcust', {custName: data.firstName}])
         }
         // console.log("Error")

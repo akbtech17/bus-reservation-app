@@ -27,4 +27,5 @@ export class TransactionDetails {
     public static customerContact: string
     public static email: string
     public static tId: number
+    public static password: string
 }
