@@ -10,6 +10,9 @@ import { TransactionDetails } from '../transaction-details';
   styleUrls: ['./searchbus.component.css']
 })
 export class SearchbusComponent implements OnInit {
+
+  btn:boolean = TransactionDetails.showbtns
+
   searchquery: Isearchbus = {
     "source" : "",
     "destination" : "",

@@ -24,6 +24,7 @@ export class LogincustomerComponent implements OnInit {
 
 
   ngOnInit(): void {
+    TransactionDetails.showbtns = false
   }
 
   logincust(){

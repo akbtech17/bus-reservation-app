@@ -21,11 +21,11 @@ export class TransactionDetails {
     public static pickup: string
     public static typeOfBus: string
     public static distance: number
-
     public static custFirstName: string
     public static custLastName: string
     public static customerContact: string
     public static email: string
     public static tId: number
     public static password: string
+    public static showbtns: boolean = true
 }

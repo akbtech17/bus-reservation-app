@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TransactionDetails } from './transaction-details';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'BusReservationClient';
+
+  constructor(private route: Router){}
+  onClick(){
+    TransactionDetails.showbtns = true
+    this.route.navigate(['/searchbus'])
+  }
 }
