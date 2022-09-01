@@ -23,7 +23,7 @@
     </div>
     <div class="mb3">
         <label for="Rows">Enter Rows:</label>&nbsp;&nbsp;
-        <input type="number" id="rows" class="form-control" name="rows" required [(ngModel)]="busdata.rows" #Rows="ngModel" />
+        <input type="number" id="rows" class="form-control" name="rows" required [(ngModel)]="busdata.rows" #Rows="ngModel" readonly />
         <div *ngIf="Rows.invalid && (Rows.dirty || Rows.touched)" style="color:red;">
              <div *ngIf="Rows.errors?.['required']">
                 Rows is required
@@ -32,7 +32,7 @@
     </div>
     <div class="mb-3">
         <label for="Cols">Enter Columns:</label>&nbsp;&nbsp;
-        <input type="number" class="form-control" id="cols" name="cols" required [(ngModel)]="busdata.cols" #Cols="ngModel" />
+        <input type="number" class="form-control" id="cols" name="cols" required [(ngModel)]="busdata.cols" #Cols="ngModel" readonly/>
         <div *ngIf="Cols.invalid && (Cols.dirty || Cols.touched)" style="color:red;">
              <div *ngIf="Cols.errors?.['required']">
                 Columns are required
