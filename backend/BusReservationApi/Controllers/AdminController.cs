@@ -22,8 +22,6 @@ namespace BusReservationApi.Controllers
     {
         BusReservationContext db = new BusReservationContext();
 
-        // GET: api/<AdminSigninController>
-        // to get the details of all admins table.
         [HttpGet]
         [Route("list")]
         public IActionResult GetAdmin()
@@ -39,15 +37,14 @@ namespace BusReservationApi.Controllers
             }
         }
 
-        // GET api/<AdminSigninController>/5
-        // to get the details of the specific admin
-        [HttpGet("{id}")]
-        [Route("list/{id}")]
-        public IActionResult GetAdmin(int id)
+        [HttpGet]
+        [Route("detail")]
+        public IActionResult GetAdmin([FromQuery] string email)
         {
             try
             {
-                var data = db.Admins.Where(admin => admin.AdminId == id).FirstOrDefault();
+                var data = db.Admins.Where(admin => admin.Email.Equals(email)).FirstOrDefault();
+                if (data == null) return NotFound(email);
                 return Ok(data);
             }
             catch (Exception ex)

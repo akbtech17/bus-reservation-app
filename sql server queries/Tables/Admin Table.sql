@@ -1,27 +1,17 @@
-USE [BusReservation]
-GO
+drop table Admin;
 
-/****** Object:  Table [dbo].[Admin]    Script Date: 03-09-2022 8.05.26 AM ******/
-SET ANSI_NULLS ON
-GO
+create table Admin(
+	adminId int identity(1,1) primary key,
+	firstName varchar(30) not null,
+	lastName varchar(30),
+	email varchar(125) not null unique,
+	password varchar(15) not null
+);
 
-SET QUOTED_IDENTIFIER ON
-GO
+insert Admin values
+('Anshul','Bansal','akb.tech17@gmail.com','12@dmiN34'),
+('Aatmic','Tiwari','aatmic@gmail.com','12@dmiN34'),
+('Anish','Anand','anish@gmail.com','12@dmiN34'),
+('Prakhar','Kesari','prakhar@gmail.com','12@dmiN34');
 
-CREATE TABLE [dbo].[Admin](
-	[AdminId] [int] NOT NULL,
-	[FirstName] [varchar](10) NOT NULL,
-	[LastName] [varchar](15) NOT NULL,
-	[Email] [varchar](25) NOT NULL,
-	[Password] [varchar](9) NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[AdminId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
-UNIQUE NONCLUSTERED 
-(
-	[Email] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-
+select * from Admin;
