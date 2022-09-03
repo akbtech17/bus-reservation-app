@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2 class="text-success">Bus {{busdata.busNo}} Info</h2>
+        BusId : {{busdata.typeOfBus}}
+        <table class="table">
+            <thead class="head">
+                <tr>
+                    <th>BusId</th>
+                    <th>BusNo</th>
+                    <th>Bus type</th>
+                    <th>Driver Name</th>
+                    <th>Driver Contact</th>
+                    <th>Rows</th>
+                    <th>Cols</th>
+                 <th>Total Seats</th>
+                 <th>Seats Available</th> 
+                  <th>Departure Time</th>   
+                    <th>Arrival time</th>
+                    <th>Pick up</th>
+                    <th>Seat Cost</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Distance</th>
+                    
+                   
+                </tr>
+            </thead>
+            <tbody>
+               <tr>
+                    <td>{{busdata.busId}}</td>
+                    <td>{{busdata.busNo}}</td>
+                    <td>{{busdata.typeOfBus}}</td>
+                    <td>{{busdata.driverName}}</td>
+                    <td>{{busdata.driverContact}}</td>
+                    <td>{{busdata.rows}}</td>
+                    <td>{{busdata.cols}}</td>
+                    <td>{{busdata.rows*busdata.cols}}</td>
+                    <td>{{seatAvb}}</td>
+                    <td>{{busdata.dtime}}</td>
+                    <td>{{busdata.atime}}</td>
+                    <td>{{busdata.pickup}}</td>
+                    <td>{{busdata.seatCost}}</td>
+                    <td>{{busdata.source}}</td>
+                    <td>{{busdata.destination}}</td>
+                    <td>{{busdata.distance}}</td>
+               
+                    </tr>
+            </tbody>
+        </table>
+        
+        
+    </div>
+    <button type="button" class="btn btn-info" routerLink="/list/" style="margin-left:600px">
+        Back to List
+     </button>
+</div>
+
+

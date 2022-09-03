@@ -1,0 +1,66 @@
+import { Injectable } from '@angular/core';
+import { Ibus } from './ibus'; //importing interface
+import { HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http' //hhtp client object helps with all WEBApi methods
+import { Observable } from 'rxjs'; // to work or load single component not whole page or app.
+import { Isearchbus } from './isearchbus';
+import { catchError, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BusserviceService {
+
+  url = 'http://localhost:16553/api/bus'
+  httpOptions = {headers: new HttpHeaders({'Content-type':'application/json'})}
+
+  constructor(private httpclient:HttpClient) { }
+
+  //To get All the attributes of Bus.
+  getBusList():Observable<any> {
+    return this.httpclient.get<any[]>(this.url+'/').pipe(catchError(this.handleError))
+  }
+
+  //To get details of particular Bus.
+  getBus(busId:number):Observable<Ibus> {
+    console.log(busId);
+    return this.httpclient.get<Ibus>(this.url + '/'+ busId).pipe(catchError(this.handleError))
+    
+  }
+
+  //To add Bus Details
+  addBus(busdata:Ibus):Observable<Ibus> {
+    return this.httpclient.post<Ibus>(this.url + '/addbus',busdata, this.httpOptions).pipe(catchError(this.handleError))
+  }
+
+  //To edit Bus Details
+  editBus(busdata:Ibus):Observable<Ibus> {
+    return this.httpclient.put<Ibus>(this.url + '/editbus/' + busdata.busId,busdata, this.httpOptions).pipe(catchError(this.handleError))
+  }
+
+  //To delete the Bus Details
+  deleteBus(busdata:Ibus):Observable<Ibus> {
+    console.log("Hello")
+    return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+ busdata.busId, this.httpOptions).pipe(catchError(this.handleError))
+  }
+
+  // to search the avb buses
+  searchBuses(searchquery:Isearchbus):Observable<any> {
+    console.log(searchquery);
+    return this.httpclient.post<any[]>(this.url + '/search', searchquery, this.httpOptions).pipe(catchError(this.handleError))
+  }
+
+  avbSeates(busId:number):Observable<any> {
+     return this.httpclient.get<any>(this.url + '/seatsavb/' + busId).pipe(catchError(this.handleError))
+  }
+
+  // method to handle errors in client side
+  handleError(error: HttpErrorResponse) {
+    let errormessage = ''
+    errormessage = error.status+'\n'+error.statusText+'\n'+error.error
+    alert(errormessage)
+    return throwError(errormessage);
+  }
+}
