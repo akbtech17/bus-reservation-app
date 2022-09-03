@@ -42,30 +42,33 @@ namespace BusReservationApi.Models
             {
                 entity.ToTable("Admin");
 
-                entity.HasIndex(e => e.Email, "UQ__Admin__A9D105348E4374FD")
+                entity.HasIndex(e => e.Email, "UQ__Admin__AB6E61640652CD32")
                     .IsUnique();
 
-                entity.Property(e => e.AdminId).ValueGeneratedNever();
+                entity.Property(e => e.AdminId).HasColumnName("adminId");
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(25)
-                    .IsUnicode(false);
+                    .HasMaxLength(125)
+                    .IsUnicode(false)
+                    .HasColumnName("email");
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("firstName");
 
                 entity.Property(e => e.LastName)
-                    .IsRequired()
-                    .HasMaxLength(15)
-                    .IsUnicode(false);
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("lastName");
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(9)
-                    .IsUnicode(false);
+                    .HasMaxLength(15)
+                    .IsUnicode(false)
+                    .HasColumnName("password");
             });
 
             modelBuilder.Entity<Bus>(entity =>
