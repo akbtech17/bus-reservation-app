@@ -1,0 +1,867 @@
+{
+	"info": {
+		"_postman_id": "ebe5dbd7-7d12-4e5a-a724-d47233047e23",
+		"name": "Admin Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bus Api",
+			"item": [
+				{
+					"name": "Bus Seat Api",
+					"item": [
+						{
+							"name": "seat details for bus",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:16553/api/bus/seatdetails/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"bus",
+										"seatdetails",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "available seats for bus",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:16553/api/bus/seatsavb/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"bus",
+										"seatsavb",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set 1 seat for bus",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"busId\":1,\r\n    \"seatNo\":\"A9\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:16553/api/bus/setseat",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"bus",
+										"setseat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reset 1 seat for bus",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"busId\": 1,\r\n    \"seatNo\":\"A9\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:16553/api/bus/resetseat",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"bus",
+										"resetseat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set list of seats for bus (to cancel)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"busId\":1,\r\n    \"seats\":[\r\n        \"A8\", \"B8\", \"C3\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:16553/api/bus/setseats",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"bus",
+										"setseats"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reset list of seats for bus (to book)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"busId\":1,\r\n    \"seats\":[\r\n        \"A8\", \"B8\", \"C3\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:16553/api/bus/resetseats",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"bus",
+										"resetseats"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "list of buses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/bus/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"bus",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific bus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/bus/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"bus",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bus",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"busId\":1,\r\n    \"busNo\":\"PK0123\",\r\n    \"Rows\":4,\r\n    \"Cols\":5,\r\n    \"Dtime\":\"1998-01-23T12:45:56\",\r\n    \"Atime\":\"2010-12-31T01:15:00\",\r\n    \"RouteId\":3,\r\n    \"Pickup\":\"India Gate\",\r\n    \"SeatCost\":600,\r\n    \"DriverName\":\"Aatmic\",\r\n    \"DriverContact\":\"0987654321\",\r\n    \"TypeOfBus\":\"NON AC\",\r\n    \"Source\":\"Khatima\",\r\n    \"Destination\":\"Delhi\",\r\n    \"Distance\":250\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:16553/api/bus/editbus/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"bus",
+								"editbus",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"busId\":5,\r\n        \"busNo\": \"pk\",\r\n        \"rows\": 4,\r\n        \"cols\": 5,\r\n        \"dtime\": \"1998-01-23T12:45:56\",\r\n        \"atime\": \"2010-12-31T01:15:00\",\r\n        \"pickup\": \"India Gate\",\r\n        \"seatCost\": 600,\r\n        \"driverName\": \"Anish\",\r\n        \"driverContact\": \"0987654321\",\r\n        \"typeOfBus\": \"NON AC\",\r\n        \"source\": \"Khatima\",\r\n        \"destination\": \"Delhi\",\r\n        \"distance\": 250\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:16553/api/bus/addbus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"bus",
+								"addbus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bus",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/bus/deletebus/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"bus",
+								"deletebus",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bus search",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"DDate\":\"2022-09-02\",\r\n    \"Source\":\"Pune\",\r\n    \"Destination\":\"Mumbai\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:16553/api/bus/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"bus",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer Api",
+			"item": [
+				{
+					"name": "Transaction Api",
+					"item": [
+						{
+							"name": "passengers list for tid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:16553/api/transaction/passengers/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"transaction",
+										"passengers",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "passengers list for tid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"pid\": 7,\r\n        \"tid\": 1,\r\n        \"pname\": \"Shikhar\",\r\n        \"age\": 22,\r\n        \"adhaar\": \"123456789123\",\r\n        \"gender\": \"M\"\r\n    },\r\n    {\r\n        \"pid\": 8,\r\n        \"tid\": 1,\r\n        \"pname\": \"Mudit\",\r\n        \"age\": 23,\r\n        \"adhaar\": \"343456789112\",\r\n        \"gender\": \"M\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:16553/api/transaction/passengers/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"transaction",
+										"passengers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "seats list for the tid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:16553/api/transaction/seats/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"transaction",
+										"seats",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "seats list for the tid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"A3\", \"B3\", \"C3\"]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:16553/api/transaction/seats/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"transaction",
+										"seats",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create transaction",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tId\" : 769,\r\n    \"busId\" : 3,\r\n    \"totalCost\": 1200,\r\n    \"customerId\":2,\r\n    \"dateOfBooking\":\"2022-08-15T12:45:56\",\r\n    \"seats\": [\r\n        \"A0\", \"B0\"\r\n    ],\r\n    \"passengers\": [\r\n        {\r\n            \"pId\":23,\r\n            \"tId\":769,\r\n            \"pName\":\"Aparna\",\r\n            \"age\":19,\r\n            \"adhaar\":\"4567891234\",\r\n            \"gender\":\"F\"\r\n        },\r\n        {\r\n            \"pId\":78,\r\n            \"tId\":769,\r\n            \"pName\":\"Shubh\",\r\n            \"age\":21,\r\n            \"adhaar\":\"9879823146\",\r\n            \"gender\":\"M\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:16553/api/transaction/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"transaction",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cancel transaction",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:16553/api/transaction/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"transaction",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transaction details list for CustomerId",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"A3\", \"B3\", \"C3\"]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:16553/api/transaction/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "16553",
+									"path": [
+										"api",
+										"transaction",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "customer list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/customer/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Ans\",\r\n    \"lastName\": \"Bhatt\",\r\n    \"dob\": \"1996-10-23T12:45:56\",\r\n    \"gender\": \"F\",\r\n    \"mobile\": \"8830664518\",\r\n    \"email\": \"aliab@gmail.com\",\r\n    \"password\": \"Alia@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:16553/api/customer/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 3,\r\n    \"firstName\": \"Shubh\",\r\n    \"lastName\": \"Nagar\",\r\n    \"dob\": \"1998-02-12T12:45:56\",\r\n    \"gender\": \"M\",\r\n    \"mobile\": \"8830664518\",\r\n    \"email\": \"shubh_nagar@gmail.com\",\r\n    \"password\": \"cust@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:16553/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/customer/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"customer",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\": \"aatmic_tiwari@gmail.com\",\r\n    \"Password\":\"cust@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:16553/api/customer/validate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"customer",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"oldPassword\": \"cust@123\",\r\n    \"newPassword\": \"asumasum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:16553/api/customer/changepassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"customer",
+								"changepassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wallet statement",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/customer/wallet/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"customer",
+								"wallet",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Api",
+			"item": [
+				{
+					"name": "delete all data",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/test/deletedata",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"test",
+								"deletedata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "insert all data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/test/adddata",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"test",
+								"adddata"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin Api",
+			"item": [
+				{
+					"name": "Get all admins details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/admin/list/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"admin",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all admin details of specific id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:16553/api/admin/list/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"admin",
+								"list",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validation Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"admin2@gmail.com\",\r\n    \"Password\":\"admin@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:16553/api/admin/validate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "16553",
+							"path": [
+								"api",
+								"admin",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
