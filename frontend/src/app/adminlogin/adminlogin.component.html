@@ -17,7 +17,7 @@
                 
                 <input type="text" name="UserName" [(ngModel)]="logindata.email" class="form-control sty1" placeholder="Email" #email="ngModel"required> 
                 <div class="form-text text-danger" *ngIf="email.errors?.['required']&&(email.dirty||email.touched)">Email is Required</div>
-                <div class="form-text text-danger" *ngIf="email.errors?.['email']&&(email.dirty||email.touched)">Email is Invalid</div>
+                <div class="form-text text-danger" *ngIf="email.errors?.['email']&&(email.invalid || email.touched)">Email is Invalid</div>
               </div>
               <div class="input-group mb-4 mt-2">  
                 <div class="input-group-prepend">  
