@@ -17,8 +17,8 @@ namespace BusReservationApi.Models
         public string BusNo { get; set; }
         public int Rows { get; set; }
         public int Cols { get; set; }
-        public DateTime Dtime { get; set; }
-        public DateTime? Atime { get; set; }
+        public DateTime DTime { get; set; }
+        public DateTime? ATime { get; set; }
         public string Pickup { get; set; }
         public int SeatCost { get; set; }
         public string DriverName { get; set; }
