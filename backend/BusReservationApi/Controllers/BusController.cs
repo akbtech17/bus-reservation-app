@@ -13,6 +13,7 @@ namespace BusReservationApi.Controllers
         BusReservationContext db = new BusReservationContext();
 
         [HttpGet]
+        [Route("list")]
         public IActionResult Get()
         {
             try
@@ -27,12 +28,12 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpGet]
-        [Route("{BusId}")]
-        public IActionResult GetBus(int BusId)
+        [Route("detail")]
+        public IActionResult GetBus([FromQuery] string busNo)
         {
             try
             {
-                var data = db.buses.Where(B => B.BusId == BusId).FirstOrDefault();
+                var data = db.buses.Where(B => B.BusNo.Equals(busNo)).FirstOrDefault();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -42,7 +43,7 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpGet]
-        [Route("seatsavb/{BusId}")]
+        [Route("seatsavb")]
         public IActionResult GetBusAvbSeats(int BusId)
         {
             try
