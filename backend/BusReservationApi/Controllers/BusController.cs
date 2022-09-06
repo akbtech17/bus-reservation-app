@@ -57,37 +57,36 @@ namespace BusReservationApi.Controllers
             }
         }
 
-        //[HttpPut]
-        //[Route("editbus/{BusId}")]
-        //public IActionResult PutBus(int BusId, Bus bus)
-        //{
-            //var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
-            //try
-            //{
-            //    if (ModelState.IsValid)
-            //    {
-            //        data.BusNo = bus.BusNo;
-            //        data.Rows = bus.Rows;
-            //        data.dtime = bus.dtime;
-            //        data.atime = bus.atime;
-            //        data.Pickup = bus.Pickup;
-            //        data.SeatCost = bus.SeatCost;
-            //        data.DriverName = bus.DriverName;
-            //        data.DriverContact = bus.DriverContact;
-            //        data.TypeOfBus = bus.TypeOfBus;
-            //        data.Source = bus.Source;
-            //        data.Destination = bus.Destination;
-            //        data.Distance = bus.Distance;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    return BadRequest(ex.InnerException.Message);
-            //}
-            //db.SaveChanges();
-            //var edited_record = GetBus(BusId);
-            //return Ok(edited_record);
-        //}
+        [HttpPut]
+        [Route("editbus")]
+        public IActionResult PutBus([FromQuery] string busNo, Bus bus)
+        {
+            var data = db.buses.Where(buses => buses.BusNo.Equals(busNo)).FirstOrDefault();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    data.BusNo = bus.BusNo;
+                    data.Rows = bus.Rows;
+                    data.DTime = bus.DTime;
+                    data.ATime = bus.ATime;
+                    data.Pickup = bus.Pickup;
+                    data.SeatCost = bus.SeatCost;
+                    data.DriverName = bus.DriverName;
+                    data.DriverContact = bus.DriverContact;
+                    data.TypeOfBus = bus.TypeOfBus;
+                    data.Source = bus.Source;
+                    data.Destination = bus.Destination;
+                    data.Distance = bus.Distance;
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+            db.SaveChanges();
+            return Ok(data);
+        }
 
         //[HttpPost]
         //[Route("addbus")]
