@@ -58,59 +58,59 @@ namespace BusReservationApi.Controllers
             }
         }
 
-        [HttpPut]
-        [Route("editbus/{BusId}")]
-        public IActionResult PutBus(int BusId, Bus bus)
-        {
-            var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    data.BusNo = bus.BusNo;
-                    data.Rows = bus.Rows;
-                    data.Dtime = bus.Dtime;
-                    data.Atime = bus.Atime;
-                    data.Pickup = bus.Pickup;
-                    data.SeatCost = bus.SeatCost;
-                    data.DriverName = bus.DriverName;
-                    data.DriverContact = bus.DriverContact;
-                    data.TypeOfBus = bus.TypeOfBus;
-                    data.Source = bus.Source;
-                    data.Destination = bus.Destination;
-                    data.Distance = bus.Distance;
-                }
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.InnerException.Message);
-            }
-            db.SaveChanges();
-            var edited_record = GetBus(BusId);
-            return Ok(edited_record);
-        }
+        //[HttpPut]
+        //[Route("editbus/{BusId}")]
+        //public IActionResult PutBus(int BusId, Bus bus)
+        //{
+            //var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
+            //try
+            //{
+            //    if (ModelState.IsValid)
+            //    {
+            //        data.BusNo = bus.BusNo;
+            //        data.Rows = bus.Rows;
+            //        data.dtime = bus.dtime;
+            //        data.atime = bus.atime;
+            //        data.Pickup = bus.Pickup;
+            //        data.SeatCost = bus.SeatCost;
+            //        data.DriverName = bus.DriverName;
+            //        data.DriverContact = bus.DriverContact;
+            //        data.TypeOfBus = bus.TypeOfBus;
+            //        data.Source = bus.Source;
+            //        data.Destination = bus.Destination;
+            //        data.Distance = bus.Distance;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    return BadRequest(ex.InnerException.Message);
+            //}
+            //db.SaveChanges();
+            //var edited_record = GetBus(BusId);
+            //return Ok(edited_record);
+        //}
 
-        [HttpPost]
-        [Route("addbus")]
-        public IActionResult PostBus(Bus bus)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    db.buses.Add(bus);
-                    db.SaveChanges();
-                    // call procedure to add the seats for the added bus
-                    db.Database.ExecuteSqlInterpolated($"AddBusSeat {bus.BusId}");
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.InnerException.Message);
-            }
-            return Created("Record Successfully Added", bus);
-        }
+        //[HttpPost]
+        //[Route("addbus")]
+        //public IActionResult PostBus(Bus bus)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            db.buses.Add(bus);
+        //            db.SaveChanges();
+        //            // call procedure to add the seats for the added bus
+        //            db.Database.ExecuteSqlInterpolated($"AddBusSeat {bus.BusId}");
+        //            db.SaveChanges();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.InnerException.Message);
+        //    }
+        //    return Created("Record Successfully Added", bus);
+        //}
 
         [HttpDelete]
         [Route("deletebus/{BusId}")]
@@ -143,7 +143,7 @@ namespace BusReservationApi.Controllers
             {
                 var data = db.buses.Where(b =>
                     b.Destination.Equals(query.Destination) &&
-                    b.Source.Equals(query.Source) && query.DDate.Date.Equals(b.Dtime.Date)
+                    b.Source.Equals(query.Source) && query.DDate.Date.Equals(b.DTime.Date)
                  );
 
                 return Ok(data);
