@@ -1,79 +1,84 @@
--- drop table
-drop table TransactionSeat;
-drop table Passenger;
-drop table TransactionDetails;
-drop table Customer;
-drop table BusSeat;
-drop table Bus;
 
-CREATE TABLE Bus (
-	[busId] [int] PRIMARY KEY IDENTITY(1,1),
-	[busNo] [varchar](10) NOT NULL UNIQUE,
-	[rows] [int] NOT NULL Default(10),
-	[cols] [int] NOT NULL Default(4),
-	[dTime] [datetime] NOT NULL,
-	[aTime] [datetime] NULL,
-	[pickup] [varchar](50) NOT NULL,
-	[seatCost] [int] NOT NULL,
-	[driverName] [varchar](20) NULL,
-	[driverContact] [varchar](10) NULL,
-	[typeOfBus] [varchar](10) NOT NULL,
-	[source] [varchar](10) NOT NULL,
-	[destination] [varchar](10) NOT NULL,
-	[distance] [int] NOT NULL
-);
-
-CREATE TABLE BusSeat (
-	[seatNo] [varchar](2) NOT NULL,
-	[busId] [int] foreign key references Bus(busId),
-	[available] [bit] NULL,
-	constraint pk_bus_seat primary key(seatNo, busId)
-);
-	
-
-CREATE TABLE Customer(
-    [CustomerId] [int] primary key,
-    [FirstName] [varchar](10) NOT NULL,
-    [LastName] [varchar](15) NOT NULL,
-    [Dob] [datetime] ,
-    [Gender] [char](1) ,
-    [Mobile] [varchar](10) NOT NULL,
-    [Email] [varchar](25) NOT NULL,
-    [Password] [varchar](9) NOT NULL,
-	Wallet int default(0)
-);
-
--- creating a transaction table
-create table TransactionDetails (
-	TId int primary key,
-	BusId int foreign key references bus(busid) not null,
-	CustomerId int foreign key references customer(customerId) not null,
-	DateOfBooking datetime not null,
-	TotalCost int not null
-) 
-
--- creating a passenger table
-create table Passenger (
-	PId int primary key,
-	TId int foreign key references TransactionDetails(TId) not null,
-	PName varchar(40) not null,
-	Age int not null,
-	Adhaar varchar(12) not null,
-	Gender char not null
-) 
-
--- creating a TansactionSeat
-create table TransactionSeat (
-	TId int foreign key references TransactionDetails(TId) not null,
-	SeatNo varchar(2) not null,
-	Constraint PK_TId Primary Key (TId,SeatNo)
-) 
 
 drop procedure TestInsertAllRecords;
 
 CREATE PROCEDURE TestInsertAllRecords
 AS
 BEGIN 
+	
+	-- drop table
+	drop table TransactionSeat;
+	drop table Passenger;
+	drop table TransactionDetails;
+	drop table Customer;
+	drop table BusSeat;
+	drop table Bus;
+
+	CREATE TABLE Bus (
+		[busId] [int] PRIMARY KEY IDENTITY(1,1),
+		[busNo] [varchar](10) NOT NULL UNIQUE,
+		[rows] [int] NOT NULL Default(10),
+		[cols] [int] NOT NULL Default(4),
+		[dTime] [datetime] NOT NULL,
+		[aTime] [datetime] NULL,
+		[pickup] [varchar](50) NOT NULL,
+		[seatCost] [int] NOT NULL,
+		[driverName] [varchar](20) NULL,
+		[driverContact] [varchar](10) NULL,
+		[typeOfBus] [varchar](10) NOT NULL,
+		[source] [varchar](10) NOT NULL,
+		[destination] [varchar](10) NOT NULL,
+		[distance] [int] NOT NULL
+	);
+
+	CREATE TABLE BusSeat (
+		[seatNo] [varchar](2) NOT NULL,
+		[busId] [int] foreign key references Bus(busId),
+		[available] [bit] NULL,
+		constraint pk_bus_seat primary key(seatNo, busId)
+	);
+	
+
+	CREATE TABLE Customer(
+		[CustomerId] [int] primary key,
+		[FirstName] [varchar](10) NOT NULL,
+		[LastName] [varchar](15) NOT NULL,
+		[Dob] [datetime] ,
+		[Gender] [char](1) ,
+		[Mobile] [varchar](10) NOT NULL,
+		[Email] [varchar](25) NOT NULL,
+		[Password] [varchar](9) NOT NULL,
+		Wallet int default(0)
+	);
+
+	-- creating a transaction table
+	create table TransactionDetails (
+		TId int primary key,
+		BusId int foreign key references bus(busid) not null,
+		CustomerId int foreign key references customer(customerId) not null,
+		DateOfBooking datetime not null,
+		TotalCost int not null
+	) 
+
+	-- creating a passenger table
+	create table Passenger (
+		PId int primary key,
+		TId int foreign key references TransactionDetails(TId) not null,
+		PName varchar(40) not null,
+		Age int not null,
+		Adhaar varchar(12) not null,
+		Gender char not null
+	) 
+
+	-- creating a TansactionSeat
+	create table TransactionSeat (
+		TId int foreign key references TransactionDetails(TId) not null,
+		SeatNo varchar(2) not null,
+		Constraint PK_TId Primary Key (TId,SeatNo)
+	) 
+
+
+
 	-- adding the details of customers
 	insert into customer values
 	(1,'Aatmic','Tiwari','2000-03-03 12:45:56','M','4719168654','aatmic_tiwari@gmail.com','cust@123',0),
@@ -166,3 +171,5 @@ END
 
 EXEC TestDeleteAllRecords;
 EXEC TestInsertAllRecords;
+
+select * from bus;
