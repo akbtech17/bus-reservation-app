@@ -88,27 +88,27 @@ namespace BusReservationApi.Controllers
             return Ok(data);
         }
 
-        //[HttpPost]
-        //[Route("addbus")]
-        //public IActionResult PostBus(Bus bus)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            db.buses.Add(bus);
-        //            db.SaveChanges();
-        //            // call procedure to add the seats for the added bus
-        //            db.Database.ExecuteSqlInterpolated($"AddBusSeat {bus.BusId}");
-        //            db.SaveChanges();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return BadRequest(ex.InnerException.Message);
-        //    }
-        //    return Created("Record Successfully Added", bus);
-        //}
+        [HttpPost]
+        [Route("addbus")]
+        public IActionResult PostBus(Bus bus)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    db.buses.Add(bus);
+                    db.SaveChanges();
+                    var busId = db.buses.Where(b => b.BusNo.Equals(bus.BusNo)).FirstOrDefault().BusId;
+                    db.Database.ExecuteSqlInterpolated($"AddBusSeat {busId}");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException.Message);
+            }
+            db.SaveChanges();
+            return Created("Record Successfully Added", bus);
+        }
 
         [HttpDelete]
         [Route("deletebus/{BusId}")]
