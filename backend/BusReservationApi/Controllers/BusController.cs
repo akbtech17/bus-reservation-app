@@ -3,8 +3,6 @@ using System;
 using System.Linq;
 using BusReservationApi.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace BusReservationApi.Controllers
 {
