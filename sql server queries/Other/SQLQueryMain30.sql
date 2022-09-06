@@ -3,6 +3,33 @@ drop table TransactionSeat;
 drop table Passenger;
 drop table TransactionDetails;
 drop table Customer;
+drop table BusSeat;
+drop table Bus;
+
+CREATE TABLE Bus (
+	[busId] [int] PRIMARY KEY IDENTITY(1,1),
+	[busNo] [varchar](10) NOT NULL UNIQUE,
+	[rows] [int] NOT NULL Default(10),
+	[cols] [int] NOT NULL Default(4),
+	[dTime] [datetime] NOT NULL,
+	[aTime] [datetime] NULL,
+	[pickup] [varchar](50) NOT NULL,
+	[seatCost] [int] NOT NULL,
+	[driverName] [varchar](20) NULL,
+	[driverContact] [varchar](10) NULL,
+	[typeOfBus] [varchar](10) NOT NULL,
+	[source] [varchar](10) NOT NULL,
+	[destination] [varchar](10) NOT NULL,
+	[distance] [int] NOT NULL
+);
+
+CREATE TABLE BusSeat (
+	[seatNo] [varchar](2) NOT NULL,
+	[busId] [int] foreign key references Bus(busId),
+	[available] [bit] NULL,
+	constraint pk_bus_seat primary key(seatNo, busId)
+);
+	
 
 CREATE TABLE Customer(
     [CustomerId] [int] primary key,
@@ -60,14 +87,14 @@ BEGIN
 
 	-- adding the details of buses
 	insert into Bus values
-	(1,'UK123',10,4,'2022-09-03 12:45:56','2022-09-04 01:15:00','Swargate',600,'Vibhor','7711168654','AC','Pune','Mumbai',300),
-	(2,'UK124',10,4,'2022-08-01 12:45:56','2022-08-02 01:15:00','Dhankawadi',1000,'Mahalakshmi','9423168623','NON-AC','Pune','Shirdi',450),
-	(3,'UK125',10,4,'2022-09-03 12:45:56','2022-09-03 01:15:00','Church Gate',600,'Ananya','9411458689','AC','Mumbai','Pune',300),
-	(4,'UK126',10,4,'2022-09-03 12:45:56','2022-09-03 01:15:00','Anand Vihar',800,'Akash','9661168654','NON-AC','Delhi','Khatima',200),
+	('UK123',10,4,'2022-09-03 12:45:56','2022-09-04 01:15:00','Swargate',600,'Vibhor','7711168654','AC','Pune','Mumbai',300),
+	('UK124',10,4,'2022-08-01 12:45:56','2022-08-02 01:15:00','Dhankawadi',1000,'Mahalakshmi','9423168623','NON-AC','Pune','Shirdi',450),
+	('UK125',10,4,'2022-09-03 12:45:56','2022-09-03 01:15:00','Church Gate',600,'Ananya','9411458689','AC','Mumbai','Pune',300),
+	('UK126',10,4,'2022-09-03 12:45:56','2022-09-03 01:15:00','Anand Vihar',800,'Akash','9661168654','NON-AC','Delhi','Khatima',200),
 
-	(5,'UK127',10,4,'2022-09-03 12:45:56','2022-09-04 01:15:00','Shivaji Nagar',800,'Vinay','5561168650','NON-AC','Pune','Mumbai',300),
-	(6,'UK128',10,4,'2022-09-03 12:45:56','2022-09-04 01:15:00','Dhankawadi',1800,'Bhole','4361168653','AC','Pune','Mumbai',300),
-	(7,'UK130',10,4,'2022-09-03 12:45:56','2022-09-04 01:15:00','Katraj',450,'Vanjale','1161168659','NON-AC','Pune','Mumbai',300);
+	('UK127',10,4,'2022-09-03 12:45:56','2022-09-04 01:15:00','Shivaji Nagar',800,'Vinay','5561168650','NON-AC','Pune','Mumbai',300),
+	('UK128',10,4,'2022-09-03 12:45:56','2022-09-04 01:15:00','Dhankawadi',1800,'Bhole','4361168653','AC','Pune','Mumbai',300),
+	('UK130',10,4,'2022-09-03 12:45:56','2022-09-04 01:15:00','Katraj',450,'Vanjale','1161168659','NON-AC','Pune','Mumbai',300);
 
 	-- adding the transaction details
 	insert into transactiondetails values
