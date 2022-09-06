@@ -111,26 +111,29 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpDelete]
-        [Route("deletebus/{BusId}")]
-        public IActionResult DeleteBus(int BusId)
+        [Route("deletebus")]
+        public IActionResult DeleteBus([FromQuery] string busNo)
         {
             try
             {
                 // before deleting the records for the bus
                 // delete the bus seats from bus seat table
-                db.Database.ExecuteSqlInterpolated($"DeleteBusSeat {BusId}");
+                var busId = db.buses.Where(b => b.BusNo.Equals(busNo)).FirstOrDefault().BusId;
+                db.Database.ExecuteSqlInterpolated($"DeleteBusSeat {busId}");
                 db.SaveChanges();
 
-                var data = db.buses.Where(buses => buses.BusId == BusId).FirstOrDefault();
+                // also have to delete bus id from transaction tables
+
+                var data = db.buses.Where(buses => buses.BusNo.Equals(busNo)).FirstOrDefault();
                 db.buses.Remove(data);
-                db.SaveChanges();
-                return Ok();
+                
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.InnerException.Message);
             }
-
+            db.SaveChanges();
+            return Ok();
         }
 
         [HttpPost]
