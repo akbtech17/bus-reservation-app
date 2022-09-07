@@ -16,8 +16,8 @@ import { LogincustomerComponent } from './Customer/Components/logincustomer/logi
 import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
 import { SeatbookComponent } from './seatbook/seatbook.component';
 import { BookingsComponent } from './bookings/bookings.component';
-import { WalletComponent } from './wallet/wallet.component';
-import { ProfileComponent } from './profile/profile.component';
+import { WalletComponent } from './Customer/Components/wallet/wallet.component';
+import { ProfileComponent } from './Customer/Components/profile/profile.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { PassengerComponent } from './passenger/passenger.component';
 import { TransactionComponent } from './transaction/transaction.component';
