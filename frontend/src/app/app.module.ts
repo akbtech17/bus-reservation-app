@@ -27,15 +27,15 @@ import { SeatbookComponent } from './Customer/Components/seatbook/seatbook.compo
 import { SidebarcustomerComponent } from './Customer/Components/sidebarcustomer/sidebarcustomer.component';
 import { BookingsComponent } from './Customer/Components/bookings/bookings.component';
 import { ProfileComponent } from './Customer/Components/profile/profile.component';
-import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { ChangepasswordComponent } from './Customer/Components/changepassword/changepassword.component';
 import { WalletComponent } from './Customer/Components/wallet/wallet.component';
 import { PassengerComponent } from './Customer/Components/passenger/passenger.component';
 import { TransactionComponent } from './Customer/Components/transaction/transaction.component';
-import { CarddetailsComponent } from './carddetails/carddetails.component';
+import { CarddetailsComponent } from './Customer/Components/carddetails/carddetails.component';
 import { FeedbackComponent } from './Customer/Components/feedback/feedback.component';
 import { SummaryComponent } from './Customer/Components/summary/summary.component';
 import { PassbookedComponent } from './Customer/Components/passbooked/passbooked.component';
-import { BookingcancelComponent } from './bookingcancel/bookingcancel.component';
+import { BookingcancelComponent } from './Customer/Components/bookingcancel/bookingcancel.component';
 import { EditcustomerComponent } from './Customer/Components/editcustomer/editcustomer.component';
 
 @NgModule({

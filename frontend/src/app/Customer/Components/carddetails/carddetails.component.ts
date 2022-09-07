@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Icard } from '../Customer/Models/icard';
+import { Icard } from '../../Models/icard';
 import { Router } from '@angular/router';
-import { BusserviceService } from '../Admin/Services/busservice.service';
-import { TransactionDetails } from '../transaction-details';
-import { Ibus } from '../Admin/Models/ibus';
+import { BusserviceService } from '../../../Admin/Services/busservice.service';
+import { TransactionDetails } from '../../../transaction-details';
+import { Ibus } from '../../../Admin/Models/ibus';
 
 @Component({
   selector: 'app-carddetails',
