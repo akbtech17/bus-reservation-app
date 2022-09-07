@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CustomerserviceService } from '../customerservice.service';
-import { Icustomer } from '../icustomer';
-import { TransactionDetails } from '../transaction-details';
+import { CustomerserviceService } from '../../../customerservice.service';
+import { Icustomer } from '../../../icustomer';
+import { TransactionDetails } from '../../../transaction-details';
 
 @Component({
   selector: 'app-editcustomer',
