@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl,FormGroup, Validators } from '@angular/forms';
-import { AdminserviceService } from '../adminservice.service';
-import { Iadmin } from '../iadmin';
+import { AdminserviceService } from '../../Services/adminservice.service';
+import { Iadmin } from '../../../iadmin';
+import { Adminstore } from '../../Classes/adminstore';
 
-import { ActivatedRoute } from '@angular/router';
-import { Adminstore } from '../adminstore';
 @Component({
   selector: 'app-adminlogin',
   templateUrl: './adminlogin.component.html',
   styleUrls: ['./adminlogin.component.css']
 })
+
 export class AdminloginComponent implements OnInit {
   logindata:Iadmin={
     email:'' ,

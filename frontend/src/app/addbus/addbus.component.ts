@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BusserviceService } from '../busservice.service';
+import { BusserviceService } from '../Admin/Services/busservice.service';
 import { ActivatedRoute } from '@angular/router';
 import { Ibus } from '../ibus';
 import { Router } from '@angular/router';

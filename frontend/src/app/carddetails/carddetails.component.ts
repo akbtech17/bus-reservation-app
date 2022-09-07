@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Icard } from '../icard';
 import { Router } from '@angular/router';
-import { BusserviceService } from '../busservice.service';
+import { BusserviceService } from '../Admin/Services/busservice.service';
 import { TransactionDetails } from '../transaction-details';
 import { Ibus } from '../ibus';
 import { ICreatetransactionrequest } from '../icreatetransactionrequest';

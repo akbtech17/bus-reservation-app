@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Ibus } from './ibus'; //importing interface
+import { Ibus } from '../../ibus'; //importing interface
 import { HttpHeaders } from '@angular/common/http'
 import { HttpClient } from '@angular/common/http' //hhtp client object helps with all WEBApi methods
 import { Observable } from 'rxjs'; // to work or load single component not whole page or app.
-import { Isearchbus } from './isearchbus';
+import { Isearchbus } from '../../isearchbus';
 import { catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
