@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Icustomer } from '../../../icustomer';
+import { Icustomer } from '../../Models/icustomer';
 import { CustomerserviceService } from '../../../customerservice.service';
 import { Router } from '@angular/router';
 import { TransactionDetails } from '../../../transaction-details';
