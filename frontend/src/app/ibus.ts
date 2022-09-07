@@ -5,8 +5,8 @@ export interface Ibus {
     busNo: string
     rows: number
     cols: number
-    dtime:string
-    atime: string
+    dTime:string
+    aTime: string
     pickup: string
     seatCost: number
     driverName: string

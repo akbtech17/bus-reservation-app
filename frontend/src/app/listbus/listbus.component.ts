@@ -18,7 +18,7 @@ export class ListbusComponent implements OnInit {
     //Definition for passing data to the method
     //Client subscribing to the method to get the data
     this.busservice.getBusList().subscribe(data=>{this.Buslist=data})
-    console.log(this.Buslist)
+    // console.log(this.Buslist)
     
    }
   

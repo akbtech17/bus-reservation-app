@@ -14,7 +14,6 @@
         <table class="table">
             <thead class="head">
                 <tr>
-                    <th>BusId</th>
                     <th>BusNo</th>
                     <th>Bus type</th>
                     <th>Driver Name</th>
@@ -27,19 +26,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let bus of Buslist">
-                    <td>{{bus.busId}}</td>
+
                     <td>{{bus.busNo}}</td>
                     <td>{{bus.typeOfBus}}</td>
                     <td>{{bus.driverName}}</td>
                     <td>{{bus.driverContact}}</td>
-                    <td>{{bus.dtime}}</td>
-                    <td>{{bus.atime}}</td>
+                    <td>{{bus.dTime}}</td>
+                    <td>{{bus.aTime}}</td>
                     <td>{{bus.seatCost}}</td>
                     <td></td>
                     <td>
-                        <a [routerLink]="['/find/',bus.busId]">Details</a>&nbsp;&nbsp;
-                        <a [routerLink]="['/edit/',bus.busId]">Edit</a>&nbsp;&nbsp;
-                        <a [routerLink]="['/remove/',bus.busId]">Remove</a>&nbsp;&nbsp;
+                        <a [routerLink]="['/find/',bus.busNo]">Details</a>&nbsp;&nbsp;
+                        <a [routerLink]="['/edit/',bus.busNo]">Edit</a>&nbsp;&nbsp;
+                        <a [routerLink]="['/remove/',bus.busNo]">Remove</a>&nbsp;&nbsp;
                     </td>
                 </tr> 
             </tbody>

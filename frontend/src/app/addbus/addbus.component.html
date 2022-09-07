@@ -40,7 +40,7 @@
     </div>
     <div class="mb-3">
         <label for="DTime">Enter Departure Time:</label>
-        <input type="text" class="form-control"id="dTime" name="dTime" required [(ngModel)]="busdata.dtime" #dTime="ngModel" />
+        <input type="text" class="form-control"id="dTime" name="dTime" required [(ngModel)]="busdata.dTime" #dTime="ngModel" />
         <div *ngIf="dTime.invalid && (dTime.dirty || dTime.touched)" style="color:red;">
              <div *ngIf="dTime.errors?.['required']">
                 Departure time is required
@@ -49,7 +49,7 @@
     </div>
     <div class="mb-3">
         <label for="Atime">Enter Arrival Time:</label>
-        <input type="text" class="form-control"id="atime" name="atime" required [(ngModel)]="busdata.atime" #atime="ngModel" />
+        <input type="text" class="form-control"id="atime" name="atime" required [(ngModel)]="busdata.aTime" #atime="ngModel" />
         <div *ngIf="atime.invalid && (atime.dirty || atime.touched)" style="color:red;">
              <div *ngIf="atime.errors?.['required']">
                 Arrival time is required

@@ -75,8 +75,8 @@ onNext() {
         this.busservice.getBus(this.busId).subscribe((busdata:Ibus)=>{
             TransactionDetails.source = busdata.source
             TransactionDetails.destination = busdata.destination
-            TransactionDetails.dTime = busdata.dtime
-            TransactionDetails.aTime = busdata.atime
+            TransactionDetails.dTime = busdata.dTime
+            TransactionDetails.aTime = busdata.aTime
             TransactionDetails.busNo = busdata.busNo
             TransactionDetails.driverContact = busdata.driverContact
             TransactionDetails.driverName = busdata.driverName
