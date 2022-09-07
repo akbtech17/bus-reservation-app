@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TransactionserviceService } from '../../Services/transactionservice.service';
-import { Itransactionres } from '../../../itransactionres';
+import { Itransactionres } from '../../Models/itransactionres';
 import { TransactionDetails } from '../../Models/transaction-details';
 import { Bookingpassenger } from '../../Models/bookingpassenger';
-import { Passenger } from '../../../passenger';
+import { Passenger } from '../../Models/passenger';
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',

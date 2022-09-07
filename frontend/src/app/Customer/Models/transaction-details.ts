@@ -1,5 +1,5 @@
 import { Ipassenger } from "./ipassenger"
-import { Passenger } from "../../passenger"
+import { Passenger } from "./passenger"
 
 export class TransactionDetails {
     public static customerId: number
