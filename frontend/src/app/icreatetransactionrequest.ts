@@ -1,4 +1,4 @@
-import { Ipassenger } from "./ipassenger"
+import { Ipassenger } from "./Customer/Models/ipassenger"
 import { Passenger } from "./passenger"
 
 export interface ICreatetransactionrequest {

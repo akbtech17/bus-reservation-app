@@ -3,7 +3,7 @@ import { Itransactionres } from './itransactionres';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ipassengerdet } from './ipassengerdet';
+import { Ipassengerdet } from './Customer/Models/ipassengerdet';
 import { ICreatetransactionrequest } from './icreatetransactionrequest';
 import { catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';

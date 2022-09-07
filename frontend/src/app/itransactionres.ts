@@ -1,4 +1,4 @@
-import { Ipassengerdet } from "./ipassengerdet";
+import { Ipassengerdet } from "./Customer/Models/ipassengerdet";
 
 export interface Itransactionres {
     tId:number,
