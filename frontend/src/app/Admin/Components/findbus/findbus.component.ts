@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BusserviceService } from '../../Services/busservice.service';
-import { Ibus } from '../../../ibus';
+import { Ibus } from '../../Models/ibus';
 import { forkJoin } from 'rxjs';
 import { TransactionDetails } from '../../../transaction-details';
 

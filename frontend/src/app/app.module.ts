@@ -17,7 +17,7 @@ import{MatButtonModule} from '@angular/material/button';
 import{MatInputModule} from '@angular/material/input';
 import{MatCardModule} from '@angular/material/card';
 import { AdminloginComponent } from './Admin/Components/adminlogin/adminlogin.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
+import { AboutusComponent } from './Home Page/aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavadminComponent } from './Admin/Components/navadmin/navadmin.component';
 import { SearchbusComponent } from './searchbus/searchbus.component';

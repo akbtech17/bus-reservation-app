@@ -1,5 +1,3 @@
-import { DatePipe } from "@angular/common"
-
 export interface Ibus {
     busId: number
     busNo: string
@@ -15,5 +13,4 @@ export interface Ibus {
     source: string
     destination: string
     distance: number
-
 }

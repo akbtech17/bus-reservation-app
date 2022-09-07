@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BusserviceService } from '../../Services/busservice.service';
 import { ActivatedRoute } from '@angular/router';
-import { Ibus } from '../../../ibus';
+import { Ibus } from '../../Models/ibus';
 import { Router } from '@angular/router';
 
 @Component({

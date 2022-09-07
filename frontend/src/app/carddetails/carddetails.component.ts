@@ -3,14 +3,14 @@ import { Icard } from '../icard';
 import { Router } from '@angular/router';
 import { BusserviceService } from '../Admin/Services/busservice.service';
 import { TransactionDetails } from '../transaction-details';
-import { Ibus } from '../ibus';
-import { ICreatetransactionrequest } from '../icreatetransactionrequest';
+import { Ibus } from '../Admin/Models/ibus';
 
 @Component({
   selector: 'app-carddetails',
   templateUrl: './carddetails.component.html',
   styleUrls: ['./carddetails.component.css']
 })
+
 export class CarddetailsComponent implements OnInit {
   tId: number = 0
   carddetails : Icard = {
