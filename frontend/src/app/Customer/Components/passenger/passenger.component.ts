@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Passenger } from '../../../passenger';
-import { TransactionDetails } from '../../../transaction-details';
+import { TransactionDetails } from '../../Models/transaction-details';
 
 @Component({
   selector: 'app-passenger',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Icustomer } from '../../Models/icustomer';
 import { CustomerserviceService } from '../../Services/customerservice.service';
 import { Router } from '@angular/router';
-import { TransactionDetails } from '../../../transaction-details';
+import { TransactionDetails } from '../../Models/transaction-details';
 
 @Component({
   selector: 'app-logincustomer',

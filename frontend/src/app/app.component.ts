@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TransactionDetails } from './transaction-details';
+import { TransactionDetails } from './Customer/Models/transaction-details';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

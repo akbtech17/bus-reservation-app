@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ICreatetransactionrequest } from '../../../icreatetransactionrequest';
+import { ICreatetransactionrequest } from '../../Models/icreatetransactionrequest';
 import { Passenger } from '../../../passenger';
-import { TransactionDetails } from '../../../transaction-details';
+import { TransactionDetails } from '../../Models/transaction-details';
 import { TransactionserviceService } from '../../Services/transactionservice.service';
 
 @Component({

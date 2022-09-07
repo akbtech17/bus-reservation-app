@@ -4,7 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ipassengerdet } from '../Models/ipassengerdet';
-import { ICreatetransactionrequest } from '../../icreatetransactionrequest';
+import { ICreatetransactionrequest } from '../Models/icreatetransactionrequest';
 import { catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 

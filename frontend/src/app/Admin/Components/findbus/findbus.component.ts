@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BusserviceService } from '../../Services/busservice.service';
 import { Ibus } from '../../Models/ibus';
 import { forkJoin } from 'rxjs';
-import { TransactionDetails } from '../../../transaction-details';
+import { TransactionDetails } from '../../../Customer/Models/transaction-details';
 
 @Component({
   selector: 'app-findbus',

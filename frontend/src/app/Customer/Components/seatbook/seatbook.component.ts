@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BusserviceService } from '../../../Admin/Services/busservice.service';
 import { Ibus } from '../../../Admin/Models/ibus';
 import { SeatserviceService } from '../../../seatservice.service';
-import { TransactionDetails } from '../../../transaction-details';
+import { TransactionDetails } from '../../Models/transaction-details';
 
 @Component({
   selector: 'app-seatbook',

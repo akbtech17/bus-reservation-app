@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BusserviceService } from '../../Admin/Services/busservice.service';
 import { Isearchbus } from '../../isearchbus';
-import { TransactionDetails } from '../../transaction-details';
+import { TransactionDetails } from '../../Customer/Models/transaction-details';
 
 @Component({
   selector: 'app-searchbus',

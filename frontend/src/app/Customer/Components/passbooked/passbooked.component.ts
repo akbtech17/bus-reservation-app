@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Ipassengerdet } from '../../Models/ipassengerdet';
 import { Passenger } from '../../../passenger';
-import { TransactionDetails } from '../../../transaction-details';
+import { TransactionDetails } from '../../Models/transaction-details';
 import { TransactionserviceService } from '../../Services/transactionservice.service';
 import { Bookingpassenger } from '../../Models/bookingpassenger';
 
