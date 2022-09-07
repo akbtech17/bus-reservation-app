@@ -23,18 +23,18 @@ import { NavadminComponent } from './Admin/Components/navadmin/navadmin.componen
 import { SearchbusComponent } from './Home Page/searchbus/searchbus.component';
 import { CustomerRegistrationComponent } from './Customer/Components/customer-registration/customer-registration.component';
 import { LogincustomerComponent } from './Customer/Components/logincustomer/logincustomer.component';
-import { SeatbookComponent } from './seatbook/seatbook.component';
+import { SeatbookComponent } from './Customer/Components/seatbook/seatbook.component';
 import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { ProfileComponent } from './Customer/Components/profile/profile.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { WalletComponent } from './Customer/Components/wallet/wallet.component';
-import { PassengerComponent } from './passenger/passenger.component';
+import { PassengerComponent } from './Customer/Components/passenger/passenger.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { FeedbackComponent } from './Customer/Components/feedback/feedback.component';
-import { SummaryComponent } from './summary/summary.component';
-import { PassbookedComponent } from './passbooked/passbooked.component';
+import { SummaryComponent } from './Customer/Components/summary/summary.component';
+import { PassbookedComponent } from './Customer/Components/passbooked/passbooked.component';
 import { BookingcancelComponent } from './bookingcancel/bookingcancel.component';
 import { EditcustomerComponent } from './Customer/Components/editcustomer/editcustomer.component';
 

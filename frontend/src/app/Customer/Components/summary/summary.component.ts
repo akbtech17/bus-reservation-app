@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ICreatetransactionrequest } from '../icreatetransactionrequest';
-import { Passenger } from '../passenger';
-import { TransactionDetails } from '../transaction-details';
-import { TransactionserviceService } from '../transactionservice.service';
+import { ICreatetransactionrequest } from '../../../icreatetransactionrequest';
+import { Passenger } from '../../../passenger';
+import { TransactionDetails } from '../../../transaction-details';
+import { TransactionserviceService } from '../../../transactionservice.service';
 
 @Component({
   selector: 'app-summary',

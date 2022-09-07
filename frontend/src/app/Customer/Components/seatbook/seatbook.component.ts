@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { BusserviceService } from '../Admin/Services/busservice.service';
-import { Ibus } from '../Admin/Models/ibus';
-import { SeatserviceService } from '../seatservice.service';
-import { TransactionDetails } from '../transaction-details';
+import { BusserviceService } from '../../../Admin/Services/busservice.service';
+import { Ibus } from '../../../Admin/Models/ibus';
+import { SeatserviceService } from '../../../seatservice.service';
+import { TransactionDetails } from '../../../transaction-details';
 
 @Component({
   selector: 'app-seatbook',
