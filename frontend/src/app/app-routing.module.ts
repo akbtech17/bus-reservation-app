@@ -13,14 +13,14 @@ import { RemovebusComponent } from './Admin/Components/removebus/removebus.compo
 import { SearchbusComponent } from './Home Page/searchbus/searchbus.component';
 import { CustomerRegistrationComponent } from './Customer/Components/customer-registration/customer-registration.component';
 import { LogincustomerComponent } from './Customer/Components/logincustomer/logincustomer.component';
-import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
+import { SidebarcustomerComponent } from './Customer/Components/sidebarcustomer/sidebarcustomer.component';
 import { SeatbookComponent } from './Customer/Components/seatbook/seatbook.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { WalletComponent } from './Customer/Components/wallet/wallet.component';
 import { ProfileComponent } from './Customer/Components/profile/profile.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { PassengerComponent } from './Customer/Components/passenger/passenger.component';
-import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionComponent } from './Customer/Components/transaction/transaction.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
 import { FeedbackComponent } from './Customer/Components/feedback/feedback.component';
 import { SummaryComponent } from './Customer/Components/summary/summary.component';
