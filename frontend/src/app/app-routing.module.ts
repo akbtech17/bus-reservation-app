@@ -22,7 +22,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { PassengerComponent } from './passenger/passenger.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { CarddetailsComponent } from './carddetails/carddetails.component';
-import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackComponent } from './Customer/Components/feedback/feedback.component';
 import { SummaryComponent } from './summary/summary.component';
 import { PassbookedComponent } from './passbooked/passbooked.component';
 import { BookingcancelComponent } from './bookingcancel/bookingcancel.component';
