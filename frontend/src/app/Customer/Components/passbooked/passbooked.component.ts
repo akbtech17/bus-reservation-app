@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Bookingpassenger } from '../../../bookingpassenger';
 import { Ipassengerdet } from '../../../ipassengerdet';
 import { Passenger } from '../../../passenger';
 import { TransactionDetails } from '../../../transaction-details';
 import { TransactionserviceService } from '../../../transactionservice.service';
+import { Bookingpassenger } from '../../Models/bookingpassenger';
 
 @Component({
   selector: 'app-passbooked',
