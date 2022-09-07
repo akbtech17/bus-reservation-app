@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Ipassengerdet } from '../../Models/ipassengerdet';
 import { Passenger } from '../../../passenger';
 import { TransactionDetails } from '../../../transaction-details';
-import { TransactionserviceService } from '../../../transactionservice.service';
+import { TransactionserviceService } from '../../Services/transactionservice.service';
 import { Bookingpassenger } from '../../Models/bookingpassenger';
 
 @Component({

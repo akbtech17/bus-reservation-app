@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TransactionserviceService } from '../transactionservice.service';
+import { TransactionserviceService } from '../Customer/Services/transactionservice.service';
 
 @Component({
   selector: 'app-bookingcancel',

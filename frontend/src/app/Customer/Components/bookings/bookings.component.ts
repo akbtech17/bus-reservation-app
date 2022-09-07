@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TransactionserviceService } from '../../../transactionservice.service';
+import { TransactionserviceService } from '../../Services/transactionservice.service';
 import { Itransactionres } from '../../../itransactionres';
 import { TransactionDetails } from '../../../transaction-details';
 import { Bookingpassenger } from '../../Models/bookingpassenger';

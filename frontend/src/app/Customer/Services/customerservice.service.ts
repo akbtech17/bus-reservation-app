@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Icustomer } from './Customer/Models/icustomer';
+import { Icustomer } from '../Models/icustomer';
 import {HttpHeaders} from '@angular/common/http'
 import {HttpClient} from '@angular/common/http' //hhtp client object helps with all WEBApi methods
 import { Observable } from 'rxjs'; // to work or load single component not whole page or app.
-import { TransactionDetails } from './transaction-details';
+import { TransactionDetails } from '../../transaction-details';
 import { catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
