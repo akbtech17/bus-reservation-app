@@ -8,7 +8,7 @@ import { NavadminComponent } from './Admin/Components/navadmin/navadmin.componen
 import { ListbusComponent } from './Admin/Components/listbus/listbus.component';
 import { FindbusComponent } from './Admin/Components/findbus/findbus.component';
 import { EditbusComponent } from './Admin/Components/editbus/editbus.component';
-import { AddbusComponent } from './addbus/addbus.component';
+import { AddbusComponent } from './Admin/Components/addbus/addbus.component';
 import { RemovebusComponent } from './Admin/Components/removebus/removebus.component';
 import { SearchbusComponent } from './searchbus/searchbus.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';

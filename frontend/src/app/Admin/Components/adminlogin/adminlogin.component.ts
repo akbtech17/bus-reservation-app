@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminserviceService } from '../../Services/adminservice.service';
-import { Iadmin } from '../../../iadmin';
-import { Adminstore } from '../../Classes/adminstore';
+import { Iadmin } from '../../Models/iadmin';
+import { Adminstore } from '../../Models/adminstore';
 
 @Component({
   selector: 'app-adminlogin',

@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListbusComponent } from './Admin/Components/listbus/listbus.component';
 import { FindbusComponent } from './Admin/Components/findbus/findbus.component';
-import { AddbusComponent } from './addbus/addbus.component';
+import { AddbusComponent } from './Admin/Components/addbus/addbus.component';
 import { EditbusComponent } from './Admin/Components/editbus/editbus.component';
 import { RemovebusComponent } from './Admin/Components/removebus/removebus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

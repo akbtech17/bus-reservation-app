@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Adminstore } from '../../Classes/adminstore';
+import { Adminstore } from '../../Models/adminstore';
 
 @Component({
   selector: 'app-navadmin',

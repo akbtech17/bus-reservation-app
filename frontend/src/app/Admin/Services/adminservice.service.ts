@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Iadmin } from '../../iadmin';
+import { Iadmin } from '../Models/iadmin';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
