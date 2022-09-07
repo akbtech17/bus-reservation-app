@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Icustomer } from '../icustomer';
-import { CustomerserviceService } from '../customerservice.service';
+import { Icustomer } from '../../../icustomer';
+import { CustomerserviceService } from '../../../customerservice.service';
 import { Router } from '@angular/router';
-import { TransactionDetails } from '../transaction-details';
+import { TransactionDetails } from '../../../transaction-details';
 
 @Component({
   selector: 'app-logincustomer',

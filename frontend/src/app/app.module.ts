@@ -22,7 +22,7 @@ import { ContactComponent } from './Home Page/contact/contact.component';
 import { NavadminComponent } from './Admin/Components/navadmin/navadmin.component';
 import { SearchbusComponent } from './Home Page/searchbus/searchbus.component';
 import { CustomerRegistrationComponent } from './Customer/Components/customer-registration/customer-registration.component';
-import { LogincustomerComponent } from './logincustomer/logincustomer.component';
+import { LogincustomerComponent } from './Customer/Components/logincustomer/logincustomer.component';
 import { SeatbookComponent } from './seatbook/seatbook.component';
 import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
 import { BookingsComponent } from './bookings/bookings.component';

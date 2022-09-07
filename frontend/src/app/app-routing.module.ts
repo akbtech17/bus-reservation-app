@@ -12,7 +12,7 @@ import { AddbusComponent } from './Admin/Components/addbus/addbus.component';
 import { RemovebusComponent } from './Admin/Components/removebus/removebus.component';
 import { SearchbusComponent } from './Home Page/searchbus/searchbus.component';
 import { CustomerRegistrationComponent } from './Customer/Components/customer-registration/customer-registration.component';
-import { LogincustomerComponent } from './logincustomer/logincustomer.component';
+import { LogincustomerComponent } from './Customer/Components/logincustomer/logincustomer.component';
 import { SidebarcustomerComponent } from './sidebarcustomer/sidebarcustomer.component';
 import { SeatbookComponent } from './seatbook/seatbook.component';
 import { BookingsComponent } from './bookings/bookings.component';
