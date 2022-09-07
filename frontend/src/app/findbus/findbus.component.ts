@@ -33,7 +33,6 @@ export class FindbusComponent implements OnInit {
 
   ngOnInit(): void {
     this.busNo = this.activateroute.snapshot.paramMap.get('busNo')
-    console.log(this.busNo)
     
     this.busservice.getBus(this.busNo).subscribe((data:Ibus)=>{
       this.busdata=data

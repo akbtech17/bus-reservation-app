@@ -1,15 +1,14 @@
 <br/>
 <button type="button" class="btn btn-info" routerLink="/add" style="margin-left:600px">
     Add Bus
- </button>
- <button type="button" class="btn btn-info" routerLink="/nav" style="margin-left:450px">
+</button>
+<button type="button" class="btn btn-info" routerLink="/nav" style="margin-left:450px">
     Back
- </button>
- <br/><br/>
- <br/>
- <b class="lst"style="color:white">Bus List</b>
-<div class="container">
+</button>
+<br/><br/><br/>
 
+<b class="lst"style="color:white">Bus List</b>
+<div class="container">
     <div  class="jumbotron"><hr/>
         <table class="table">
             <thead class="head">
@@ -20,20 +19,20 @@
                     <th>Driver Contact</th>
                     <th>Departure Time</th>
                     <th>Arrival time</th>
-                    
                     <th>Seat Cost</th>
-                    </tr>
+                    <th></th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let bus of Buslist">
-
                     <td>{{bus.busNo}}</td>
                     <td>{{bus.typeOfBus}}</td>
                     <td>{{bus.driverName}}</td>
                     <td>{{bus.driverContact}}</td>
                     <td>{{bus.dTime}}</td>
                     <td>{{bus.aTime}}</td>
-                    <td>{{bus.seatCost}}</td>
+                    <td>₹{{bus.seatCost}}</td>
                     <td></td>
                     <td>
                         <a [routerLink]="['/find/',bus.busNo]">Details</a>&nbsp;&nbsp;
@@ -45,5 +44,3 @@
         </table>
     </div>
 </div>
-
-

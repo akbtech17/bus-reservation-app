@@ -1,7 +1,6 @@
 <div class="container">
     <div class="jumbotron">
         <h2 class="text-success">Bus {{busdata.busNo}} Info</h2>
-        BusId : {{busdata.typeOfBus}}
         <table class="table">
             <thead class="head">
                 <tr>
@@ -9,8 +8,8 @@
                     <th>Bus type</th>
                     <th>Driver Name</th>
                     <th>Driver Contact</th>
-                    <th>Rows</th>
-                    <th>Cols</th>
+                    <!-- <th>Rows</th>
+                    <th>Cols</th> -->
                     <th>Total Seats</th>
                     <th>Seats Available</th> 
                     <th>Departure Time</th>   
@@ -19,8 +18,7 @@
                     <th>Seat Cost</th>
                     <th>Source</th>
                     <th>Destination</th>
-                    <th>Distance</th>
-                    
+                    <th>Distance</th> 
                 </tr>
             </thead>
             <tbody>
@@ -29,8 +27,8 @@
                     <td>{{busdata.typeOfBus}}</td>
                     <td>{{busdata.driverName}}</td>
                     <td>{{busdata.driverContact}}</td>
-                    <td>{{busdata.rows}}</td>
-                    <td>{{busdata.cols}}</td>
+                    <!-- <td>{{busdata.rows}}</td>
+                    <td>{{busdata.cols}}</td> -->
                     <td>{{busdata.rows*busdata.cols}}</td>
                     <td>{{seatAvb}}</td>
                     <td>{{busdata.dTime}}</td>
@@ -40,12 +38,9 @@
                     <td>{{busdata.source}}</td>
                     <td>{{busdata.destination}}</td>
                     <td>{{busdata.distance}}</td>
-               
-                    </tr>
+                </tr>
             </tbody>
-        </table>
-        
-        
+        </table>  
     </div>
     <button type="button" class="btn btn-info" routerLink="/list/" style="margin-left:600px">
         Back to List
