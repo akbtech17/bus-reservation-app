@@ -30,7 +30,7 @@ export class BusserviceService {
   }
 
   //To add Bus Details
-  addBus(busdata:Ibus):Observable<Ibus> {
+  addBus(busdata:any):Observable<Ibus> {
     return this.httpclient.post<Ibus>(this.url + '/addbus',busdata, this.httpOptions).pipe(catchError(this.handleError))
   }
 

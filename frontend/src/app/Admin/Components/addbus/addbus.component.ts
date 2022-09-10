@@ -11,11 +11,10 @@ import { Adminstore } from '../../Models/adminstore';
   styleUrls: ['./addbus.component.css']
 })
 export class AddbusComponent implements OnInit {
-  busdata: Ibus = {
-    busId:0,
+  busdata: any = {
     busNo: '',
-    rows: 0,
-    cols: 0,
+    rows: 10,
+    cols: 4,
     dTime: '',
     aTime: '',
     pickup: '',
@@ -29,10 +28,10 @@ export class AddbusComponent implements OnInit {
   }
 
   constructor(private busservice:BusserviceService, private router:Router, private activateroute: ActivatedRoute){
-    if(Adminstore.email == '') {
-      alert("You are not logged in as Admin!")
-      this.router.navigate(['/'])
-    }
+    // if(Adminstore.email == '') {
+    //   alert("You are not logged in as Admin!")
+    //   this.router.navigate(['/'])
+    // }
   }
 
   saveBus(bus:Ibus) {
@@ -41,7 +40,7 @@ export class AddbusComponent implements OnInit {
     this.busservice.addBus(this.busdata).subscribe(
       ()=>{ 
         console.log(this.busdata)
-        alert('Record saved successfully')
+        // alert('Record saved successfully')
         this.router.navigate(['/list'])
       }
     )

@@ -2,7 +2,7 @@
 <hr/>
 <div style="margin-left:500px;margin-top: 5px;margin-right: 500px;">
 <form  (ngSubmit)="saveBus(busdata)" #busform="ngForm">
-    <div class="form-group mb-3">
+    <!-- <div class="form-group mb-3">
         <label for="id">Enter Bus-Id:</label>
         <input type="number"class="form-control" id="busId" name="busId" required [(ngModel)]="busdata.busId" #busId="ngModel" />
         <div *ngIf="busId.invalid && (busId.dirty || busId.touched)" style="color:red;">
@@ -10,7 +10,7 @@
                 ID is required
              </div>
         </div>
-    </div>
+    </div> -->
     <div class="mb-3">
         <label for="BusNo">Enter BusNo:</label>
         <input type="text"class="form-control" id="busNo" name="busNo" required [(ngModel)]="busdata.busNo" #busNo="ngModel" />
@@ -20,7 +20,7 @@
              </div>
         </div>
     </div>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
         <label for="Rows">Enter Rows:</label>
         <input type="number" class="form-control"id="rows" name="rows" required [(ngModel)]="busdata.rows" #rows="ngModel" />
         <div *ngIf="rows.invalid && (rows.dirty || rows.touched)" style="color:red;">
@@ -37,10 +37,10 @@
                 Columns are required
              </div>
         </div>
-    </div>
+    </div> -->
     <div class="mb-3">
         <label for="DTime">Enter Departure Time:</label>
-        <input type="text" class="form-control"id="dTime" name="dTime" required [(ngModel)]="busdata.dTime" #dTime="ngModel" />
+        <input type="datetime-local" class="form-control"id="dTime" name="dTime" required [(ngModel)]="busdata.dTime" #dTime="ngModel" />
         <div *ngIf="dTime.invalid && (dTime.dirty || dTime.touched)" style="color:red;">
              <div *ngIf="dTime.errors?.['required']">
                 Departure time is required
@@ -49,7 +49,7 @@
     </div>
     <div class="mb-3">
         <label for="Atime">Enter Arrival Time:</label>
-        <input type="text" class="form-control"id="atime" name="atime" required [(ngModel)]="busdata.aTime" #atime="ngModel" />
+        <input type="datetime-local" class="form-control"id="atime" name="atime" required [(ngModel)]="busdata.aTime" #atime="ngModel" />
         <div *ngIf="atime.invalid && (atime.dirty || atime.touched)" style="color:red;">
              <div *ngIf="atime.errors?.['required']">
                 Arrival time is required
