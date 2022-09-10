@@ -40,9 +40,8 @@ export class BusserviceService {
   }
 
   //To delete the Bus Details
-  deleteBus(busdata:Ibus):Observable<Ibus> {
-    console.log("Hello")
-    return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+ busdata.busId, this.httpOptions).pipe(catchError(this.handleError))
+  deleteBus(busNo:string):Observable<Ibus> {
+    return this.httpclient.delete<Ibus>(this.url + '/deletebus?busNo='+ busNo).pipe(catchError(this.handleError))
   }
 
   // to search the avb buses

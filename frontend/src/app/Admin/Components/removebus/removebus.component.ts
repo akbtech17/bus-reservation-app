@@ -8,6 +8,7 @@ import { Ibus } from '../../Models/ibus';
   templateUrl: './removebus.component.html',
   styleUrls: ['./removebus.component.css']
 })
+
 export class RemovebusComponent implements OnInit {
   busdata: Ibus = {
     busId:0,
@@ -23,32 +24,19 @@ export class RemovebusComponent implements OnInit {
     typeOfBus: '',
     source: '',
     destination: '',
-    distance: 0,
-   
+    distance: 0, 
   }
-busId: number = 0
+
+  busNo: string = ''
   constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    const tid = this.activateroute.snapshot.paramMap.get('busId')
+    const busNo = this.activateroute.snapshot.paramMap.get('busNo')
  
-    this.busId = Number(tid)
-   
-    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data;console.log(this.busdata);
-    this.removeBus(this.busdata)
-    this.router.navigate(['/list'])
-    })}
-  removeBus(bus:Ibus){
-   
-    this.busdata = bus
-    this.busservice.deleteBus(this.busdata).subscribe(
-      ()=>{
-        
-        alert("Records Edited.")
-        // console.log(this.busdata);
-      
-      }
+    this.busNo = String(busNo)
+
+    this.busservice.deleteBus(this.busNo).subscribe(
+      ()=> this.router.navigate(['/list'])
     )
-  
   }
 }
