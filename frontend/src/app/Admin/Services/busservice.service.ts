@@ -36,7 +36,7 @@ export class BusserviceService {
 
   //To edit Bus Details
   editBus(busdata:Ibus):Observable<Ibus> {
-    return this.httpclient.put<Ibus>(this.url + '/editbus/' + busdata.busId,busdata, this.httpOptions).pipe(catchError(this.handleError))
+    return this.httpclient.put<Ibus>(this.url + '/editbus?busNo=' + busdata.busNo,busdata, this.httpOptions).pipe(catchError(this.handleError))
   }
 
   //To delete the Bus Details

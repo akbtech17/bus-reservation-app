@@ -1,8 +1,35 @@
 <h2 style="color:blueviolet;text-align: center;" >Editing Bus {{busdata.busNo}}</h2>
 <hr/>
+
+<div class="container">
+    <div class="jumbotron">
+        <h2 class="text-success">Bus {{busdata.busNo}} Info</h2>
+        <table class="table">
+            <thead class="head">
+                <tr>
+                    <th>BusNo</th>
+                    <th>Rows</th>
+                    <th>Cols</th>
+                    <th>Total Seats</th>
+                    <th>Seats Available</th>
+                </tr>
+            </thead>
+            <tbody>
+               <tr>
+                    <td>{{busdata.busNo}}</td>
+                    <td>{{busdata.rows}}</td>
+                    <td>{{busdata.cols}}</td>
+                    <td>{{busdata.rows*busdata.cols}}</td>
+                    <!-- <td>{{seatAvb}}</td> -->
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>  
+    </div>
+
 <div style="margin-left:500px;margin-top: 5px;margin-right: 500px;">
 <form  (ngSubmit)="saveBus(busdata)" #busform="ngForm">
-    <div class="form-group mb-3">
+    <!-- <div class="form-group mb-3">
         
         <label for="busId">Enter Bus-Id:</label>&nbsp;&nbsp;
         <input type="text" class="form-control" id="busId" name="busId" required [(ngModel)]="busdata.busId" #busId="ngModel" readonly />
@@ -11,10 +38,10 @@
                 ID is required
              </div>
         </div>
-    </div>
-    <div class="mb-3">
+    </div> -->
+    <!-- <div class="mb-3">
         <label for="busNo">Enter BusNo:</label>&nbsp;&nbsp;
-        <input type="text" class="form-control" id="busNo" name="busNo" required [(ngModel)]="busdata.busNo" #busNo="ngModel" />
+        <input type="text" class="form-control" id="busNo" name="busNo" required [(ngModel)]="busdata.busNo" #busNo="ngModel" readonly />
         <div *ngIf="busNo.invalid && (busNo.dirty || busNo.touched)" style="color:red;">
              <div *ngIf="busNo.errors?.['required']">
                 BusNo is required
@@ -38,7 +65,11 @@
                 Columns are required
              </div>
         </div>
-    </div>
+    </div> -->
+
+
+
+
     <div class="mb-3">
         <label for="DTime">Enter Departure Time:</label>&nbsp;&nbsp;
         <input type="datetime-local" class="form-control" id="dtime" name="dtime" required [(ngModel)]="busdata.dTime" #DTime="ngModel" />
@@ -122,7 +153,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <label for="distance">Distance</label>&nbsp;&nbsp;
+        <label for="distance">Distance (in Kms)</label>&nbsp;&nbsp;
         <input type="number" class="form-control" id="distance" name="distance" required [(ngModel)]="busdata.distance" #distance="ngModel" />
         <div *ngIf="distance.invalid && (distance.dirty || distance.touched)" style="color:red;">
              <div *ngIf="distance.errors?.['required']">

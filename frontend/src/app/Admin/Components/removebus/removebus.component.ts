@@ -12,16 +12,14 @@ import { Ibus } from '../../Models/ibus';
 export class RemovebusComponent implements OnInit {
 
   busNo: string = ''
-  constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute, private router: Router) {}
+  constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    const busNo = this.activateroute.snapshot.paramMap.get('busNo')
- 
+    const busNo = this.activatedroute.snapshot.paramMap.get('busNo')
     this.busNo = String(busNo)
 
     this.busservice.deleteBus(this.busNo).subscribe(
       ()=> this.router.navigate(['/list'])
     )
-    // this.router.navigate(['/list'])
   }
 }

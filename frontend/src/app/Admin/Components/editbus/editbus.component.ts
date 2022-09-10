@@ -3,12 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BusserviceService } from '../../Services/busservice.service';
 import { Ibus } from '../../Models/ibus';
 
-
 @Component({
   selector: 'app-editbus',
   templateUrl: './editbus.component.html',
   styleUrls: ['./editbus.component.css']
 })
+
 export class EditbusComponent implements OnInit {
   busdata: Ibus = {
     busId:0,
@@ -25,18 +25,19 @@ export class EditbusComponent implements OnInit {
     source: '',
     destination: '',
     distance: 0,
- 
   }
-  busId:number = 0
+
+  busNo: string = ''
   constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const tid = this.activatedroute.snapshot.paramMap.get('busId')
-    this.busId = Number(tid)
-    this.busservice.getBus(this.busId).subscribe((data:Ibus)=>{this.busdata=data})
+    const busNo = this.activatedroute.snapshot.paramMap.get('busNo')
+    this.busNo = String(busNo)
+
+    this.busservice.getBus(this.busNo).subscribe((data:Ibus)=>{this.busdata=data})
   }
+
   saveBus(bus:Ibus){
-    console.log(this.busdata)
     this.busdata = bus
     this.busservice.editBus(this.busdata).subscribe(
       ()=>{
@@ -45,6 +46,7 @@ export class EditbusComponent implements OnInit {
       }
     )
   }
+
   GoToList() {
     this.router.navigate(['/list']);
   }
