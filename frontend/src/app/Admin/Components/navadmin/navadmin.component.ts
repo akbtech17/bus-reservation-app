@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Adminstore } from '../../Models/adminstore';
 
 @Component({
@@ -11,7 +12,12 @@ export class NavadminComponent implements OnInit {
   
   adminName: string = Adminstore.firstName
   
-  constructor() { }
-
+  constructor(private router: Router) {
+    if(Adminstore.email == '') {
+      alert("You are not logged in as Admin!")
+      this.router.navigate(['/'])
+    }
+   }
+   
   ngOnInit(): void {}
 }

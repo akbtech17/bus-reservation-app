@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BusserviceService } from '../../Services/busservice.service';
 import { Ibus } from '../../Models/ibus';
 import { forkJoin } from 'rxjs';
 import { TransactionDetails } from '../../../Customer/Models/transaction-details';
+import { Adminstore } from '../../Models/adminstore';
 
 @Component({
   selector: 'app-findbus',
@@ -29,7 +30,12 @@ export class FindbusComponent implements OnInit {
   }
   seatAvb: any
   busNo: any
-  constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute) {}
+  constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute, private router: Router) {
+    if(Adminstore.email == '') {
+      alert("You are not logged in as Admin!")
+      this.router.navigate(['/'])
+    }
+  }
 
   ngOnInit(): void {
     this.busNo = this.activateroute.snapshot.paramMap.get('busNo')

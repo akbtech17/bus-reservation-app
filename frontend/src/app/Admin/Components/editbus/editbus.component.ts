@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BusserviceService } from '../../Services/busservice.service';
 import { Ibus } from '../../Models/ibus';
+import { Adminstore } from '../../Models/adminstore';
 
 @Component({
   selector: 'app-editbus',
@@ -28,7 +29,12 @@ export class EditbusComponent implements OnInit {
   }
 
   busNo: string = ''
-  constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) { }
+  constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) {
+    if(Adminstore.email == '') {
+      alert("You are not logged in as Admin!")
+      this.router.navigate(['/'])
+    }
+   }
 
   ngOnInit(): void {
     const busNo = this.activatedroute.snapshot.paramMap.get('busNo')
