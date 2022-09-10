@@ -20,13 +20,12 @@
                     <td>{{busdata.rows}}</td>
                     <td>{{busdata.cols}}</td>
                     <td>{{busdata.rows*busdata.cols}}</td>
-                    <!-- <td>{{seatAvb}}</td> -->
-                    <td>0</td>
+                    <td>{{seatAvb}}</td>
                 </tr>
             </tbody>
         </table>  
     </div>
-
+</div>
 <div style="margin-left:500px;margin-top: 5px;margin-right: 500px;">
 <form  (ngSubmit)="saveBus(busdata)" #busform="ngForm">
     <!-- <div class="form-group mb-3">
@@ -168,4 +167,3 @@
     <input value="Cancel" class="btn btn-danger" style="width: 6rem;" (click)="GoToList()"/>
 </form>
 </div>
-

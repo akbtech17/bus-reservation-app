@@ -29,6 +29,7 @@ export class EditbusComponent implements OnInit {
   }
 
   busNo: string = ''
+  seatAvb: any
   constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) {
     if(Adminstore.email == '') {
       alert("You are not logged in as Admin!")
@@ -40,7 +41,15 @@ export class EditbusComponent implements OnInit {
     const busNo = this.activatedroute.snapshot.paramMap.get('busNo')
     this.busNo = String(busNo)
 
-    this.busservice.getBus(this.busNo).subscribe((data:Ibus)=>{this.busdata=data})
+    this.busservice.getBus(this.busNo).subscribe((data:Ibus)=>{
+      this.busdata=data
+      this.busservice.avbSeates(this.busNo).subscribe(
+        (data:any)=>{
+          this.seatAvb = data
+          console.log(this.seatAvb)
+        }
+      )
+    })
   }
 
   saveBus(bus:Ibus){

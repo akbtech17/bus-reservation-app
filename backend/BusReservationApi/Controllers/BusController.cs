@@ -45,11 +45,15 @@ namespace BusReservationApi.Controllers
 
         [HttpGet]
         [Route("seatsavb")]
-        public IActionResult GetBusAvbSeats(int BusId)
+        public IActionResult GetBusAvbSeats([FromQuery] string busNo)
         {
             try
             {
-                var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId && busSeat.Available.Equals(true)).Count();
+                var rec = db.buses.Where(b => b.BusNo.Equals(busNo)).FirstOrDefault();
+                if (rec == null) return NotFound();
+
+                var busId = rec.BusId;
+                var data = db.BusSeats.Where(busSeat => busSeat.BusId == busId && busSeat.Available.Equals(true)).Count();
                 return Ok(data);
             }
             catch (Exception ex)

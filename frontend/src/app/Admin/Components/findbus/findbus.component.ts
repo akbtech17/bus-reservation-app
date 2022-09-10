@@ -42,12 +42,12 @@ export class FindbusComponent implements OnInit {
     
     this.busservice.getBus(this.busNo).subscribe((data:Ibus)=>{
       this.busdata=data
-      // this.busservice.avbSeates(this.busNo).subscribe(
-      //   (data:any)=>{
-      //     this.seatAvb = data
-      //     console.log(this.seatAvb)
-      //   }
-      // )
+      this.busservice.avbSeates(this.busNo).subscribe(
+        (data:any)=>{
+          this.seatAvb = data
+          console.log(this.seatAvb)
+        }
+      )
     })
   }
 

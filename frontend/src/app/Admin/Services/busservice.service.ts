@@ -50,8 +50,8 @@ export class BusserviceService {
     return this.httpclient.post<any[]>(this.url + '/search', searchquery, this.httpOptions).pipe(catchError(this.handleError))
   }
 
-  avbSeates(busId:number):Observable<any> {
-     return this.httpclient.get<any>(this.url + '/seatsavb/' + busId).pipe(catchError(this.handleError))
+  avbSeates(busNo:string):Observable<any> {
+     return this.httpclient.get<any>(this.url + '/seatsavb?busNo='+ busNo).pipe(catchError(this.handleError))
   }
 
   // method to handle errors in client side
