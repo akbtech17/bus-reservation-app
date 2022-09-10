@@ -10,22 +10,6 @@ import { Ibus } from '../../Models/ibus';
 })
 
 export class RemovebusComponent implements OnInit {
-  busdata: Ibus = {
-    busId:0,
-    busNo: '',
-    rows: 0,
-    cols: 0,
-    dTime: '',
-    aTime: '',
-    pickup: '',
-    seatCost: 0,
-    driverName: '',
-    driverContact: 0,
-    typeOfBus: '',
-    source: '',
-    destination: '',
-    distance: 0, 
-  }
 
   busNo: string = ''
   constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute, private router: Router) {}
@@ -38,5 +22,6 @@ export class RemovebusComponent implements OnInit {
     this.busservice.deleteBus(this.busNo).subscribe(
       ()=> this.router.navigate(['/list'])
     )
+    this.router.navigate(['/list'])
   }
 }

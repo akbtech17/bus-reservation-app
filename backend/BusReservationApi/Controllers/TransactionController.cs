@@ -1,6 +1,7 @@
 ﻿using BusReservationApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
@@ -129,12 +130,12 @@ namespace BusReservationApi.Controllers
             try
             {
                 var transactionDetails = db.TransactionDetails.Where(t => t.Tid == tId).FirstOrDefault();
+                
                 var totalCost = transactionDetails.TotalCost;
                 var busId = transactionDetails.BusId;
 
                 //1.remove the passengers from the table
-
-               var passengers = db.Passengers.Where(pass => pass.Tid == tId).Select(pass => pass);
+                var passengers = db.Passengers.Where(pass => pass.Tid == tId).Select(pass => pass);
                 foreach (var pass in passengers)
                 {
                     db.Passengers.Remove(pass);
@@ -142,24 +143,21 @@ namespace BusReservationApi.Controllers
                 db.SaveChanges();
 
                 //2.make the seats empty for that transaction
-
-               var seats = db.TransactionSeats.Where(seat => seat.Tid == tId).Select(pass => pass);
+                var seats = db.TransactionSeats.Where(seat => seat.Tid == tId);
                 foreach (var seat in seats)
                 {
                     //also change the status of the seats
-                    var busseat = db.BusSeats.Where(rec => rec.SeatNo.Equals(seat.SeatNo) && rec.BusId == busId).FirstOrDefault();
-                    busseat.Available = true;
-                    db.SaveChanges();
+                    //var busseat = db.BusSeats.Where(rec => rec.SeatNo.Equals(seat.SeatNo) && rec.BusId == busId).FirstOrDefault();
+                    //busseat.Available = true;
+                    //db.Database.ExecuteSqlInterpolated($"SetSeat {busId},{seat}");
+                    //db.SaveChanges();
+
                     db.TransactionSeats.Remove(seat);
+
                 }
-                db.SaveChanges();
-
-
-
+                //db.SaveChanges();
 
                 //3.reset the trasaction table
-
-
                 var customerId = transactionDetails.CustomerId;
                 var ticketAmunt = transactionDetails.TotalCost;
 
@@ -168,7 +166,7 @@ namespace BusReservationApi.Controllers
 
                 db.TransactionDetails.Remove(transactionDetails);
                 db.SaveChanges();
-                return Ok(totalCost);
+                return Ok();
             }
             catch (Exception ex)
             {

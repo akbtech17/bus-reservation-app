@@ -11,6 +11,7 @@ namespace BusReservationApi.Controllers
     public class BusController : ControllerBase
     {
         BusReservationContext db = new BusReservationContext();
+        TransactionController transactionController = new TransactionController();
 
         [HttpGet]
         [Route("list")]
@@ -122,8 +123,15 @@ namespace BusReservationApi.Controllers
                 db.Database.ExecuteSqlInterpolated($"DeleteBusSeat {busId}");
                 db.SaveChanges();
 
+                // remove the transaction details
+                var records = db.TransactionDetails.Where(t => t.BusId == busId);
+                foreach (var rec in records)
+                {
+                    transactionController.DeleteTransaction(rec.Tid);
+                    db.SaveChanges();
+                }
+                
                 // also have to delete bus id from transaction tables
-
                 var data = db.buses.Where(buses => buses.BusNo.Equals(busNo)).FirstOrDefault();
                 db.buses.Remove(data);
                 
