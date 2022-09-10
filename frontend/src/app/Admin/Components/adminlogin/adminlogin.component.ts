@@ -29,7 +29,7 @@ constructor(private adminservice:AdminserviceService,private router:Router) { }
         Adminstore.email = data.email
         Adminstore.password = data.password
         Adminstore.firstName = data.firstName
-        alert("Welcome Admin")
+        // alert("Welcome Admin")
         this.router.navigate(['/nav'])
       }
     })

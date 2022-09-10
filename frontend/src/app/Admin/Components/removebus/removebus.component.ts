@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BusserviceService } from '../../Services/busservice.service';
-import { Ibus } from '../../Models/ibus';
 import { Adminstore } from '../../Models/adminstore';
 
 @Component({

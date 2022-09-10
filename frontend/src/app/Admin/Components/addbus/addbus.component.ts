@@ -36,11 +36,8 @@ export class AddbusComponent implements OnInit {
 
   saveBus(bus:Ibus) {
     this.busdata = bus
-    console.log(this.busdata);
     this.busservice.addBus(this.busdata).subscribe(
       ()=>{ 
-        console.log(this.busdata)
-        // alert('Record saved successfully')
         this.router.navigate(['/list'])
       }
     )
@@ -48,5 +45,4 @@ export class AddbusComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

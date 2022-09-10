@@ -46,7 +46,6 @@ export class EditbusComponent implements OnInit {
       this.busservice.avbSeates(this.busNo).subscribe(
         (data:any)=>{
           this.seatAvb = data
-          console.log(this.seatAvb)
         }
       )
     })
@@ -56,7 +55,6 @@ export class EditbusComponent implements OnInit {
     this.busdata = bus
     this.busservice.editBus(this.busdata).subscribe(
       ()=>{
-        alert("Records Edited.")
         this.router.navigate(['/list'])
       }
     )

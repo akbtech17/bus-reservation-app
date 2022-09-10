@@ -45,7 +45,6 @@ export class FindbusComponent implements OnInit {
       this.busservice.avbSeates(this.busNo).subscribe(
         (data:any)=>{
           this.seatAvb = data
-          console.log(this.seatAvb)
         }
       )
     })

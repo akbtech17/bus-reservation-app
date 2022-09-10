@@ -12,7 +12,6 @@ import { Adminstore } from '../../Models/adminstore';
 })
 export class ListbusComponent implements OnInit {
  
- 
   Buslist: any[] = []
   constructor(private busservice:BusserviceService, private router: Router, public activatedroute:ActivatedRoute) {
     if(Adminstore.email == '') {
