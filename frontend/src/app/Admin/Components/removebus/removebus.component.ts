@@ -22,6 +22,6 @@ export class RemovebusComponent implements OnInit {
     this.busservice.deleteBus(this.busNo).subscribe(
       ()=> this.router.navigate(['/list'])
     )
-    this.router.navigate(['/list'])
+    // this.router.navigate(['/list'])
   }
 }
