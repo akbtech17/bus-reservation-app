@@ -28,10 +28,10 @@ export class AddbusComponent implements OnInit {
   }
 
   constructor(private busservice:BusserviceService, private router:Router, private activateroute: ActivatedRoute){
-    // if(Adminstore.email == '') {
-    //   alert("You are not logged in as Admin!")
-    //   this.router.navigate(['/'])
-    // }
+    if(Adminstore.email == '') {
+      alert("You are not logged in as Admin!")
+      this.router.navigate(['/'])
+    }
   }
 
   saveBus(bus:Ibus) {
