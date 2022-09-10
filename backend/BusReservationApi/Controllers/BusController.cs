@@ -173,7 +173,7 @@ namespace BusReservationApi.Controllers
         [Route("seatdetails/{BusId}")]
         public IActionResult GetAvbDetails(int BusId)
         {
-            var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId).Select(map => new { map.BusId, map.SeatNo, map.Available });
+            var data = db.BusSeats.Where(busSeat => busSeat.BusId == BusId).Select(map => new { map.BusId, map.SeatNo, map.Available});
             return Ok(data);
         }
 

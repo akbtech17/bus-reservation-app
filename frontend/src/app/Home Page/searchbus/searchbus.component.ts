@@ -36,7 +36,7 @@ export class SearchbusComponent implements OnInit {
         this.Buslist = data 
       }
     );
-    console.log(this.Buslist);
+    // console.log(this.Buslist);
   }
 
   toggleshow() {
