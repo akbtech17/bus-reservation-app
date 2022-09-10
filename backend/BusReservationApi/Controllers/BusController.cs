@@ -119,17 +119,19 @@ namespace BusReservationApi.Controllers
             {
                 // before deleting the records for the bus
                 // delete the bus seats from bus seat table
-                var busId = db.buses.Where(b => b.BusNo.Equals(busNo)).FirstOrDefault().BusId;
+                var rec = db.buses.Where(b => b.BusNo.Equals(busNo)).FirstOrDefault();
+                if (rec == null) return NotFound();
+                var busId = rec.BusId;
                 db.Database.ExecuteSqlInterpolated($"DeleteBusSeat {busId}");
                 db.SaveChanges();
 
-                // remove the transaction details
-                var records = db.TransactionDetails.Where(t => t.BusId == busId);
-                foreach (var rec in records)
-                {
-                    transactionController.DeleteTransaction(rec.Tid);
-                    db.SaveChanges();
-                }
+                //// remove the transaction details
+                //var records = db.TransactionDetails.Where(t => t.BusId == busId);
+                //foreach (var rec in records)
+                //{
+                //    transactionController.DeleteTransaction(rec.Tid);
+                //    db.SaveChanges();
+                //}
                 
                 // also have to delete bus id from transaction tables
                 var data = db.buses.Where(buses => buses.BusNo.Equals(busNo)).FirstOrDefault();

@@ -1,5 +1,3 @@
-
-
 drop procedure TestInsertAllRecords;
 
 CREATE PROCEDURE TestInsertAllRecords
@@ -39,7 +37,7 @@ BEGIN
 	);
 	
 
-	CREATE TABLE Customer(
+	CREATE TABLE Customer (
 		[CustomerId] [int] primary key,
 		[FirstName] [varchar](10) NOT NULL,
 		[LastName] [varchar](15) NOT NULL,
@@ -80,15 +78,15 @@ BEGIN
 
 
 	-- adding the details of customers
-	insert into customer values
-	(1,'Aatmic','Tiwari','2000-03-03 12:45:56','M','4719168654','aatmic_tiwari@gmail.com','cust@123',0),
-	(2,'Harshita','Verma','1998-02-17 12:45:56','F','9767168654','harshita_verma@gmail.com','cust@123',0),
+	--insert into customer values
+	--(1,'Aatmic','Tiwari','2000-03-03 12:45:56','M','4719168654','aatmic_tiwari@gmail.com','cust@123',0),
+	--(2,'Harshita','Verma','1998-02-17 12:45:56','F','9767168654','harshita_verma@gmail.com','cust@123',0),
 
-	-- adding customers who have not done booking yet
-	(3,'Bahvya','Goel','2000-05-04 12:45:56','F','7767222659','bhavya_goel@gmail.com','cust@123',0),
-	(4,'Mansi','Srivastava','2002-12-01 12:45:56','F','3333168774','mansi_sri@gmail.com','cust@123',0),
+	---- adding customers who have not done booking yet
+	--(3,'Bahvya','Goel','2000-05-04 12:45:56','F','7767222659','bhavya_goel@gmail.com','cust@123',0),
+	--(4,'Mansi','Srivastava','2002-12-01 12:45:56','F','3333168774','mansi_sri@gmail.com','cust@123',0),
 
-	(5,'Amit','Pandey','1996-05-01 12:45:56','M','9411131687','amit_pandey@gmail.com','cust@123',0);
+	--(5,'Amit','Pandey','1996-05-01 12:45:56','M','9411131687','amit_pandey@gmail.com','cust@123',0);
 
 	-- adding the details of buses
 	insert into Bus values
@@ -102,13 +100,13 @@ BEGIN
 	('UK130',10,4,'2022-09-03 12:45:56','2022-09-04 01:15:00','Katraj',450,'Vanjale','1161168659','NON-AC','Pune','Mumbai',300);
 
 	-- adding the transaction details
-	insert into transactiondetails values
-	(1,1,1,'2022-08-28 12:45:56',2400),
-	(2,4,2,'2022-08-24 12:45:56',1600),
-	(3,1,5,'2022-08-12 12:45:56',3000),
-	(4,2,1,'2022-07-12 12:45:56',2000);
+	--insert into transactiondetails values
+	--(1,1,1,'2022-08-28 12:45:56',2400),
+	--(2,4,2,'2022-08-24 12:45:56',1600),
+	--(3,1,5,'2022-08-12 12:45:56',3000),
+	--(4,2,1,'2022-07-12 12:45:56',2000);
 
-	-- adding the details of bus seats
+	 --adding the details of bus seats
 	EXEC AddBusSeat @BusId = 1;
 	EXEC AddBusSeat @BusId = 2;
 	EXEC AddBusSeat @BusId = 3;
@@ -118,55 +116,55 @@ BEGIN
 	EXEC AddBusSeat @BusId = 7;
 
 	-- adding the passenger details 
-	insert into passenger values
-	(1,1,'Anshul', 22,'123456789123','M'),
-	(2,1,'Anish', 23,'343456789112','M'),
-	(3,1,'Prakhar', 24,'653456789125','M'),
-	(4,1,'Aatmic', 21,'353456789167','M'),
-	(5,2,'Anshul', 22,'413456789165','M'),
-	(6,2,'Harshita', 20,'893456789127','F'),
-	(7,3,'Shivang', 24,'777456789127','M'),
-	(8,3,'Anshul', 23,'893456789666','M'),
-	(9,3,'Vedant', 23,'333456789111','M'),
-	(10,3,'Amit', 21,'123456789999','M'),
-	(11,3,'Shubh', 22,'434456789133','M'),
-	(12,4,'Anish', 22,'439956789133','M'),
-	(13,4,'Aatmic', 22,'234456789555','M');
+	--insert into passenger values
+	--(1,1,'Anshul', 22,'123456789123','M'),
+	--(2,1,'Anish', 23,'343456789112','M'),
+	--(3,1,'Prakhar', 24,'653456789125','M'),
+	--(4,1,'Aatmic', 21,'353456789167','M'),
+	--(5,2,'Anshul', 22,'413456789165','M'),
+	--(6,2,'Harshita', 20,'893456789127','F'),
+	--(7,3,'Shivang', 24,'777456789127','M'),
+	--(8,3,'Anshul', 23,'893456789666','M'),
+	--(9,3,'Vedant', 23,'333456789111','M'),
+	--(10,3,'Amit', 21,'123456789999','M'),
+	--(11,3,'Shubh', 22,'434456789133','M'),
+	--(12,4,'Anish', 22,'439956789133','M'),
+	--(13,4,'Aatmic', 22,'234456789555','M');
 
 	-- adding the booked seats details 
-	insert into transactionseat values
-	(1,'A0'),
-	(1,'B0'),
-	(1,'C0'),
-	(1,'D0'),
-	(2,'A0'),
-	(2,'B0'),
-	(3,'B5'),
-	(3,'C3'),
-	(3,'D4'),
-	(3,'A7'),
-	(3,'D8'),
-	(4,'A6'),
-	(4,'D2');
+	--insert into transactionseat values
+	--(1,'A0'),
+	--(1,'B0'),
+	--(1,'C0'),
+	--(1,'D0'),
+	--(2,'A0'),
+	--(2,'B0'),
+	--(3,'B5'),
+	--(3,'C3'),
+	--(3,'D4'),
+	--(3,'A7'),
+	--(3,'D8'),
+	--(4,'A6'),
+	--(4,'D2');
 
 	-- reset the booked seats
-	EXEC ResetSeat @BusId=1, @SeatNo='A0';
-	EXEC ResetSeat @BusId=1, @SeatNo='B0';
-	EXEC ResetSeat @BusId=1, @SeatNo='C0';
-	EXEC ResetSeat @BusId=1, @SeatNo='D0';
+	--EXEC ResetSeat @BusId=1, @SeatNo='A0';
+	--EXEC ResetSeat @BusId=1, @SeatNo='B0';
+	--EXEC ResetSeat @BusId=1, @SeatNo='C0';
+	--EXEC ResetSeat @BusId=1, @SeatNo='D0';
 
-	EXEC ResetSeat @BusId=1, @SeatNo='B5';
-	EXEC ResetSeat @BusId=1, @SeatNo='C3';
-	EXEC ResetSeat @BusId=1, @SeatNo='D4';
-	EXEC ResetSeat @BusId=1, @SeatNo='A7';
-	EXEC ResetSeat @BusId=1, @SeatNo='D8';
+	--EXEC ResetSeat @BusId=1, @SeatNo='B5';
+	--EXEC ResetSeat @BusId=1, @SeatNo='C3';
+	--EXEC ResetSeat @BusId=1, @SeatNo='D4';
+	--EXEC ResetSeat @BusId=1, @SeatNo='A7';
+	--EXEC ResetSeat @BusId=1, @SeatNo='D8';
 
-	EXEC ResetSeat @BusId=2, @SeatNo='A6';
-	EXEC ResetSeat @BusId=2, @SeatNo='D2';
+	--EXEC ResetSeat @BusId=2, @SeatNo='A6';
+	--EXEC ResetSeat @BusId=2, @SeatNo='D2';
 
 
-	EXEC ResetSeat @BusId=4, @SeatNo='A0';
-	EXEC ResetSeat @BusId=4, @SeatNo='B0';
+	--EXEC ResetSeat @BusId=4, @SeatNo='A0';
+	--EXEC ResetSeat @BusId=4, @SeatNo='B0';
 END
 
 EXEC TestDeleteAllRecords;
