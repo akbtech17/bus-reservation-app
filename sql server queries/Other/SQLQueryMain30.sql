@@ -3,6 +3,21 @@ drop procedure TestInsertAllRecords;
 CREATE PROCEDURE TestInsertAllRecords
 AS
 BEGIN 
+	drop table Admin;
+
+	create table Admin(
+		adminId int identity(1,1) primary key,
+		firstName varchar(30) not null,
+		lastName varchar(30),
+		email varchar(125) not null unique,
+		password varchar(15) not null
+	);
+
+	insert Admin values
+	('Anshul','Bansal','admin1@gmail.com','admin@123'),
+	('Aatmic','Tiwari','admin2@gmail.com','admin@123'),
+	('Anish','Anand','admin3@gmail.com','admin@123'),
+	('Prakhar','Kesari','admin4@gmail.com','admin@123');
 	
 	-- drop table
 	drop table TransactionSeat;
