@@ -22,7 +22,6 @@ export class SummaryComponent implements OnInit {
     passengers: []
   }
 
-
   customerId: number = TransactionDetails.customerId
   busId: number = TransactionDetails.busId
   seatCount: number = TransactionDetails.seatCount
@@ -48,15 +47,9 @@ export class SummaryComponent implements OnInit {
   customerContact: string = TransactionDetails.customerContact
   email: string = TransactionDetails.email
 
-  constructor(private transactionservice: TransactionserviceService) {
-
-   }
+  constructor(private transactionservice: TransactionserviceService) {}
 
   ngOnInit(): void {
-    // this.passengers.forEach(pass => {
-    //   console.log(pass.PName);
-    // });
-
     // create a transaction here
     this.createTransactionRequest.tId = TransactionDetails.tId
     this.createTransactionRequest.busId = TransactionDetails.busId
@@ -67,19 +60,14 @@ export class SummaryComponent implements OnInit {
     // var date = new Date()
     // date.toDateString();
     this.createTransactionRequest.dateOfBooking = "2022-08-15T12:45:56"
-    console.log(this.createTransactionRequest);
+    
     TransactionDetails.passengers.forEach(pass => {
       pass.tId = TransactionDetails.tId
       this.createTransactionRequest.passengers.push(pass)
     });
     
-
     this.transactionservice.createTransaction(this.createTransactionRequest).subscribe(
-      ()=>{ 
-        console.log(this.createTransactionRequest);
-        alert('Transaction is Successfull!')
-      }
+      () => alert('Transaction is Successfull!')
     )
   }
-
 }
