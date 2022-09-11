@@ -26,7 +26,7 @@ export class BusserviceService {
   //To get details of particular Bus.
   getBus(busNo:any):Observable<Ibus> {
     console.log(busNo);
-    return this.httpclient.get<Ibus>(this.url + '/detail?busNo='+ busNo).pipe(catchError(this.handleError))
+    return this.httpclient.get<Ibus>(this.url + '/detail/'+ busNo).pipe(catchError(this.handleError))
   }
 
   //To add Bus Details
@@ -36,12 +36,12 @@ export class BusserviceService {
 
   //To edit Bus Details
   editBus(busdata:Ibus):Observable<Ibus> {
-    return this.httpclient.put<Ibus>(this.url + '/editbus?busNo=' + busdata.busNo,busdata, this.httpOptions).pipe(catchError(this.handleError))
+    return this.httpclient.put<Ibus>(this.url + '/editbus/' + busdata.busNo,busdata, this.httpOptions).pipe(catchError(this.handleError))
   }
 
   //To delete the Bus Details
   deleteBus(busNo:string):Observable<Ibus> {
-    return this.httpclient.delete<Ibus>(this.url + '/deletebus?busNo='+ busNo).pipe(catchError(this.handleError))
+    return this.httpclient.delete<Ibus>(this.url + '/deletebus/'+ busNo).pipe(catchError(this.handleError))
   }
 
   // to search the avb buses
@@ -51,7 +51,7 @@ export class BusserviceService {
   }
 
   avbSeates(busNo:string):Observable<any> {
-     return this.httpclient.get<any>(this.url + '/seatsavb?busNo='+ busNo).pipe(catchError(this.handleError))
+     return this.httpclient.get<any>(this.url + '/seatsavb/'+ busNo).pipe(catchError(this.handleError))
   }
 
   // method to handle errors in client side

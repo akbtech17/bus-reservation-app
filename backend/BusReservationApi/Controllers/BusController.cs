@@ -29,8 +29,8 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpGet]
-        [Route("detail")]
-        public IActionResult GetBus([FromQuery] string busNo)
+        [Route("detail/{busNo}")]
+        public IActionResult GetBus(string busNo)
         {
             try
             {
@@ -44,8 +44,8 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpGet]
-        [Route("seatsavb")]
-        public IActionResult GetBusAvbSeats([FromQuery] string busNo)
+        [Route("seatsavb/{busNo}")]
+        public IActionResult GetBusAvbSeats(string busNo)
         {
             try
             {
@@ -63,8 +63,8 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpPut]
-        [Route("editbus")]
-        public IActionResult PutBus([FromQuery] string busNo, Bus bus)
+        [Route("editbus/{busNo}")]
+        public IActionResult PutBus(string busNo, Bus bus)
         {
             var data = db.buses.Where(buses => buses.BusNo.Equals(busNo)).FirstOrDefault();
             try
@@ -116,8 +116,8 @@ namespace BusReservationApi.Controllers
         }
 
         [HttpDelete]
-        [Route("deletebus")]
-        public IActionResult DeleteBus([FromQuery] string busNo)
+        [Route("deletebus/{busNo}")]
+        public IActionResult DeleteBus(string busNo)
         {
             try
             {
