@@ -161,9 +161,15 @@ namespace BusReservationApi.Controllers
                     //db.SaveChanges();
 
                     db.TransactionSeats.Remove(seat);
-
                 }
-                //db.SaveChanges();
+
+                /*// also change the status of the seats
+                foreach (var seat in seats)
+                {
+                    db.Database.ExecuteSqlInterpolated($"SetSeat {busId},{seat.SeatNo}");
+                    //db.SaveChanges();
+                }
+                db.SaveChanges();*/
 
                 //3.reset the trasaction table
                 var customerId = transactionDetails.CustomerId;
