@@ -111,9 +111,17 @@ namespace BusReservationApi.Controllers
                     {
                         Tid = query.tId,
                         SeatNo = seat
+
                     });
                 }
                 db.SaveChanges();
+
+                foreach (var seat in query.seats)
+                {
+                    db.Database.ExecuteSqlInterpolated($"ResetSeat {query.busId},{seat}");
+                    db.SaveChanges();
+                }
+         
                 return Ok();
             }
             catch (Exception ex)
