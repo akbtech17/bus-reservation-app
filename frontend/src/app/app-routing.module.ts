@@ -84,7 +84,7 @@ const routes: Routes = [
     path:'changepass',component:ChangepasswordComponent
   },
   {
-    path:'sbook/:busId',component:SeatbookComponent
+    path:'sbook/:busNo',component:SeatbookComponent
   },
   {
     path:'sidebarcust',component:SidebarcustomerComponent

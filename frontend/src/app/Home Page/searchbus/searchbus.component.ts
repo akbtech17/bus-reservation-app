@@ -19,7 +19,7 @@ export class SearchbusComponent implements OnInit {
     "dDate" : "",
   }
   
-  busId:number = 0
+  busNo:string = ''
   isShown:boolean =false;
   Buslist: any[] = []
   seatAvb: any[] = []
@@ -43,11 +43,11 @@ export class SearchbusComponent implements OnInit {
     this.isShown = !this.isShown;
   }
   
-  onBook(busId: number) {
+  onBook(busNo: string) {
     if(TransactionDetails.customerId == undefined) {
       alert("You have to Sign In to reserve your seat!")
       return
     }
-    this.router.navigate(['/sbook/'+busId]);
+    this.router.navigate(['/sbook/'+busNo]);
   }
 }

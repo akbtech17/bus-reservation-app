@@ -21,7 +21,7 @@ export class SeatbookComponent implements OnInit {
   selectedSeatsCount: number = 0
   selectedSeats: string[] = []
 
-  busId:number = 0
+  busNo:string = ''
 
   
 
@@ -51,58 +51,55 @@ export class SeatbookComponent implements OnInit {
     )
     // console.log("count of selected seats are : " + this.selectedSeatsCount)
     // console.log("list of selected seats : " + this.selectedSeats)
-}
+  }
 
-onNext() {
-    // console.log("busid from seatbook is : " + this.busId)
-    TransactionDetails.seatCount = this.selectedSeatsCount
-    TransactionDetails.seats = this.selectedSeats
-    // console.log("count from seatbook",TransactionDetails.seatCount)
-    this.router.navigate(['/passdetails'])
-}
-
+  onNext() {
+      // console.log("busNo from seatbook is : " + this.busNo)
+      TransactionDetails.seatCount = this.selectedSeatsCount
+      TransactionDetails.seats = this.selectedSeats
+      // console.log("count from seatbook",TransactionDetails.seatCount)
+      this.router.navigate(['/passdetails'])
+  }
 
   constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute, private router:Router, private busservice: BusserviceService) { 
   }
 
   ngOnInit(): void {
-    const tid = this.activatedroute.snapshot.paramMap.get('busId')
-    this.busId = Number(tid)
-    TransactionDetails.busId = this.busId
-    this.seatservice.getseats(this.busId).subscribe(
-      (data:any[])=>
-      {
-        this.busservice.getBus(this.busId).subscribe((busdata:Ibus)=>{
-            TransactionDetails.source = busdata.source
-            TransactionDetails.destination = busdata.destination
-            TransactionDetails.dTime = busdata.dTime
-            TransactionDetails.aTime = busdata.aTime
-            TransactionDetails.busNo = busdata.busNo
-            TransactionDetails.driverContact = busdata.driverContact
-            TransactionDetails.driverName = busdata.driverName
-            TransactionDetails.distance = busdata.distance
-            TransactionDetails.pickup = busdata.pickup
-            TransactionDetails.typeOfBus = busdata.typeOfBus
-        })
-          
-       
-        this.seatdata = data
-        // console.log(this.seatdata)
+    const busNo = this.activatedroute.snapshot.paramMap.get('busNo')
+    this.busNo = String(busNo)
 
-        this.seatdata.forEach(data => {
-          var detseat = {
-            seatNo: data.seatNo,
-            available : data.available ? 1 : 0
-          }
-          this.seatmap.push(detseat)
-        })
-       
-        // line 6
-        console.log(this.seatmap)
-        
-      }
-    )
-    
+    this.busservice.getBus(this.busNo).subscribe((busdata:Ibus)=>{
+      TransactionDetails.busId = busdata.busId
+      TransactionDetails.source = busdata.source
+      TransactionDetails.destination = busdata.destination
+      TransactionDetails.dTime = busdata.dTime
+      TransactionDetails.aTime = busdata.aTime
+      TransactionDetails.busNo = busdata.busNo
+      TransactionDetails.driverContact = busdata.driverContact
+      TransactionDetails.driverName = busdata.driverName
+      TransactionDetails.distance = busdata.distance
+      TransactionDetails.pickup = busdata.pickup
+      TransactionDetails.typeOfBus = busdata.typeOfBus
+
+
+      this.seatservice.getseats(busdata.busId).subscribe(
+        (data:any[]) => {
+          this.seatdata = data
+          // console.log(this.seatdata)
+          this.seatdata.forEach(data => {
+            var detseat = {
+              seatNo: data.seatNo,
+              available : data.available ? 1 : 0
+            }
+            this.seatmap.push(detseat)
+          })
+          // line 6
+          console.log(this.seatmap)
+        }
+      )
+
+      console.log(TransactionDetails);
+    }) 
   } 
 }
 
@@ -149,7 +146,7 @@ onNext() {
 // export class SeatbookComponent implements OnInit {
 //   seatdata: any[]=[]
 //   cols:number[]=[1,2,3,4,5]
-//   busId:number = 0
+//   busNo:number = 0
 //   msg:string=''
 //   tbIndex = 0
 //   id=0
@@ -187,9 +184,9 @@ onNext() {
 //   constructor(private seatservice: SeatserviceService, private activatedroute:ActivatedRoute) { }
 
 //   ngOnInit(): void {
-//     const tid = this.activatedroute.snapshot.paramMap.get('busId')
-//     this.busId = Number(tid)
-//     this.seatservice.getseats(this.busId).subscribe(
+//     const tid = this.activatedroute.snapshot.paramMap.get('busNo')
+//     this.busNo = Number(tid)
+//     this.seatservice.getseats(this.busNo).subscribe(
 //       (data:[])=>
 //       {this.seatdata = data, console.log(this.seatdata,"Value from callback")}
       
