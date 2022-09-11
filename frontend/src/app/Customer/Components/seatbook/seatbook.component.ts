@@ -34,7 +34,6 @@ export class SeatbookComponent implements OnInit {
       var seatNo = object.seatNo
       if(object.available==2) {
         this.selectedSeats.push(seatNo)
-        console.log(object.seatNo)
         this.selectedSeatsCount += 1
       }}
     )
