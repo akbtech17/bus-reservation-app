@@ -21,6 +21,8 @@ export class TransactionDetails {
     public static pickup: string
     public static typeOfBus: string
     public static distance: number
+    public static seatCost: number
+
     public static custFirstName: string
     public static custLastName: string
     public static customerContact: string

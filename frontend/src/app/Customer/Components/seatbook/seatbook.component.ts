@@ -80,6 +80,7 @@ export class SeatbookComponent implements OnInit {
       TransactionDetails.distance = busdata.distance
       TransactionDetails.pickup = busdata.pickup
       TransactionDetails.typeOfBus = busdata.typeOfBus
+      TransactionDetails.seatCost = busdata.seatCost
 
 
       this.seatservice.getseats(busdata.busId).subscribe(

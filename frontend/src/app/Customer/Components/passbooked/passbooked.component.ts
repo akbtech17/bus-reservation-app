@@ -24,7 +24,7 @@ constructor(private transactionservice: TransactionserviceService, private activ
     this.transactionservice.getPassenger(this.tId).subscribe(
       (data:any)=>{
         this.passdata = data
-       console.log(data)
+        console.log(data)
       }
       
     )

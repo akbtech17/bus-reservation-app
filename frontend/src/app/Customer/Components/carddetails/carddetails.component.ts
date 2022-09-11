@@ -36,11 +36,12 @@ export class CarddetailsComponent implements OnInit {
   ngOnInit(): void {
     console.log(TransactionDetails.busId); //This is the way of using central storage and web api services together.
     console.log(TransactionDetails.seatCount);
-    this.busservice.getBus(TransactionDetails.busId).subscribe((data:Ibus)=>{
-      this.totcost=TransactionDetails.seatCount*data.seatCost
-      TransactionDetails.totalCost = this.totcost
-      console.log("data.seatcost :",this.totcost)
-    });
+    // this.busservice.getBus(TransactionDetails.busId).subscribe((data:Ibus)=>{
+    //   this.totcost=TransactionDetails.seatCount*data.seatCost
+    //   TransactionDetails.totalCost = this.totcost
+    //   console.log("data.seatcost :",this.totcost)
+    // });
+    this.totcost = TransactionDetails.seatCost*TransactionDetails.seatCount;
+    TransactionDetails.totalCost = this.totcost
   }
-
 }
