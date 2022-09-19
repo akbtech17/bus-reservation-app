@@ -71,7 +71,8 @@ const routes: Routes = [
   },
   {
     path: 'clogin', component:LogincustomerComponent
-  },{
+  },
+  {
     path:'bookings',component:BookingsComponent
   },
   {
@@ -112,6 +113,9 @@ const routes: Routes = [
   },
   {
     path:'editcust/:customerId' ,component:EditcustomerComponent
+  },
+  {
+    path: '' , redirectTo: 'searchbus', pathMatch: 'full'
   }
 ]
 
