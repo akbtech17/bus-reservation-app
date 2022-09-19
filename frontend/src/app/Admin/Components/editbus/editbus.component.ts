@@ -30,12 +30,7 @@ export class EditbusComponent implements OnInit {
 
   busNo: string = ''
   seatAvb: any
-  constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) {
-    if(Adminstore.email == '') {
-      alert("You are not logged in as Admin!")
-      this.router.navigate(['/'])
-    }
-   }
+  constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     const busNo = this.activatedroute.snapshot.paramMap.get('busNo')

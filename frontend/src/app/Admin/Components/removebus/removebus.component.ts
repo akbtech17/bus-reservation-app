@@ -12,11 +12,8 @@ import { Adminstore } from '../../Models/adminstore';
 export class RemovebusComponent implements OnInit {
 
   busNo: string = ''
+  
   constructor(private busservice:BusserviceService, private activatedroute:ActivatedRoute, private router: Router) {
-    if(Adminstore.email == '') {
-      alert("You are not logged in as Admin!")
-      this.router.navigate(['/'])
-    }
   }
 
   ngOnInit(): void {

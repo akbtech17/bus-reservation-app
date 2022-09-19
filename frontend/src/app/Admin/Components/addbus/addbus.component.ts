@@ -27,12 +27,7 @@ export class AddbusComponent implements OnInit {
     distance: 0,
   }
 
-  constructor(private busservice:BusserviceService, private router:Router, private activateroute: ActivatedRoute){
-    if(Adminstore.email == '') {
-      alert("You are not logged in as Admin!")
-      this.router.navigate(['/'])
-    }
-  }
+  constructor(private busservice:BusserviceService, private router:Router, private activateroute: ActivatedRoute) {}
 
   saveBus(bus:Ibus) {
     this.busdata = bus

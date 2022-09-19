@@ -28,6 +28,7 @@ import { PassbookedComponent } from './Customer/Components/passbooked/passbooked
 import { BookingcancelComponent } from './Customer/Components/bookingcancel/bookingcancel.component';
 import { EditcustomerComponent } from './Customer/Components/editcustomer/editcustomer.component';
 import { BadRequestComponent } from './bad-request/bad-request.component';
+import { CheckAdminSigninGuard } from './Admin/Services/check-admin-signin.guard';
 
 
 //import { UserloginComponent } from './userlogin/userlogin.component';
@@ -47,22 +48,34 @@ const routes: Routes = [
     path:'Adminlogin',component:AdminloginComponent
   },
   {
-    path:'nav',component:NavadminComponent
+    path:'nav',
+    component:NavadminComponent,
+    canActivate: [CheckAdminSigninGuard]
   },
   {
-    path:'add', component:AddbusComponent
+    path:'add', 
+    component:AddbusComponent,
+    canActivate: [CheckAdminSigninGuard]
   },
   {
-    path:'edit/:busNo', component:EditbusComponent
+    path:'edit/:busNo', 
+    component:EditbusComponent,
+    canActivate: [CheckAdminSigninGuard]
   },
   {
-    path:'remove/:busNo', component:RemovebusComponent
+    path:'remove/:busNo',
+    component:RemovebusComponent,
+    canActivate: [CheckAdminSigninGuard]
   },
   {
-    path:'find/:busNo', component:FindbusComponent
+    path: 'find/:busNo',
+    component: FindbusComponent,
+    canActivate: [CheckAdminSigninGuard]
   },
   {
-    path: 'list', component:ListbusComponent
+    path: 'list',
+    component:ListbusComponent,
+    canActivate: [CheckAdminSigninGuard]
   },
   {
     path: 'searchbus', component:SearchbusComponent

@@ -30,12 +30,7 @@ export class FindbusComponent implements OnInit {
   }
   seatAvb: any
   busNo: any
-  constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute, private router: Router) {
-    if(Adminstore.email == '') {
-      alert("You are not logged in as Admin!")
-      this.router.navigate(['/'])
-    }
-  }
+  constructor(private busservice:BusserviceService, private activateroute:ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.busNo = this.activateroute.snapshot.paramMap.get('busNo')
