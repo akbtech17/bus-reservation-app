@@ -1,5 +1,5 @@
 <br/>
-<button type="button" class="btn btn-info" routerLink="/add" style="margin-left:600px">
+<button type="button" class="btn btn-info" routerLink="/nav/add" style="margin-left:600px">
     Add Bus
 </button>
 <button type="button" class="btn btn-info" routerLink="/nav" style="margin-left:450px">
@@ -35,9 +35,9 @@
                     <td>₹{{bus.seatCost}}</td>
                     <td></td>
                     <td>
-                        <a [routerLink]="['/find/',bus.busNo]">Details</a>&nbsp;&nbsp;
-                        <a [routerLink]="['/edit/',bus.busNo]">Edit</a>&nbsp;&nbsp;
-                        <a [routerLink]="['/remove/',bus.busNo]">Remove</a>&nbsp;&nbsp;
+                        <a [routerLink]="['/nav/find/',bus.busNo]">Details</a>&nbsp;&nbsp;
+                        <a [routerLink]="['/nav/edit/',bus.busNo]">Edit</a>&nbsp;&nbsp;
+                        <a [routerLink]="['/nav/remove/',bus.busNo]">Remove</a>&nbsp;&nbsp;
                     </td>
                 </tr> 
             </tbody>

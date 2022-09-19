@@ -50,32 +50,15 @@ const routes: Routes = [
   {
     path:'nav',
     component:NavadminComponent,
-    canActivate: [CheckAdminSigninGuard]
-  },
-  {
-    path:'add', 
-    component:AddbusComponent,
-    canActivate: [CheckAdminSigninGuard]
-  },
-  {
-    path:'edit/:busNo', 
-    component:EditbusComponent,
-    canActivate: [CheckAdminSigninGuard]
-  },
-  {
-    path:'remove/:busNo',
-    component:RemovebusComponent,
-    canActivate: [CheckAdminSigninGuard]
-  },
-  {
-    path: 'find/:busNo',
-    component: FindbusComponent,
-    canActivate: [CheckAdminSigninGuard]
-  },
-  {
-    path: 'list',
-    component:ListbusComponent,
-    canActivate: [CheckAdminSigninGuard]
+    canActivate: [CheckAdminSigninGuard],
+    children: [
+      {path: '', component:ListbusComponent, canActivate: [CheckAdminSigninGuard]},
+      {path: 'list', component:ListbusComponent, canActivate: [CheckAdminSigninGuard]},
+      {path: 'find/:busNo', component:FindbusComponent, canActivate: [CheckAdminSigninGuard],},
+      {path: 'edit/:busNo', component:EditbusComponent, canActivate: [CheckAdminSigninGuard],},
+      {path: 'add', component:AddbusComponent, canActivate: [CheckAdminSigninGuard],},
+      {path: 'remove/:busNo', component:RemovebusComponent, canActivate: [CheckAdminSigninGuard],}
+    ]
   },
   {
     path: 'searchbus', component:SearchbusComponent

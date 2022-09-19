@@ -50,12 +50,12 @@ export class EditbusComponent implements OnInit {
     this.busdata = bus
     this.busservice.editBus(this.busdata).subscribe(
       ()=>{
-        this.router.navigate(['/list'])
+        this.router.navigate(['/nav'])
       }
     )
   }
 
   GoToList() {
-    this.router.navigate(['/list']);
+    this.router.navigate(['/nav']);
   }
 }

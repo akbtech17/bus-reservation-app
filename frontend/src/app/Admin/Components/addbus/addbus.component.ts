@@ -33,7 +33,7 @@ export class AddbusComponent implements OnInit {
     this.busdata = bus
     this.busservice.addBus(this.busdata).subscribe(
       ()=>{ 
-        this.router.navigate(['/list'])
+        this.router.navigate(['/nav/list'])
       }
     )
   }
