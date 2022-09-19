@@ -13,10 +13,10 @@ export class NavadminComponent implements OnInit {
   adminName: string = Adminstore.firstName
   
   constructor(private router: Router) {
-    if(Adminstore.email == '') {
-      alert("You are not logged in as Admin!")
-      this.router.navigate(['/'])
-    }
+    // if(Adminstore.email == '') {
+    //   alert("You are not logged in as Admin!")
+    //   this.router.navigate(['/'])
+    // }
    }
    
   ngOnInit(): void {}
