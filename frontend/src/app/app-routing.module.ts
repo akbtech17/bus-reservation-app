@@ -27,6 +27,7 @@ import { SummaryComponent } from './Customer/Components/summary/summary.componen
 import { PassbookedComponent } from './Customer/Components/passbooked/passbooked.component';
 import { BookingcancelComponent } from './Customer/Components/bookingcancel/bookingcancel.component';
 import { EditcustomerComponent } from './Customer/Components/editcustomer/editcustomer.component';
+import { BadRequestComponent } from './bad-request/bad-request.component';
 
 
 //import { UserloginComponent } from './userlogin/userlogin.component';
@@ -116,6 +117,9 @@ const routes: Routes = [
   },
   {
     path: '' , redirectTo: 'searchbus', pathMatch: 'full'
+  }, 
+  {
+    path: '**', component: BadRequestComponent
   }
 ]
 
